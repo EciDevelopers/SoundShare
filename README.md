@@ -11,7 +11,8 @@
 |Carlos Castaneda|Team Developer  |
 |Fernando Barrera|Team Developer  |
 
-[![CircleCI](https://circleci.com/gh/EciDevelopers.svg?style=svg)](https://circleci.com/gh/EciDevelopers)
+[![CircleCI](https://circleci.com/gh/EciDevelopers/SoundShare.svg?style=svg)](https://circleci.com/gh/EciDevelopers/SoundShare)
+
 
 ## [URL HEROKU](https://soundsharearsw.herokuapp.com/) 
 
