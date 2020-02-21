@@ -20,3 +20,7 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 ### Diagrama de clases
 
 ![](img/Dclases.png)
+
+### Diagrama de casos de uso
+
+![](img/cdu.png)
