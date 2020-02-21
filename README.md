@@ -30,3 +30,6 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 ### Modelo Entidad relacion 
 
 ![](img/dbmod.png)
+
+#### Enlace a Taiga
++ [Enlace a Taiga](https://tree.taiga.io/project/luisalejandrojaramillo-soundshare/backlog)
