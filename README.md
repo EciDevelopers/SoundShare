@@ -1,4 +1,4 @@
-# SoundShare
+# SoundShare :headphones:
 
 # 2020-1-Arquitectura de Software
 
