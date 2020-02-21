@@ -24,3 +24,7 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 ### Diagrama de casos de uso
 
 ![](img/cdu.png)
+
+### Modelo Entidad relacion 
+
+![](img/dbmod.png)
