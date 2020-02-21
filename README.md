@@ -31,5 +31,15 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 
 ![](img/dbmod.png)
 
+### Diseño interfaz grafica
+
+* Ingreso y creación de usuario.
+
+![](img/interfazUno.png)
+
+* Interfaz principal de la aplicación web.
+
+![](img/interfazDos.png)
+
 #### Enlace a Taiga
 + [Enlace a Taiga](https://tree.taiga.io/project/luisalejandrojaramillo-soundshare/backlog)
