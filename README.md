@@ -11,7 +11,7 @@
 |Carlos Castaneda|Team Developer  |
 |Fernando Barrera|Team Developer  |
 
-### [URL HEROKU](https://soundsharearsw.herokuapp.com/) 
+## [URL HEROKU](https://soundsharearsw.herokuapp.com/) 
 
 ## Descripción del producto.
 
@@ -43,3 +43,4 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 
 #### Enlace a Taiga
 + [Enlace a Taiga](https://tree.taiga.io/project/luisalejandrojaramillo-soundshare/backlog)
++ [URL HEROKU](https://soundsharearsw.herokuapp.com/)
