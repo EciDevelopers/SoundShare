@@ -10,5 +10,12 @@
 |Carlos Castaneda|Team Developer  |
 |Fernando Barrera|Team Developer  |
 
-# Descripción del producto.
+## Descripción del producto.
+
 ### Descripción 
+
+
+
+### Diagrama de clases
+
+![](img/Dclases.png)
