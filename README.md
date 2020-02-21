@@ -11,6 +11,8 @@
 |Carlos Castaneda|Team Developer  |
 |Fernando Barrera|Team Developer  |
 
+[![CircleCI](https://circleci.com/gh/EciDevelopers.svg?style=svg)](https://circleci.com/gh/teamajo/Plataforma-Historial-Equipos)
+
 ## [URL HEROKU](https://soundsharearsw.herokuapp.com/) 
 
 ## Descripción del producto.
