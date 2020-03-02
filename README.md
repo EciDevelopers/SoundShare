@@ -20,7 +20,7 @@
 
 ### Users
 
-![](img/users.png)
+![](img/users.PNG)
 
 ### Descripción 
 
