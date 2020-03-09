@@ -26,6 +26,10 @@
 
 Esta aplicación web es una red social la que nos permite compartir nuestros gustos musicales con nuestros amigos y con el mundo. Tendremos a nuestras disposición diferentes salas para cada uno de nuestros géneros favoritos, donde la interacción con los integrantes de la sala puede ser totalmente personalizada, como poder votar por nuestra canción preferida o si quieres dejar a alguien a cargo para que sea el dj de la sala. 
 
+### Diagrama de Componentes
+
+![](img/DiagramaComponente.png)
+
 ### Diagrama de clases
 
 ![](img/Dclases.png)
