@@ -5,10 +5,14 @@
  */
 package edu.eci.arsw.services.client;
 
+import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import ch.qos.logback.classic.Logger;
 
 /**
  *
@@ -16,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @SpringBootApplication
+@ComponentScan("edu.eci.arsw")
 public class ApiSoundsShare {
+	
     @RequestMapping("/")
     public String welcome(){
         return "sala";
