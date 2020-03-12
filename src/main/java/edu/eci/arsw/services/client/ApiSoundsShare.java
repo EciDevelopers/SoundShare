@@ -22,10 +22,30 @@ import ch.qos.logback.classic.Logger;
 @SpringBootApplication
 @ComponentScan("edu.eci.arsw")
 public class ApiSoundsShare {
-	
+
     @RequestMapping("/")
-    public String welcome(){
+    public String login(){
+        return "index";
+    }
+
+    @RequestMapping("/index.html")
+    public String logout(){
+        return "index";
+    }
+
+    @RequestMapping("/sala.html")
+    public String sala(){
         return "sala";
+    }
+
+    @RequestMapping("/adminScreen.html")
+    public String adminScreen(){
+        return "adminScreen";
+    }
+
+    @RequestMapping("/userScreen.html")
+    public String userScreen(){
+        return "userScreen";
     }
 
     public static void main(String[] args) {
