@@ -33,19 +33,19 @@ public class ApiSoundsShare {
         return "index";
     }
 
-    @RequestMapping("/sala.html")
+    @RequestMapping("/html/sala.html")
     public String sala(){
-        return "sala";
+        return "/html/sala";
     }
 
-    @RequestMapping("/adminScreen.html")
+    @RequestMapping("/html/adminScreen.html")
     public String adminScreen(){
-        return "adminScreen";
+        return "/html/adminScreen";
     }
 
-    @RequestMapping("/userScreen.html")
+    @RequestMapping("/html/userScreen.html")
     public String userScreen(){
-        return "userScreen";
+        return "/html/userScreen";
     }
 
     public static void main(String[] args) {
