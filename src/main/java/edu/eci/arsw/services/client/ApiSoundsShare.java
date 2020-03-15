@@ -28,6 +28,11 @@ public class ApiSoundsShare {
         return "index";
     }
 
+    @RequestMapping("/html/")
+    public String html(){
+        return "/html";
+    }
+
     @RequestMapping("/index.html")
     public String logout(){
         return "index";
@@ -35,17 +40,17 @@ public class ApiSoundsShare {
 
     @RequestMapping("/html/sala.html")
     public String sala(){
-        return "/html/sala";
+        return "html/sala";
     }
 
     @RequestMapping("/html/adminScreen.html")
     public String adminScreen(){
-        return "/html/adminScreen";
+        return "html/adminScreen";
     }
 
-    @RequestMapping("/html/userScreen.html")
+    @RequestMapping("html/userScreen.html")
     public String userScreen(){
-        return "/html/userScreen";
+        return "html/userScreen";
     }
 
     public static void main(String[] args) {
