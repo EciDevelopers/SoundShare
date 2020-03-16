@@ -23,6 +23,11 @@ import ch.qos.logback.classic.Logger;
 @ComponentScan("edu.eci.arsw")
 public class ApiSoundsShare {
 
+    @RequestMapping("/img/")
+    public String images(){
+        return "/img";
+    }
+
     @RequestMapping("/")
     public String login(){
         return "index";
