@@ -6,27 +6,44 @@
 package edu.eci.arsw.entities;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 
 /**
  *
  * @author fernando.barrera
  */
+
+@Entity
+@Table(name = "usuario")
 public class Usuario {
+    @Id
+    @GeneratedValue
     private int id;
     private String nombre;
-    private String password;
-    private ArrayList<Usuario> amigos;
-    private ArrayList<Sala> salas;
+    private String contraseña;
+    private String nickname;
+    private String rol;
+    
+
     public Usuario(){
         super();
     }
     
-    public Usuario(int id,String nombre,String password,ArrayList<Usuario> amigos,ArrayList<Sala> salas){
+    public Usuario(String nombre,String contraseña,String nickname){
         this.nombre=nombre;
-        this.password=password;
-        this.amigos=amigos;
-        this.salas=salas;
-        this.id=id;
+        this.contraseña=contraseña;
+        this.nickname=nickname;
+        this.rol="user";
    }
 
     public String getNombre() {
@@ -37,29 +54,33 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-    public ArrayList<Usuario> getAmigos() {
-        return amigos;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setAmigos(ArrayList<Usuario> amigos) {
-        this.amigos = amigos;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public ArrayList<Sala> getSalas() {
-        return salas;
+    public String getRol() {
+        return rol;
     }
 
-    public void setSalas(ArrayList<Sala> salas) {
-        this.salas = salas;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
+    
+    
+
+   
 
     public int getId() {
         return id;

@@ -8,11 +8,23 @@ package edu.eci.arsw.services.client;
 import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ch.qos.logback.classic.Logger;
+import edu.eci.arsw.entities.Sala;
+import edu.eci.arsw.entities.Usuario;
+import edu.eci.arsw.persistence.SalaRepository;
+import edu.eci.arsw.persistence.UsuarioRepository;
+import java.util.HashSet;
+import java.util.Set;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 /**
  *
@@ -21,6 +33,8 @@ import ch.qos.logback.classic.Logger;
 @Controller
 @SpringBootApplication
 @ComponentScan("edu.eci.arsw")
+@EntityScan("edu.eci.arsw.entities")
+@EnableJpaRepositories("edu.eci.arsw.persistence")
 public class ApiSoundsShare {
 
     @RequestMapping("/img/")
@@ -61,5 +75,12 @@ public class ApiSoundsShare {
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
+    @Bean
+    public CommandLineRunner demo(UsuarioRepository repository) {
+      return (args) -> {
+        // save a few customers
+        repository.save(new Usuario("fernando barrera","arsw1","fer15"));
+        };   
+    }          
 
 }
