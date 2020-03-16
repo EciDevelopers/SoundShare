@@ -21,22 +21,39 @@ import ch.qos.logback.classic.Logger;
 @Controller
 @SpringBootApplication
 @ComponentScan("edu.eci.arsw")
-public class ApiSoundsShare {
-
-    @RequestMapping("/img/")
-    public String images(){
-        return "/img";
-    }
+public class  ApiSoundsShare {
 
     @RequestMapping("/")
     public String login(){
         return "index";
     }
 
-    @RequestMapping("/html/")
-    public String html(){
-        return "/html";
+    @RequestMapping("/img/")
+    public String images(){
+        return "/img";
     }
+
+    @RequestMapping("/css/")
+    public String css(){
+        return "/css";
+    }
+
+    @RequestMapping("/js/")
+    public String js(){
+        return "/js";
+    }
+
+    @RequestMapping("/fonts/")
+    public String fonts(){
+        return "/fonts";
+    }
+
+    @RequestMapping("/vendor/")
+    public String vendor(){
+        return "/vendor";
+    }
+
+    public String html(){ return "/html"; }
 
     @RequestMapping("/index.html")
     public String logout(){
