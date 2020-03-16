@@ -75,6 +75,11 @@ public class  ApiSoundsShare {
         return "html/userScreen";
     }
 
+    @RequestMapping("html/singUp.html")
+    public String singUp(){
+        return "html/singUp";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
