@@ -33,24 +33,45 @@ import org.springframework.context.annotation.Bean;
 @Controller
 @SpringBootApplication
 @ComponentScan("edu.eci.arsw")
+<<<<<<< HEAD
 @EntityScan("edu.eci.arsw.entities")
 @EnableJpaRepositories("edu.eci.arsw.persistence")
 public class ApiSoundsShare {
+=======
+public class  ApiSoundsShare {
+
+    @RequestMapping("/")
+    public String login(){
+        return "index";
+    }
+>>>>>>> 4c17914f2927f91bc1e6d6f62c462694d27b6e40
 
     @RequestMapping("/img/")
     public String images(){
         return "/img";
     }
 
-    @RequestMapping("/")
-    public String login(){
-        return "index";
+    @RequestMapping("/css/")
+    public String css(){
+        return "/css";
     }
 
-    @RequestMapping("/html/")
-    public String html(){
-        return "/html";
+    @RequestMapping("/js/")
+    public String js(){
+        return "/js";
     }
+
+    @RequestMapping("/fonts/")
+    public String fonts(){
+        return "/fonts";
+    }
+
+    @RequestMapping("/vendor/")
+    public String vendor(){
+        return "/vendor";
+    }
+
+    public String html(){ return "/html"; }
 
     @RequestMapping("/index.html")
     public String logout(){
@@ -70,6 +91,11 @@ public class ApiSoundsShare {
     @RequestMapping("html/userScreen.html")
     public String userScreen(){
         return "html/userScreen";
+    }
+
+    @RequestMapping("html/singUp.html")
+    public String singUp(){
+        return "html/singUp";
     }
 
     public static void main(String[] args) {
