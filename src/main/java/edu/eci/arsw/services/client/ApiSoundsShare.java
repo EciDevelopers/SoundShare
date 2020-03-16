@@ -68,8 +68,10 @@ public class ApiSoundsShare {
     public String vendor(){
         return "/vendor";
     }
-
-    public String html(){ return "/html"; }
+    @RequestMapping("/html/")
+    public String html(){
+    	return "/html"; 
+    }
 
     @RequestMapping("/index.html")
     public String logout(){
