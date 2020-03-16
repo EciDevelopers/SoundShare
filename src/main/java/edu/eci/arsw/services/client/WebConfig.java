@@ -22,5 +22,4 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                         "classpath:/templates/css/",
                         "classpath:/templates/js/");
     }
-
 }
