@@ -6,24 +6,40 @@
 package edu.eci.arsw.entities;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 
 /**
  *
  * @author fernando.barrera
  */
+@Entity
+@Table(name = "sala")
 public class Sala {
+    @Id
     private int id;
     private String nombre;
     private String genero;
-    private ArrayList<Usuario> usuarios;
-    private ArrayList<Cancion> canciones;
+    @ElementCollection
+    @CollectionTable(name = "sala_usuarios", joinColumns = @JoinColumn(name = "nombre_sala"))
+    @Column(name = "nombre_usuario")
+    private Set<String> usuarios = new HashSet<>();
 
-    public Sala(int id, String nombre, String genero, ArrayList<Usuario> usuarios, ArrayList<Cancion> canciones) {
+    public Sala(){
+        super();
+    }
+    public Sala(int id, String nombre, String genero,Set<String> usuarios) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
-        this.usuarios = usuarios;
-        this.canciones = canciones;
+        this.usuarios=usuarios;
     }
 
     public int getId() {
@@ -50,21 +66,15 @@ public class Sala {
         this.genero = genero;
     }
 
-    public ArrayList<Usuario> getUsuarios() {
+    public Set<String> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(ArrayList<Usuario> usuarios) {
+    public void setUsuarios(Set<String> usuarios) {
         this.usuarios = usuarios;
     }
 
-    public ArrayList<Cancion> getCanciones() {
-        return canciones;
-    }
-
-    public void setCanciones(ArrayList<Cancion> canciones) {
-        this.canciones = canciones;
-    }
+   
     
     
 }
