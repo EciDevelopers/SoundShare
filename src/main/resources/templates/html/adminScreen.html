@@ -49,15 +49,6 @@
     </div>
 </main>
 <footer>
-    <div style="display:flex;justify-content:center;align-items:center;">
-        <div style="width:400px;height:300px;">
-            <div data-video="ddJqNY__9U8" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
-            <div style="clear:both;margin:10px;text-align:center">
-            </div>
-
-        </div>
-    </div>
-    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
     <script>
 
   var player;
@@ -112,5 +103,18 @@
 </script>
     Derechos Reservados EciDevelopers.
 </footer>
+<div style="display:flex;justify-content:right;align-items:right;">
+    <div style="width:200px;height:200px;">
+        <div data-video="ddJqNY__9U8" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
+        <div style="clear:both;margin:10px;text-align:center">
+        </div>
+    </div>
+    <form>
+        <p>
+            <button id="button" type="button" class="btn btn-primary" onclick="doRun.toggleAudio()" > play </button>
+        </p>
+    </form>
+</div>
+<script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
