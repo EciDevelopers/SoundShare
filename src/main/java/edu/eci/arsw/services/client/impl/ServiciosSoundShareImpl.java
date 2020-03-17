@@ -27,7 +27,7 @@ public class ServiciosSoundShareImpl {
     @Autowired
     private SalaRepository salaRepository;
     
-     public Usuario getUsuarioByName(String nombre)  throws ExceptionServiciosReserva{
+     public Usuario getUsuarioByName(String nombre){
         Usuario usuario = null;
         try{
             usuario = usuarioRepository.findByNombre(nombre);
@@ -36,15 +36,16 @@ public class ServiciosSoundShareImpl {
             }
             return usuario;
         }catch(Exception e){
-            throw new ExceptionServiciosReserva("xd");
+        	e.printStackTrace();
         }
+		return usuario;
 
     }
-     public void saveUsuario(int id,String nombre,String password,String nickname){
-         Usuario usuario=new Usuario(nombre,password,nickname);
+     public void saveUsuario(int id,String nombre,String password,String nickname,Set<Sala> salas){
+         Usuario usuario=new Usuario(nombre,password,nickname,salas);
          usuarioRepository.save(usuario);
      }
-    public void saveSala(int id, String nombre, String genero,Set<String> usuarios){
+    public void saveSala(int id, String nombre, String genero,Set<Usuario> usuarios){
         Sala sala=new Sala(id,nombre,genero,usuarios);
         salaRepository.save(sala);
     }

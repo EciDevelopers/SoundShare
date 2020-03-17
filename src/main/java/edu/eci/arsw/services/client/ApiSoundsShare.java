@@ -20,6 +20,8 @@ import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
+import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
+
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.boot.CommandLineRunner;
@@ -101,6 +103,7 @@ public class ApiSoundsShare {
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
+  
         
 
 }

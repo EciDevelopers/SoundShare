@@ -5,15 +5,21 @@
  */
 package edu.eci.arsw.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,20 +28,22 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "sala")
-public class Sala {
+public class Sala implements Serializable {
     @Id
     private int id;
     private String nombre;
     private String genero;
-    @ElementCollection
-    @CollectionTable(name = "sala_usuarios", joinColumns = @JoinColumn(name = "nombre_sala"))
-    @Column(name = "nombre_usuario")
-    private Set<String> usuarios = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="salausers",
+    joinColumns=@JoinColumn(name="nombre_sala",referencedColumnName ="nombre"),
+    inverseJoinColumns=@JoinColumn(name="nombre_usuario",referencedColumnName="nombre")
+    )
+    private Set<Usuario> usuarios;
 
     public Sala(){
         super();
     }
-    public Sala(int id, String nombre, String genero,Set<String> usuarios) {
+    public Sala(int id, String nombre, String genero,Set<Usuario> usuarios) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
@@ -66,11 +74,11 @@ public class Sala {
         this.genero = genero;
     }
 
-    public Set<String> getUsuarios() {
+    public Set<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(Set<String> usuarios) {
+    public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 

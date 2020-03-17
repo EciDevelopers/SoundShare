@@ -1,0 +1,13 @@
+  @Bean
+    public CommandLineRunner demo(ServiciosSoundShareImpl service) {
+      return (args) -> {
+        // save a few customers
+    	Set<Sala> salas=new HashSet<Sala>();  
+        service.saveUsuario(15,"fernando barrera","arsw1","fer15",salas);
+        Set<Usuario> usuarios=new HashSet<Usuario>();
+    	Usuario usr=service.getUsuarioByName("fernando barrera");
+    	usuarios.add(usr);
+        service.saveSala(35,"hope15","electronica",usuarios);
+        };   
+    }
+  
