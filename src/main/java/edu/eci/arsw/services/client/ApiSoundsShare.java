@@ -101,12 +101,6 @@ public class ApiSoundsShare {
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
-    @Bean
-    public CommandLineRunner demo(UsuarioRepository repository) {
-      return (args) -> {
-        // save a few customers
-        repository.save(new Usuario("fernando barrera","arsw1","fer15"));
-        };   
-    }          
+        
 
 }
