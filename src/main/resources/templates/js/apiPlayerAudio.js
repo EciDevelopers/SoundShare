@@ -21,11 +21,11 @@ var doRun = (function() {
         'onStateChange': onPlayerStateChange
       }
     });
-  }
+  };
 
   function togglePlayButton(play) {
     document.getElementById("youtube-icon").src = play ? "https://i.imgur.com/IDzX9gL.png" : "https://i.imgur.com/quyUPXN.png";
-  }
+  };
 
   function toggleAudio() {
     if ( player.getPlayerState() == 1 || player.getPlayerState() == 3 ) {
@@ -35,22 +35,23 @@ var doRun = (function() {
       player.playVideo();
       togglePlayButton(true);
     }
-  }
+  };
 
   function onPlayerReady(event) {
     player.setPlaybackQuality("small");
     document.getElementById("youtube-audio").style.display = "block";
     togglePlayButton(player.getPlayerState() !== 5);
-  }
+  };
 
   function onPlayerStateChange(event) {
     if (event.data === 0) {
       togglePlayButton(false);
     }
-  }
+  };
 
   return {
-      onYouTubeIframeAPIReady: onYouTubeIframeAPIReady,
-      toggleAudio: toggleAudio
-    };
+    onYouTubeIframeAPIReady: onYouTubeIframeAPIReady,
+    togglePlayButton: togglePlayButton,
+    toggleAudio: toggleAudio,
+  };
  })();

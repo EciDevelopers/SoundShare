@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prueba</title>
-    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
-
-    <script src="js/apiPlayerAudio.js"></script>
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/apiPlayerAudio.js"></script>
 </head>
 
-<body>
-<header>
-    <font face="sans-serif" color="#138D75">
-        <h1 align="left">Welcome to SoundShare</h1>
+<body onload="doRun">
+    <div id ="menu-wrapper" align="right">
+        <ul id="hmenu">
+            <li> <a href="#"> Music </a></li>
+            <li> <a href="../index.html"> Sign in </a></li>
+            <li> <a href="../index.html"> Sign up </a></li>
+        </ul>
+    </div>
+    <font color="#138D75">
+        <h1 align="left">Welcome to SoundSharen (Prueba botones Audio)</h1>
     </font>
-    <font face="sans-serif" color="#084035">
+    <font color="#084035">
         <h3 align="left">A social network for music lovers</h3>
     </font>
-</header>
 <main>
-<div id ="menu-wrapper">
-    <ul id="hmenu" >
-        <li> <a href="#"> Inicio</a></li>
-        <li> <a href="#"> Musica</a></li>
-        <li> <a href="#"> Servicio</a></li>
-        <li> <a href="#"> Amigos</a></li>
-    </ul>
-</div>
+    <div style="display:flex;justify-content:right;align-items:right;" >
+        <div style="width:200px;height:200px;">
+            <div data-video="ddJqNY__9U8" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
+            <div style="clear:both;margin:10px;text-align:center">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
 </main>
 </body>
 </html>
