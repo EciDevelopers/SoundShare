@@ -45,18 +45,29 @@ public class Usuario  implements Serializable {
     inverseJoinColumns=@JoinColumn(name="nombre_sala",referencedColumnName="nombre")
     )
     private Set<Sala> salas;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="usercanciones",
+    joinColumns=@JoinColumn(name="nombre_user",referencedColumnName ="nombre"),
+    inverseJoinColumns=@JoinColumn(name="id_cancion",referencedColumnName="id")
+    )
+    private Set<Cancion> canciones;
+   
+    
+  
     
 
     public Usuario(){
         super();
     }
     
-    public Usuario(String nombre,String contraseña,String nickname,Set<Sala> salas){
+    public Usuario(String nombre,String contraseña,String nickname,Set<Sala> salas,Set<Cancion> canciones){
         this.nombre=nombre;
         this.contraseña=contraseña;
         this.nickname=nickname;
         this.rol="user";
         this.salas=salas;
+        this.canciones=canciones;
+       
    }
 
     public String getNombre() {
@@ -102,6 +113,26 @@ public class Usuario  implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
+    public Set<Sala> getSalas() {
+        return salas;
+    }
+
+    public void setSalas(Set<Sala> salas) {
+        this.salas = salas;
+    }
+
+    public Set<Cancion> getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(Set<Cancion> canciones) {
+        this.canciones = canciones;
+    }
+    
+ 
+
+    
     
     
     

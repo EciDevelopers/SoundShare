@@ -5,30 +5,51 @@
  */
 package edu.eci.arsw.entities;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 /**
  *
  * @author fernando.barrera
  */
+@Entity
+@Table(name = "cancion")
 public class Cancion {
-    private int id;
+    @Id
+    private String id;
     private String nombre;
     private String genero;
     private String author;
-    private String enlace;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="colacanciones",
+    joinColumns=@JoinColumn(name="id_cancion",referencedColumnName ="id"),
+    inverseJoinColumns=@JoinColumn(name="nombre_sala",referencedColumnName="nombre")
+    )
+    private Set<Sala> salas;
 
-    public Cancion(int id, String nombre, String genero, String author, String enlace) {
+
+    public Cancion(String id, String nombre, String genero, String author,Set<Sala> salas) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
         this.author = author;
-        this.enlace = enlace;
+        this.salas=salas;
     }
-
-    public int getId() {
+    public Cancion() {
+    	 super();
+    }
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -56,13 +77,15 @@ public class Cancion {
         this.author = author;
     }
 
-    public String getEnlace() {
-        return enlace;
+    public Set<Sala> getSalas() {
+        return salas;
     }
 
-    public void setEnlace(String enlace) {
-        this.enlace = enlace;
+    public void setSalas(Set<Sala> salas) {
+        this.salas = salas;
     }
+
+   
     
     
 }

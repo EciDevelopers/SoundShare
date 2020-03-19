@@ -5,8 +5,10 @@
  */
 package edu.eci.arsw.services.client.impl;
 
+import edu.eci.arsw.entities.Cancion;
 import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
+import edu.eci.arsw.persistence.CancionRepository;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
 import java.util.ArrayList;
@@ -26,6 +28,8 @@ public class ServiciosSoundShareImpl {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private SalaRepository salaRepository;
+    @Autowired
+    private CancionRepository cancionRepository;
     
      public Usuario getUsuarioByName(String nombre){
         Usuario usuario = null;
@@ -41,13 +45,17 @@ public class ServiciosSoundShareImpl {
 		return usuario;
 
     }
-     public void saveUsuario(int id,String nombre,String password,String nickname,Set<Sala> salas){
-         Usuario usuario=new Usuario(nombre,password,nickname,salas);
+     public void saveUsuario(int id,String nombre,String password,String nickname,Set<Sala> salas,Set<Cancion> canciones){
+         Usuario usuario=new Usuario(nombre,password,nickname,salas,canciones);
          usuarioRepository.save(usuario);
      }
-    public void saveSala(int id, String nombre, String genero,Set<Usuario> usuarios){
-        Sala sala=new Sala(id,nombre,genero,usuarios);
+    public void saveSala(int id, String nombre, String genero,String tipo,Set<Usuario> usuarios,Set<Cancion> canciones){
+        Sala sala=new Sala(id,nombre,genero,tipo,usuarios,canciones);
         salaRepository.save(sala);
+    }
+    public void saveCancion(String id, String nombre, String genero,String author,Set<Sala> salas){
+        Cancion cancion=new Cancion(id,nombre,genero,author,salas);
+        cancionRepository.save(cancion);
     }
 
 

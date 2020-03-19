@@ -33,21 +33,30 @@ public class Sala implements Serializable {
     private int id;
     private String nombre;
     private String genero;
+    private String tipo;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="salausers",
     joinColumns=@JoinColumn(name="nombre_sala",referencedColumnName ="nombre"),
     inverseJoinColumns=@JoinColumn(name="nombre_usuario",referencedColumnName="nombre")
     )
     private Set<Usuario> usuarios;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="colacanciones",
+    joinColumns=@JoinColumn(name="nombre_sala",referencedColumnName ="nombre"),
+    inverseJoinColumns=@JoinColumn(name="id_cancion",referencedColumnName="id")
+    )
+    private Set<Cancion> colacanciones;
 
     public Sala(){
         super();
     }
-    public Sala(int id, String nombre, String genero,Set<Usuario> usuarios) {
+    public Sala(int id, String nombre, String genero,String tipo,Set<Usuario> usuarios,Set<Cancion> colacanciones) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
+        this.tipo= tipo;
         this.usuarios=usuarios;
+        this.colacanciones=colacanciones;
     }
 
     public int getId() {
@@ -80,6 +89,22 @@ public class Sala implements Serializable {
 
     public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Set<Cancion> getColacanciones() {
+        return colacanciones;
+    }
+
+    public void setColacanciones(Set<Cancion> colacanciones) {
+        this.colacanciones = colacanciones;
     }
 
    
