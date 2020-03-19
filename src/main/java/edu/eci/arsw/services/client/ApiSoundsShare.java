@@ -100,6 +100,11 @@ public class ApiSoundsShare {
         return "html/singUp";
     }
 
+    @RequestMapping("html/prueba.html")
+    public String prueba(){
+        return "html/prueba";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
