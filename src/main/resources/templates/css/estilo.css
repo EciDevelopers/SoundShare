@@ -35,12 +35,15 @@ li ul{
 }
 #menu-wrapper, li ul{
     background: #333
-
 }
 #buttons{
     display:flex;
     justify-content:right;
     align-items:right;
+}
+#menu-play, li ul{
+    background: #333
+
 }
 
 
