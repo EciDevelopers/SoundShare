@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prueba</title>
     <link rel="stylesheet" href="../css/estilo.css">
-    <script src="../js/apiPlayerAudio.js"></script>
 </head>
 
-<body onload="doRun">
+<body>
     <div id ="menu-wrapper" align="right">
         <ul id="hmenu">
             <li> <a href="#"> Music </a></li>
@@ -18,13 +17,27 @@
             <li> <a href="../index.html"> Sign up </a></li>
         </ul>
     </div>
-    <font color="#138D75">
-        <h1 align="left">Welcome to SoundSharen (Prueba botones Audio)</h1>
-    </font>
-    <font color="#084035">
-        <h3 align="left">A social network for music lovers</h3>
-    </font>
-<main>
+
+    <h1>Prueba</h1>
+
+    <script src="./js/apiPlayerAudio.js"></script>
+
+    <div style="display:flex;justify-content:right;align-items:right;">
+        <div style="width:200px;height:200px;">
+            <div data-video="ddJqNY__9U8" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
+            <div style="clear:both;margin:10px;text-align:center">
+            </div>
+        </div>
+        <form>
+            <p>
+                <button id="button" type="button" class="btn btn-primary" onclick= > play </button>
+            </p>
+        </form>
+    </div>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+
+
+    <!--
     <div style="display:flex;justify-content:right;align-items:right;" >
         <div style="width:200px;height:200px;">
             <div data-video="ddJqNY__9U8" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
@@ -32,7 +45,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
-</main>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script> -->
+
 </body>
 </html>
