@@ -1,5 +1,5 @@
 body{ margin:0;
-    background: #ECF0F1;
+    background: #FFFFFF;
     font-family: sans-serif;
     font-size:15px
 }
@@ -25,7 +25,7 @@ body{ margin:0;
 }
 
 #hmenu li:hover{
-    background: #138D75;
+    background: #d41788;
     text-shadow: 0 0 2px #000;
 }
 
@@ -34,7 +34,7 @@ li ul{
     display : none;
 }
 #menu-wrapper, li ul{
-    background: #333
+    background: #4D4D4D
 }
 #buttons{
     display:flex;
@@ -42,7 +42,7 @@ li ul{
     align-items:right;
 }
 #menu-play, li ul{
-    background: #333
+    background: #4D4D4D
 
 }
 
