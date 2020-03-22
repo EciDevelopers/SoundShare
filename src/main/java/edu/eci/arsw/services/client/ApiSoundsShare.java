@@ -110,6 +110,27 @@ public class ApiSoundsShare {
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
+    @Bean
+    public CommandLineRunner demo(ServiciosSoundShareImpl service) {
+      return (args) -> {
+        // save a few customers
+    	Set<Sala> salas=new HashSet<Sala>();
+        Set<Cancion> plays=new HashSet<Cancion>();
+        Set<Sala> sal=new HashSet<Sala>();
+        Cancion can=new Cancion("alfa","firestone","electronica","kygo",sal);
+        Cancion can2=new Cancion("beta","playhard","electronica","davidgueta",sal);
+        service.saveCancion("gama","calma","urbano","pedro capo",sal);
+        plays.add(can);
+        plays.add(can2);
+        service.saveUsuario(15,"fernando barrera","arsw1","fer15",salas,plays);
+        Usuario usr=service.getUsuarioByName("fernando barrera");
+        Set<Usuario> usuarios=new HashSet<Usuario>();
+        Set<Cancion> canciones=new HashSet<Cancion>();
+    	usuarios.add(usr);
+        canciones.add(can);
+        service.saveSala(35,"hope15","electronica","publica",usuarios,canciones);
+        };   
+    }
    
   
         
