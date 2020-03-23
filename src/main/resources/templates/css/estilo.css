@@ -1,49 +1,115 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+header {
+    width:100%;
+
+}
+
+nav{
+    margin:0px;
+    width:100%;
+    max-width:1400px;
+}
+
+nav ul {
+    list-style:none;
+}
+
+nav ul li :hover{
+    background: #D41788;
+    text-shadow: 0 0 2px #000;
+}
+
+nav > ul {
+    display:table;
+    overflow:hidden;
+    width:100%;
+    background: #15396B;
+    position:relative;
+}
+
+nav > ul li {
+    display:table-cell;
+}
+
+nav > ul li a {
+    color: #fff;
+    display:block;
+    padding: 10px 5px;
+    line-height:20px;
+    position:relative;
+    text-align:center;
+    text-decoration:none;
+}
+
+nav > ul > li > ul > li a:hover {
+    background:#5da5a2;
+}
+
+nav > ul > li > ul > li a{
+    background:#174459;
+    display:block;
+    height:100%;
+    width:100%;
+    left:0;
+    position:absolute;
+    top:-55;
+
+}
+
 body{ margin:0;
     background: #FFFFFF;
     font-family: sans-serif;
     font-size:15px
 }
 
-#menu-wrapper ul{padding:0;
-    list-style:none;
-}
-
-#hmenu{
-    width: 412px;
-    margin: 0 auto;
-}
-
-#hmenu > li{
-    display: inline-block;
-}
-#hmenu > li > a{
-    color: #fff;
-    text-decoration:none;
-    display: block;
+#menu-play {
     padding: 10px 5px;
-    width: 90px;
+    background: #15396B;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 5000;
+    list-style:none;
+
 }
 
-#hmenu li:hover{
-    background: #d41788;
-    text-shadow: 0 0 2px #000;
+#menu-play ul {
+    display:block;
 }
 
-li ul{
-    position: absolute;
-    display : none;
+#menu-sala {
+    background-color: #fff;
+    float:right;
+    width:50%;
 }
-#menu-wrapper, li ul{
-    background: #4D4D4D
-}
-#buttons{
-    display:flex;
-    justify-content:right;
-    align-items:right;
-}
-#menu-play, li ul{
-    background: #4D4D4D
 
+#menu-princi {
+    background-color: #fff;
+    float:right;
+    width:50%;
+}
+
+#boton1{
+    border: 0;
+    background-color: #15396B;
+}
+#boton2{
+    border: 0;
+    background-color: #15396B;
+}
+
+#youtube-audio{
+    border: 0;
+    background-color: #15396B;
+}
+
+input {
+    width:90%;
+    padding: 10px;
 }
 
 

@@ -3,9 +3,7 @@ var player;
 
     var ctrlq = document.getElementById("youtube-audio");
     ctrlq.innerHTML = '<img id="youtube-icon" src=""/><div id="youtube-player"></div>';
-    ctrlq.style.cssText = 'width:150px;margin:2em auto;cursor:pointer;cursor:hand;display:none';
     ctrlq.onclick = toggleAudio;
-
     player = new YT.Player('youtube-player', {
       height: '0',
       width: '0',
@@ -22,7 +20,7 @@ var player;
   };
 
   function togglePlayButton(play) {
-    document.getElementById("youtube-icon").src = play ? "https://i.imgur.com/IDzX9gL.png" : "https://i.imgur.com/quyUPXN.png";
+    document.getElementById("youtube-icon").src = play ? "../img/pause.png" : "../img/play2.png";
   }
 
   function toggleAudio() {

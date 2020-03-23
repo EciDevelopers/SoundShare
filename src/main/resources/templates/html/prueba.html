@@ -10,33 +10,46 @@
     <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
     <script src="../js/apiPlayerAudio.js"></script>
 </head>
-<body>
-    <div id ="menu-wrapper" align="center">
-        <ul id="hmenu">
+
+<header>
+    <nav>
+        <ul>
+            <li> <a href="#"> Start </a></li>
             <li> <a href="#"> Music </a></li>
             <li> <a href="../index.html"> Sign in </a></li>
             <li> <a href="../index.html"> Sign up </a></li>
         </ul>
-    </div>
-    <font color="#138D75">
-        <h1 align="left">Welcome to SoundSharen (Prueba botones Audio)</h1>
+    </nav>
+</header>
+<body>
+    <br>
+    <font color="#4C4C4C">
+        <h1 align="left">Welcome to SoundShare</h1>
     </font>
-    <font color="#d41788">
-        <h3 align="left">A social network for music lovers</h3>
-    </font>
-    <div style="display:flex;justify-content:right;align-items:right;" >
-        <div style="width:200px;height:200px;">
-            <div data-video="ddJqNY__9U8" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
-            <div style="clear:both;margin:10px;text-align:center">
-            </div>
-        </div>
+    <br>
+    <img src="../img/logo.png" width="25%" height="25%">
+    <div id ="menu-princi" >
+        <font color="#4C4C4C">
+            <h1 align="left">Your rooms </h1>
+        </font>
+        <br>
+        <input id="room" type="text" class="form-control" placeholder="Find your favorite room..."/>
     </div>
-    <div id ="menu-play" align="down">
+
+    <div id ="menu-sala" >
+        <font color="#4C4C4C">
+            <h1 align="left">Your playlist </h1>
+        </font>
+        <br>
+        <input id="song" type="text" class="form-control" placeholder="Find your favorite song..."/>
+    </div>
+    <div id ="menu-play">
         <ul>
-            <button type="submit"><img src="../img/anterior.png" alt="x"/></button>
-            <button type="submit"><img src="../img/boton-de-play.png" alt="x"/></button>
-            <button type="submit"><img src="../img/proximo.png" alt="x" /></button>
+            <button id="boton1" type="submit"  ><img src="../img/pass.png" alt="x"/></button>
+            <button type="submit" data-video="JKggIh1D0iY" id="youtube-audio"></button>
+            <button id="boton2" type="submit"><img src="../img/next.png" alt="x" /></button>
         </ul>
     </div>
 </body>
+
 </html>
