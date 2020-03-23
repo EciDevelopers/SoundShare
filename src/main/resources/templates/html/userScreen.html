@@ -1,56 +1,59 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>user</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script src="../js/apiPlayerAudio.js"></script>
 </head>
 
-<body background="../img/fondo1.png" src="@{../img/fondo1.png}">
 <header>
-    <div>
-        <div style="float: left;width: 50%">
-            <h1>Sound Share</h1>
-        </div>
-        <div style="float: left;width: 50%">
-            <h2>User View</h2>
-            <a href="../index.html">Log Out</a>
-        </div>
-    </div>
+    <nav>
+        <ul>
+            <li> <a href="#"> Start </a></li>
+            <li> <a href="#"> Music </a></li>
+            <li> <a href="../index.html"> Sign in </a></li>
+            <li> <a href="../index.html"> Sign up </a></li>
+        </ul>
+    </nav>
 </header>
-<main>
-    <hr/>
-    <a href="../index.html">Back</a>
-    <div>
-        <div style="float: left;width: 20%">
-            <h2>Amigos</h2>
-            <ul>
-                <li> Luis </li>
-                <li> Fernando </li>
-                <li> Carlos </li>
-            </ul>
-        </div>
-        <div style="float: left;width: 40%">
-            <h2>Salas</h2>
-            <ul>
-                <li> Clasica </li>
-                <li> <a href="sala.html">Electronica</a></li>
-                <li> House </li>
-                <li> Bachata </li>
-            </ul>
-        </div>
-        <div style="float: left;width: 40%">
-            <h2>Genero</h2>
-            <ul>
-                <li> Clasica </li>
-                <li> Electronica </li>
-                <li> House </li>
-                <li> Bachata </li>
-                <li> Reguetón </li>
-                <li> Merengue </li>
-            </ul>
-        </div>
+<body>
+<br>
+<span style="color: #4C4C4C; ">
+    <h1 align="left">Welcome to SoundShare</h1>
+</span>
+<br>
+<img src="../img/logo.png" style="border-radius:20px;width:25%" height="25%">
+<div id ="menu-princi" >
+    <span style="color: #4C4C4C; ">
+        <h1 align="left">Your rooms </h1>
+    </span>
+    <br>
+    <input id="room" type="text" class="form-control" placeholder="Find your favorite room..."/>
+</div>
+
+<div id ="menu-sala" >
+    <span style="color: #4C4C4C; ">
+        <h1 align="left">Your playlist </h1>
+    </span>
+    <br>
+    <input id="song" type="text" class="form-control" placeholder="Find your favorite song..."/>
+</div>
+<div id ="menu-play">
+    <div style="float: left;width: 10%">
+        <button id="boton1" type="submit"  ><img src="../img/pass.png" alt="x"/></button>
     </div>
-</main>
-<footer>
-    Derechos Reservados EciDevelopers.
-</footer>
+    <div style="float: left;width: 10%">
+        <button type="submit" data-video="JKggIh1D0iY" id="youtube-audio"></button>
+    </div>
+    <div style="float: left;width: 10%">
+        <button id="boton2" type="submit"><img src="../img/next.png" alt="x" /></button>
+    </div>
+</div>
 </body>
+
 </html>
