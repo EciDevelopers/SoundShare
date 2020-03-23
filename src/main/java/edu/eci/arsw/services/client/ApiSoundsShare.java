@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ch.qos.logback.classic.Logger;
 import edu.eci.arsw.entities.Cancion;
+import edu.eci.arsw.entities.Rol;
 
 import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
@@ -110,7 +111,7 @@ public class ApiSoundsShare {
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
-   
+  
    
   
         

@@ -24,6 +24,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author fernando.barrera
@@ -38,19 +40,27 @@ public class Usuario  implements Serializable {
     private String nombre;
     private String contraseña;
     private String nickname;
-    private String rol;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="salausers",
     joinColumns=@JoinColumn(name="nombre_usuario",referencedColumnName ="nombre"),
     inverseJoinColumns=@JoinColumn(name="nombre_sala",referencedColumnName="nombre")
     )
     private Set<Sala> salas;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="usercanciones",
     joinColumns=@JoinColumn(name="nombre_user",referencedColumnName ="nombre"),
     inverseJoinColumns=@JoinColumn(name="id_cancion",referencedColumnName="id")
     )
     private Set<Cancion> canciones;
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="rolusuarios",
+    joinColumns=@JoinColumn(name="nombre_user",referencedColumnName ="nombre"),
+    inverseJoinColumns=@JoinColumn(name="rol_id",referencedColumnName="id")
+    )
+    private Set<Rol> rol;
    
     
   
@@ -64,9 +74,9 @@ public class Usuario  implements Serializable {
         this.nombre=nombre;
         this.contraseña=contraseña;
         this.nickname=nickname;
-        this.rol="user";
         this.salas=salas;
         this.canciones=canciones;
+   
        
    }
 
@@ -94,18 +104,6 @@ public class Usuario  implements Serializable {
         this.nickname = nickname;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-    
-    
-
-   
-
     public int getId() {
         return id;
     }
@@ -129,8 +127,16 @@ public class Usuario  implements Serializable {
     public void setCanciones(Set<Cancion> canciones) {
         this.canciones = canciones;
     }
+
+    public Set<Rol> getRol() {
+        return rol;
+    }
+
+    public void setRol(Set<Rol> rol) {
+        this.rol = rol;
+    }
     
- 
+    
 
     
     
