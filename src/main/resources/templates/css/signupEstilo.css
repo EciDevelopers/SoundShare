@@ -1,0 +1,25 @@
+body{
+    margin:0;
+    background: #f2f2f2;
+    font-family: Verdana;
+    font-size:15px
+}
+
+#register{
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #ffff;
+      width:42%;
+      padding: 50px 55px 33px 55px;
+}
+input {
+    width:30%;
+    padding: 10px;
+}
+
+
+
+
