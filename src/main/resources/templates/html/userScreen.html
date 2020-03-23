@@ -6,6 +6,7 @@
     initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User</title>
+    <link rel="icon" type="image/jpg" href="../img/logoECI_Dev.jpg"/>
     <link rel="stylesheet" href="../css/estilo.css">
     <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
     <script src="../js/apiPlayerAudio.js"></script>
@@ -28,21 +29,29 @@
     <h1 align="left">Welcome to SoundShare</h1>
     </span>
     <br>
-    <img src="../img/logo.png" style="border-radius:20px;width:25%" height="25%">
-    <div id ="menu-princi" >
-    <span style="color: #4C4C4C; ">
-        <h1 align="left">Your rooms </h1>
-    </span>
+    <img src="../img/logo.png" style="border-radius:20px;width:20%" height="25%">
+    <div id ="menu-sala"  >
+        <span style="color: #4C4C4C; ">
+            <h2 align="left">Your rooms </h2>
+        </span>
         <br>
         <input id="room" type="text" class="form-control" placeholder="Find your favorite room..."/>
     </div>
-
-    <div id ="menu-sala" >
-    <span style="color: #4C4C4C; ">
-        <h1 align="left">Your playlist </h1>
-    </span>
+    <br>
+    <br>
+    <div id ="menu-princi" >
+        <span style="color: #4C4C4C; ">
+            <h2 align="left">Your playlist </h2>
+        </span>
         <br>
         <input id="song" type="text" class="form-control" placeholder="Find your favorite song..."/>
+    </div>
+    <div id ="menu-friends"  >
+        <span style="color: #4C4C4C; ">
+            <h2 align="left">Your Friends </h2>
+              <br>
+        <input id="friends" type="text" class="form-control" placeholder="Find yous friends..."/>
+        </span>
     </div>
 </main>
 <footer>
@@ -56,12 +65,9 @@
         <div style="float: left;width: 10%">
             <button id="boton2" type="submit"><img src="../img/next.png" alt="x" /></button>
         </div>
-        <div style="float: left;width: 70%">
-            <br/>
-            <br/>
-            <br/>
+        <div id= "menu-tittlesong">
+
         </div>
-        <p style="color: #FFFFFF">Powered By EciDevelopers</p>
     </div>
 </footer>
 </body>
