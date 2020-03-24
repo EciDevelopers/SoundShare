@@ -39,15 +39,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "classpath:/templates/img/",
                         "classpath:/templates/css/",
                         "classpath:/templates/js/",
-                        "classpath:/templates/**").permitAll()
+                        "classpath:/templates/**",
+                        "html/userScreen",
+           			 	"html/prueba").permitAll()
 
-                .anyRequest().authenticated().and()
-                .csrf().disable().cors()
+                //.anyRequest().authenticated().and()
+                //.csrf().disable().cors()
                 .and()
                 .formLogin()
                 .loginPage("/")
-                .defaultSuccessUrl("/html/adminScreen.html",true)
                 .permitAll()
+                .defaultSuccessUrl("/html/adminScreen.html",true)
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
