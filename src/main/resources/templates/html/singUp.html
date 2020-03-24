@@ -3,37 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>SingUp</title>
+    <link rel="icon" type="image/jpg" href="../img/logoECI_Dev.jpg"/>
+    <link rel="stylesheet" href="../css/signupEstilo.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
-<body bgcolor="#99FFCC">
+<body >
 <header>
-    <div>
-        <div style="float: left;width: 50%">
-            <h1>Sound Share</h1>
-        </div>
-        <div style="float: left;width: 50%">
-            <h2>User View</h2>
-            <a href="../index.html">Log Out</a>
-        </div>
-    </div>
 </header>
 <main>
-    <hr>
-    <h2>Registro</h2>
-    <form>
-        <fieldset>
-            <legend>Nuevo Usuario</legend>
-            <p>Email*<br/>
-                <input type="email" id="email_user" required/>
-            </p>
-            <p>Contraseña*<br/>
-                <label for="email_user"></label>
-                <input type="password" name="nombre" required/>
-            </p>
-            <p>Confirmacion de Contraseña*<br/>
-                <label for="email_user"></label>
-                <input type="password" name="nombre" required placeholder="Contraseñas deben coincidir"/>
-            </p>
-            <p>Donde nos vió?<br/>
+    <div class="limiter" id="register">
+        <div>
+            <div>
+                <span class="login100-form-title p-b-26">
+						SoundShare
+                </span>
+                <br>
+            </div>
+            <div id="tittle">
+                 <span class="login100-form-title p-b-48">
+						Register
+                </span>
+                <br>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                <input class="input100" type="text" name="nickname">
+                <span class="focus-input100" data-placeholder="Nickname"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+                <input class="input100" type="password" name="pass">
+                <span class="focus-input100" data-placeholder="Password"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+                <input class="input100" type="password" name="confirmpass">
+                <span class="focus-input100" data-placeholder="confirm password"></span>
+            </div>
+            <!--<p>Donde nos vió?<br/>
                 <input type="radio" id="google" value="G" name="conocer">
                 <label for="google">Google</label>
                 <input type="radio" id="otro" value="O" name="conocer">
@@ -41,22 +51,32 @@
             </p>
             <p>
                 <label for="email_user">Comentarios:*</label>
-                <br />
+                <br>
                 <textarea name="comment" id="" cols="30" rows="3" required placeholder="Dejenos un comentario por favor."></textarea>
-            </p>
-            <p>
+            </p>-->
+            <div>
                 <input type="checkbox" id="terminos" value="yes" required>
-                <label for="terminos">Acepto los términos y condiciones*</label>
-            </p>
-            <p>
-                <input type="submit" value="Continuar" />
-            </p>
-        </fieldset>
-    </form>
+                <label for="terminos" style="color:#4C4C4C;">
+                    Acepto los términos y condiciones
+                </label>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn">
+                        continue
+                    </button>
+                </div>
+            </div>
+            <br>
+            <a class="txt2" href="../index.html">
+                Log Out
+            </a>
+        </div>
+    </div>
 </main>
 <footer>
-    <hr>
-    Derechos reservados
 </footer>
 </body>
 </html>
