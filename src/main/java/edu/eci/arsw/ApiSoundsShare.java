@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.arsw.services.client;
+package edu.eci.arsw;
 
-import org.apache.log4j.spi.LoggerFactory;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -13,7 +13,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import ch.qos.logback.classic.Logger;
 import edu.eci.arsw.entities.Cancion;
@@ -27,6 +29,9 @@ import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -42,11 +47,18 @@ import org.springframework.context.annotation.Bean;
 @EnableJpaRepositories("edu.eci.arsw.persistence")
 public class ApiSoundsShare {
 
+	 @RequestMapping(value = "/", method = RequestMethod.GET)
+	 public String login(Model model,String error, String logout) {
+		
+	        if (error != null)
+	            model.addAttribute("error", "Your username and password is invalid.");
 
-    @RequestMapping("/")
-    public String login(){
-        return "index";
-    }
+	        if (logout != null)
+	            model.addAttribute("message", "You have been logged out successfully.");
+
+	        return "index";
+	 }
+
 
 
     @RequestMapping("/img/")
@@ -107,10 +119,11 @@ public class ApiSoundsShare {
     public String prueba(){
         return "html/prueba";
     }
-
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
+ 
+   
   
    
   

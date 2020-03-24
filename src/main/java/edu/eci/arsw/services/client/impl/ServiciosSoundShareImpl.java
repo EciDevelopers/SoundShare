@@ -66,6 +66,20 @@ public class ServiciosSoundShareImpl {
 		return usuario;
 
     }
+     public Usuario getUsuarioByNinckname(String nick){
+         Usuario usuario = null;
+         try{
+             usuario = usuarioRepository.findByNickname(nick);
+             if(usuario==null){
+                 throw new ExceptionServiciosReserva("nulo");
+             }
+             return usuario;
+         }catch(Exception e){
+         	e.printStackTrace();
+         }
+ 		return usuario;
+
+     }
      public void saveUsuario(int id,String nombre,String password,String nickname,Set<Sala> salas,Set<Cancion> canciones){
          Usuario usuario=new Usuario(nombre,password,nickname,salas,canciones);
          usuarioRepository.save(usuario);

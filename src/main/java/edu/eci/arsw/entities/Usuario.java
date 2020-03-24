@@ -55,7 +55,7 @@ public class Usuario  implements Serializable {
     )
     private Set<Cancion> canciones;
     @JsonIgnore
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="rolusuarios",
     joinColumns=@JoinColumn(name="nombre_user",referencedColumnName ="nombre"),
     inverseJoinColumns=@JoinColumn(name="rol_id",referencedColumnName="id")

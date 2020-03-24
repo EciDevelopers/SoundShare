@@ -1,4 +1,4 @@
-package edu.eci.arsw.services.client;
+package edu.eci.arsw;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
