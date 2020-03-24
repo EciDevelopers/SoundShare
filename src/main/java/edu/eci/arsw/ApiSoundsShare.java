@@ -105,6 +105,11 @@ public class ApiSoundsShare {
         return "html/adminScreen";
     }
 
+    @RequestMapping("/html/chatPrueba.html")
+    public String chatPrueba(){
+        return "html/chatPrueba";
+    }
+
     @RequestMapping("html/userScreen.html")
     public String userScreen(){
         return "html/userScreen";

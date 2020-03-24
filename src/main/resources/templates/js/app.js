@@ -1,8 +1,8 @@
 var app = (function () {
 
     class Acto{
-        constructor(youtube-audio){
-            this.youtube-audio=youtube-audio;
+        constructor(youtubeaudio){
+            this.youtubeaudio=youtube-audio;
         }
     }
 
@@ -35,9 +35,9 @@ var app = (function () {
             connectAndSubscribe(addPointToCanvas);
         },
 
-        publishPoint: function(youtube-audio){
+        publishPoint: function(youtubeaudio){
             console.info(id);
-            var pt=new Point(youtube-audio);
+            var pt=new Point(youtubeaudio);
 
             stompClient.send("/topic/newpoint",{},JSON.stringify(youtube-audio));
             //publicar el evento
