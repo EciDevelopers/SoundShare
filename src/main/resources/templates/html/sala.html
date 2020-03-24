@@ -1,54 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-
-    <title>Title</title>
-	<meta charset="UTF-8"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sala</title>
+    <link rel="icon" type="image/jpg" href="../img/logoECI_Dev.jpg"/>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet"  href="css/main.css">
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script src="../js/apiPlayerAudio.js"></script>
 </head>
-<body bgcolor="#99FFCC">
-    <header>
-        <div>
-            <div style="float: left;width: 50%">
-                <h1>Sound Share</h1>
-            </div>
-            <div style="float: left;width: 50%">
-                <h2>User View</h2>
-                <a href="../index.html">Log Out</a>
-            </div>
+
+<body>
+<header>
+    <nav>
+        <ul>
+            <li> <a href="userScreen.html"> Start </a></li>
+            <li> <a href="#"> Music </a></li>
+            <li> <a href="../index.html"> Sign in </a></li>
+            <li> <a href="singUp.html"> Sign up </a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <br>
+    <span style="color: #4C4C4C; ">
+    <h1 align="left">Rooms</h1>
+    </span>
+    <br>
+    <!--<img src="../img/logo.png" style="border-radius:20px;width:20%" height="25%">-->
+    <div id ="menu"  >
+        <span style="color: #4C4C4C; ">
+            <h2 align="center">Your Playlist </h2>
+        </span>
+        <br>
+    </div>
+    <div id ="menu-chat"  >
+        <span style="color: #4C4C4C; ">
+            <h2 align="center">Your chats </h2>
+        </span>
+        <br>
+    </div>
+</main>
+<footer>
+    <div id ="menu-play">
+        <div style="float: left;width: 10%">
+            <button id="boton1" type="submit"  ><img src="../img/pass.png" alt="x"/></button>
         </div>
-    </header>
-    <main>
-        <hr/>
-        <h2>Salas</h2>
-        <a href="userScreen.html">Back</a>
-        <div>
-            <div style="float: left;width: 20%">
-                <h2>Amigos</h2>
-                <ul>
-                    <li style="color:green"> Luis (Online)</li>
-                    <li style="color:red"> Fernando </li>
-                    <li style="color:red"> Carlos </li>
-                </ul>
-            </div>
-            <div style="float: left;width: 40%">
-                <h2>Playlist</h2>
-                <ol>
-                    <li> Get Lucky - Daft Punk </li>
-                    <li> Da Ba Dee - Eifeel 65 Blue </li>
-                    <li> I Could Be The One - Avicii </li>
-                </ol>
-            </div>
-            <div style="float: left;width: 40%">
-                <h2>Chat</h2>
-                <p>
-                    Estamos trabajando en ello.
-                </p>
-                <img src="../img/workingOn.png" width="200px">
-            </div>
+        <div style="float: left;width: 10%">
+            <button type="submit" data-video="2LJg9UvoKvk" id="youtube-audio" <!--onclick="app.init()"--></button>
         </div>
-
-    </main>
-
-
+        <div style="float: left;width: 10%">
+            <button id="boton2" type="submit"><img src="../img/next.png" alt="x" /></button>
+        </div>
+        <div id= "menu-tittlesong">
+            <input id="song" type="text" class="form-control" placeholder="Find your favorite song..."/>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
