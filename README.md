@@ -40,7 +40,7 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 
 ### Modelo Entidad relacion 
 
-![](img/dbmod1.png)
+![](img/dbmod.png)
 
 ### Tablas Base de datos 
 
