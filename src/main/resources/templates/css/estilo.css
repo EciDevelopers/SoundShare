@@ -103,9 +103,9 @@ body{ margin:0;
 #menu-tittlesong {
     border-radius: 10px;
     background-color: #f2f2f2;
-    float: right;
-    width: 50%;
-    padding: 20px 100px 30px 100px;
+    float: left;
+    width: 60%;
+    padding: 10px;
 }
 
 #menu-friends {
@@ -124,6 +124,7 @@ body{ margin:0;
     background-color: #15396B;
 }
 #boton2{
+
     border: 0;
     background-color: #15396B;
 }
@@ -134,9 +135,11 @@ body{ margin:0;
 }
 
 input {
-    width:90%;
+    border-radius: 10px;
+    width:80%;
     padding: 10px;
 }
+
 
 
 
