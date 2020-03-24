@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/users")
 public class SoundShareAPIController {
@@ -30,16 +32,12 @@ public class SoundShareAPIController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }
     }
-    /**
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> AddNewUser(@RequestBody Usuario newUser){
-        try {
-            services.saveUsuario(newUser);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (ResourceNotFoundException ex) {
-            Logger.getLogger(SoundShareAPIController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);
-        }
-    }**/
+
+    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/users -d "{"""id""":77,"""nombre""":"""LuisAlejandroJ""","""contraseña""":"""arsw123""","""nickname""":"""luisJ"""}"
+    @RequestMapping(path = "/create",method = RequestMethod.POST)
+    public ResponseEntity<?> AddNewUser(@Valid @RequestBody Usuario newUser){
+        services.saveUsuario(newUser.getId(),newUser.getNombre(),newUser.getContraseña(),newUser.getNickname());
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 
 }

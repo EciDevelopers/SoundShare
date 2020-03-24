@@ -66,8 +66,8 @@ public class ServiciosSoundShareImpl {
 		return usuario;
 
     }
-     public void saveUsuario(int id,String nombre,String password,String nickname,Set<Sala> salas,Set<Cancion> canciones){
-         Usuario usuario=new Usuario(nombre,password,nickname,salas,canciones);
+     public void saveUsuario(int id,String nombre,String password,String nickname){
+         Usuario usuario=new Usuario(nombre,password,nickname);
          usuarioRepository.save(usuario);
      }
     public void saveSala(int id, String nombre, String genero,String tipo,Set<Usuario> usuarios,Set<Cancion> canciones){

@@ -70,12 +70,12 @@ public class Usuario  implements Serializable {
         super();
     }
     
-    public Usuario(String nombre,String contraseña,String nickname,Set<Sala> salas,Set<Cancion> canciones){
+    public Usuario(String nombre,String contraseña,String nickname){
         this.nombre=nombre;
         this.contraseña=contraseña;
         this.nickname=nickname;
-        this.salas=salas;
-        this.canciones=canciones;
+        //this.salas=salas;
+        //this.canciones=canciones;
    
        
    }
