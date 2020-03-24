@@ -39,7 +39,7 @@ public class SoundShareAPIController {
     }
 
 
-    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/users -d "{"""id""":77,"""nombre""":"""LuisAlejandroJ""","""contraseña""":"""arsw123""","""nickname""":"""luisJ"""}"
+    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/users/create -d "{"""id""":77,"""nombre""":"""LuisAlejandroJ""","""contraseña""":"""arsw123""","""nickname""":"""luisJ"""}"
     @RequestMapping(path = "/create",method = RequestMethod.POST)
     public ResponseEntity<?> AddNewUser(@Valid @RequestBody Usuario newUser){
         services.saveUsuario(newUser.getId(),newUser.getNombre(),newUser.getContraseña(),newUser.getNickname());
