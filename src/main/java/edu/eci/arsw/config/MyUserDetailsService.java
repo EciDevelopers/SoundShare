@@ -33,9 +33,9 @@ public class MyUserDetailsService implements UserDetailsService {
 
     	System.out.println("xd"+" "+nick);
         Usuario usuario = usuarioRepository.findByNickname(nick);
-        System.out.println("xd"+" "+usuario.getContraseña());
-        String encodedPassword = new BCryptPasswordEncoder().encode(usuario.getContraseña());
-        usuario.setContraseña(encodedPassword);
+        System.out.println("xd"+" "+usuario.getPass());
+        String encodedPassword = new BCryptPasswordEncoder().encode(usuario.getPass());
+        usuario.setPass(encodedPassword);
         if (logger == null){
             logger.error("Error en el login, no existe el usuario "+ nick+ " en el sistema");
             throw new UsernameNotFoundException("Error en el login, no existe el usuario "+ nick+ " en el sistema");
@@ -46,6 +46,6 @@ public class MyUserDetailsService implements UserDetailsService {
                 .peek(authority -> logger.info("Rol: " + authority.getAuthority()))
                 .collect(Collectors.toList());
 
-        return new User(usuario.getNickname(),usuario.getContraseña(),true,true,true,true,authorities);
+        return new User(usuario.getNickname(),usuario.getPass(),true,true,true,true,authorities);
     }
 }

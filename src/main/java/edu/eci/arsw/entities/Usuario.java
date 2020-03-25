@@ -20,20 +20,19 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  *
  * @author fernando.barrera
  */
-
 @Entity
 @Table(name = "usuario")
 public class Usuario  implements Serializable {
     @Id
-    @GeneratedValue
     private int id;
     private String nombre;
-    private String contraseña;
+    private String pass;
     private String nickname;
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
@@ -65,9 +64,10 @@ public class Usuario  implements Serializable {
         super();
     }
     
-    public Usuario(String nombre,String contraseña,String nickname){
+    public Usuario(int id,String nombre,String pass,String nickname){
+    	this.id=id;
         this.nombre=nombre;
-        this.contraseña=contraseña;
+        this.pass=pass;
         this.nickname=nickname;
         //this.salas=salas;
         //this.canciones=canciones;
@@ -83,12 +83,12 @@ public class Usuario  implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPass() {
+        return pass;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getNickname() {

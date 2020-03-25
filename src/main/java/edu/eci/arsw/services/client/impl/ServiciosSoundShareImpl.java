@@ -82,10 +82,10 @@ public class ServiciosSoundShareImpl {
      }
 
 
-     public void saveUsuario(int id,String nombre,String password,String nickname){
-         Usuario usuario=new Usuario(nombre,password,nickname);
-         usuarioRepository.save(usuario);
+     public void saveUsuario(Usuario usr) throws ExceptionServiciosReserva{
+         usuarioRepository.save(usr);
      }
+
     public void saveSala(int id, String nombre, String genero,String tipo,Set<Usuario> usuarios,Set<Cancion> canciones){
         Sala sala=new Sala(id,nombre,genero,tipo,usuarios,canciones);
         salaRepository.save(sala);

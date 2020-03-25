@@ -3,6 +3,8 @@ package edu.eci.arsw.controllers;
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
+
+import org.springframework.http.MediaType;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
@@ -39,11 +41,19 @@ public class SoundShareAPIController {
     }
 
 
-    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/users/create -d "{"""id""":77,"""nombre""":"""LuisAlejandroJ""","""contraseña""":"""arsw123""","""nickname""":"""luisJ"""}"
-    @RequestMapping(path = "/create",method = RequestMethod.POST)
+    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/users/create -d "{"""id""":3,"""nombre""":"""carlos""","""pass""":"""arsw2""","""nickname""":"""carlos2"""}"
+    @PostMapping("/create")
     public ResponseEntity<?> AddNewUser(@Valid @RequestBody Usuario newUser){
-        services.saveUsuario(newUser.getId(),newUser.getNombre(),newUser.getContraseña(),newUser.getNickname());
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    	System.out.println("alfa"+" "+newUser.getNombre());
+        try {
+			services.saveUsuario(newUser);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		} catch (ExceptionServiciosReserva e) {
+			
+			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+		}
+       
     }
 
 

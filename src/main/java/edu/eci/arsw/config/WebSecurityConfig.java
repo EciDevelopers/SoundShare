@@ -41,10 +41,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "classpath:/templates/js/",
                         "classpath:/templates/**",
                         "html/userScreen",
-           			 	"html/prueba").permitAll()
+           			 	"html/prueba",
+           			 	"users/create").permitAll()
 
                 //.anyRequest().authenticated().and()
                 //.csrf().disable().cors()
+                
                 .and()
                 .formLogin()
                 .loginPage("/")
@@ -58,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .exceptionHandling();
+        		http.cors().and().csrf().disable();
     }
 
     @Autowired
