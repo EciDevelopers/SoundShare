@@ -42,10 +42,6 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 
 ![](img/dbmod.png)
 
-### Tablas Base de datos 
-
-![](img/base.PNG)
-
 ### Diagrama de despliegue
 
 ![](img/DiagramaDespliegue.png)
