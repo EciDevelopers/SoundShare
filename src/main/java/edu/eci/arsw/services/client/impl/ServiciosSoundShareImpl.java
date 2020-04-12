@@ -90,9 +90,8 @@ public class ServiciosSoundShareImpl {
         Sala sala=new Sala(id,nombre,genero,tipo,usuarios,canciones);
         salaRepository.save(sala);
     }
-    public void saveCancion(String id, String nombre, String genero,String author,Set<Sala> salas){
-        Cancion cancion=new Cancion(id,nombre,genero,author,salas);
-        cancionRepository.save(cancion);
+    public void saveCancion(Cancion can){
+        cancionRepository.save(can);
     }
 
 

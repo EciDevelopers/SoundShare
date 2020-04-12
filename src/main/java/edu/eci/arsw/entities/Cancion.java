@@ -5,6 +5,11 @@
  */
 package edu.eci.arsw.entities;
 
+
+import java.sql.Time;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -27,20 +32,29 @@ public class Cancion {
     private String nombre;
     private String genero;
     private String author;
+    private LocalTime minuto;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="colacanciones",
     joinColumns=@JoinColumn(name="id_cancion",referencedColumnName ="id"),
     inverseJoinColumns=@JoinColumn(name="nombre_sala",referencedColumnName="nombre")
     )
     private Set<Sala> salas;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="usercanciones",
+    joinColumns=@JoinColumn(name="id_cancion",referencedColumnName ="id"),
+    inverseJoinColumns=@JoinColumn(name="nombre_user",referencedColumnName="nombre")
+    )
+    private Set<Usuario> usuarios;
 
 
-    public Cancion(String id, String nombre, String genero, String author,Set<Sala> salas) {
+    public Cancion(String id, String nombre, String genero, String author) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
         this.author = author;
-        this.salas=salas;
+        this.salas=new HashSet<Sala>();
+        this.usuarios=new HashSet<Usuario>();
+        this.minuto = LocalTime.of(00, 00, 01);
     }
     public Cancion() {
     	 super();
@@ -85,6 +99,22 @@ public class Cancion {
         this.salas = salas;
     }
 
+    public LocalTime getMinuto() {
+        return minuto;
+    }
+
+    public void setMinuto(LocalTime minuto) {
+        this.minuto = minuto;
+    }
+
+    public Set<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+    
    
     
     

@@ -26,6 +26,8 @@ import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
+import java.sql.Time;
+import java.time.LocalTime;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -127,6 +129,8 @@ public class ApiSoundsShare {
     public static void main(String[] args) {
         SpringApplication.run(ApiSoundsShare.class, args);
     }
+   
+    
 
   
  
