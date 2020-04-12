@@ -34,6 +34,7 @@ import org.springframework.context.annotation.Bean;
 @Table(name = "usuario")
 public class Usuario  implements Serializable {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     private String nombre;
     private String pass;

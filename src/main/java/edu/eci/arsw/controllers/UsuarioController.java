@@ -41,7 +41,7 @@ public class UsuarioController {
     }
 
 
-    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/users/create -d "{"""id""":3,"""nombre""":"""carlos""","""pass""":"""arsw2""","""nickname""":"""carlos2"""}"
+    //curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/users/create -d "{"""nombre""":"""carlos""","""pass""":"""arsw2""","""nickname""":"""carlos2"""}"
     @PostMapping("/create")
     public ResponseEntity<?> AddNewUser(@Valid @RequestBody Usuario newUser){
     	System.out.println("alfa"+" "+newUser.getNombre());

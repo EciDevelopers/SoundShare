@@ -1,3 +1,4 @@
+var apiclient = apiclient;
 var app = (function () {
 
     class Acto{
@@ -22,6 +23,14 @@ var app = (function () {
             });
         });
     };
+	var addUser = function(nombre,pass,nickname) {
+		var newUser = {
+			nombre : nombre,
+			pass : pass,
+			nickname : nickname,
+		};
+		apiclient.addUser(JSON.stringify(newUser));
+	};
 
     return {
         init: function () {
@@ -49,7 +58,9 @@ var app = (function () {
             }
             setConnected(false);
             console.log("Disconnected");
-        }
+        },
+		addUser : addUser
+		
     };
 
 })();
