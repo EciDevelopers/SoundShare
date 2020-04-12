@@ -21,6 +21,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
 
 /**
  *
@@ -55,22 +59,20 @@ public class Usuario  implements Serializable {
     inverseJoinColumns=@JoinColumn(name="rol_id",referencedColumnName="id")
     )
     private Set<Rol> rol;
-   
-    
-  
-    
 
     public Usuario(){
         super();
     }
     
     public Usuario(int id,String nombre,String pass,String nickname){
+
     	this.id=id;
         this.nombre=nombre;
         this.pass=pass;
         this.nickname=nickname;
-        //this.salas=salas;
-        //this.canciones=canciones;
+        this.salas=new HashSet<Sala>();
+        this.canciones=new HashSet<Cancion>();
+        
    
        
    }

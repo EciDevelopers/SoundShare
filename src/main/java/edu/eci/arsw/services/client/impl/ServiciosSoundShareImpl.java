@@ -13,8 +13,10 @@ import edu.eci.arsw.persistence.CancionRepository;
 import edu.eci.arsw.persistence.RolRepository;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,12 @@ public class ServiciosSoundShareImpl {
      
     public List<Usuario> getAllUsers() throws ExceptionServiciosReserva {
         return usuarioRepository.findAll();
+    }
+    public List<Sala> getAllSalas() throws ExceptionServiciosReserva {
+        return salaRepository.findAll();
+    }
+    public List<Cancion> getAllCanciones() throws ExceptionServiciosReserva {
+        return cancionRepository.findAll();
     }
     public Rol getRolById(int id){
         Rol rol = null;
@@ -66,7 +74,35 @@ public class ServiciosSoundShareImpl {
 		return usuario;
 
     }
-     public Usuario getUsuarioByNinckname(String nick){
+     public Cancion getCancionById(String id) throws ExceptionServiciosReserva{
+        Cancion cancion = null;
+        try{
+            cancion = cancionRepository.findById(id);
+            if(cancion==null){
+                throw new ExceptionServiciosReserva("nulo");
+            }
+            return cancion;
+        }catch(Exception e){
+        	e.printStackTrace();
+        }
+		return cancion;
+
+    }
+     public Sala getSalaByName(String nombre) throws ExceptionServiciosReserva{
+        Sala sala = null;
+        try{
+            sala = salaRepository.findByNombre(nombre);
+            if(sala==null){
+                throw new ExceptionServiciosReserva("nulo");
+            }
+            return sala;
+        }catch(Exception e){
+        	e.printStackTrace();
+        }
+		return sala;
+
+    }
+     public Usuario getUsuarioByNinckname(String nick)  throws ExceptionServiciosReserva{
          Usuario usuario = null;
          try{
              usuario = usuarioRepository.findByNickname(nick);
@@ -83,15 +119,50 @@ public class ServiciosSoundShareImpl {
 
 
      public void saveUsuario(Usuario usr) throws ExceptionServiciosReserva{
+         Set<Rol> rol=new HashSet<Rol>();
+         Rol role=getRolById(2);
+         rol.add(role);
+         usr.setRol(rol);
          usuarioRepository.save(usr);
-     }
 
-    public void saveSala(int id, String nombre, String genero,String tipo,Set<Usuario> usuarios,Set<Cancion> canciones){
-        Sala sala=new Sala(id,nombre,genero,tipo,usuarios,canciones);
+                 
+         
+     }
+    public Set<Sala> getSalasByUser(String nick) throws ExceptionServiciosReserva{
+        Usuario usr=getUsuarioByNinckname(nick);
+        return usr.getSalas();
+    }
+    public Set<Cancion> getCancionesByUser(String nick) throws ExceptionServiciosReserva{
+         Usuario usr=getUsuarioByNinckname(nick);
+         return usr.getCanciones();
+    }
+    public Set<Rol> getRolesOfUser(String nick) throws ExceptionServiciosReserva{
+         Usuario usr=getUsuarioByNinckname(nick);
+         return usr.getRol();
+    }     
+
+    public void saveSala(Sala sala) throws ExceptionServiciosReserva{
         salaRepository.save(sala);
     }
-    public void saveCancion(Cancion can){
+    public Set<Usuario> getUsersBySala(String name)  throws ExceptionServiciosReserva{
+        Sala sala=getSalaByName(name);
+        return sala.getUsuarios();
+    }
+    public Set<Cancion> getColaCancionesBySala(String name)  throws ExceptionServiciosReserva{
+        Sala sala=getSalaByName(name);
+        return sala.getColacanciones();
+    }
+    public void saveCancion(Cancion can) throws ExceptionServiciosReserva{
+        can.setMinuto(LocalTime.of(00, 00, 01));
         cancionRepository.save(can);
+    }
+    public Set<Usuario> getUsersThatHaveCancion(String id)  throws ExceptionServiciosReserva{
+        Cancion cancion=getCancionById(id);
+        return cancion.getUsuarios();
+    }
+    public Set<Sala> getSalasThatHaveCancion(String id)  throws ExceptionServiciosReserva{
+        Cancion cancion=getCancionById(id);
+        return cancion.getSalas();
     }
 
 

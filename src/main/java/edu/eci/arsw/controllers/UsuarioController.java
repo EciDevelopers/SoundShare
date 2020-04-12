@@ -24,7 +24,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/users")
-public class SoundShareAPIController {
+public class UsuarioController {
 
     @Autowired
     private ServiciosSoundShareImpl services;
@@ -54,6 +54,47 @@ public class SoundShareAPIController {
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 		}
        
+    }
+    
+    @RequestMapping(path ="/{nick}",method = RequestMethod.GET)
+    public ResponseEntity<?> getUsuarioByNick(@PathVariable ("nick") String nick){
+        try {
+            return new ResponseEntity<>(services.getUsuarioByNinckname(nick),HttpStatus.ACCEPTED);
+        } catch (ExceptionServiciosReserva e) {
+			
+			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+	}       
+    }
+    @RequestMapping(path ="/{nick}/salas",method = RequestMethod.GET)
+    public ResponseEntity<?> getSalasByUser(@PathVariable ("nick") String nick){
+        try {
+            return new ResponseEntity<>(services.getSalasByUser(nick),HttpStatus.ACCEPTED);
+        } catch (ExceptionServiciosReserva e) {
+			
+			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+	}       
+    }
+     @RequestMapping(path ="/{nick}/canciones",method = RequestMethod.GET)
+    public ResponseEntity<?> getCancionesByUser(@PathVariable ("nick") String nick){
+        try {
+            return new ResponseEntity<>(services.getCancionesByUser(nick),HttpStatus.ACCEPTED);
+        } catch (ExceptionServiciosReserva e) {
+			
+			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+	}       
+    }
+     @RequestMapping(path ="/{nick}/roles",method = RequestMethod.GET)
+    public ResponseEntity<?> getRolesOfUser(@PathVariable ("nick") String nick){
+        try {
+            return new ResponseEntity<>(services.getRolesOfUser(nick),HttpStatus.ACCEPTED);
+        } catch (ExceptionServiciosReserva e) {
+			
+			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+	}       
     }
 
 

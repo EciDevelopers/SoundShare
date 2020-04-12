@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,12 +35,14 @@ public class Sala implements Serializable {
     private String nombre;
     private String genero;
     private String tipo;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="salausers",
     joinColumns=@JoinColumn(name="nombre_sala",referencedColumnName ="nombre"),
     inverseJoinColumns=@JoinColumn(name="nombre_usuario",referencedColumnName="nombre")
     )
     private Set<Usuario> usuarios;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="colacanciones",
     joinColumns=@JoinColumn(name="nombre_sala",referencedColumnName ="nombre"),

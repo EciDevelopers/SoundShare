@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -25,6 +26,7 @@ public class Rol implements Serializable{
     @Id
     private int id;
     private String valor;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="rolusuarios",
     joinColumns=@JoinColumn(name="rol_id",referencedColumnName ="id"),

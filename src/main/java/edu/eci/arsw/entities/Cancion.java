@@ -6,6 +6,7 @@
 package edu.eci.arsw.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -33,12 +34,14 @@ public class Cancion {
     private String genero;
     private String author;
     private LocalTime minuto;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="colacanciones",
     joinColumns=@JoinColumn(name="id_cancion",referencedColumnName ="id"),
     inverseJoinColumns=@JoinColumn(name="nombre_sala",referencedColumnName="nombre")
     )
     private Set<Sala> salas;
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="usercanciones",
     joinColumns=@JoinColumn(name="id_cancion",referencedColumnName ="id"),
@@ -54,7 +57,7 @@ public class Cancion {
         this.author = author;
         this.salas=new HashSet<Sala>();
         this.usuarios=new HashSet<Usuario>();
-        this.minuto = LocalTime.of(00, 00, 01);
+        
     }
     public Cancion() {
     	 super();

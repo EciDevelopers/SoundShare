@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
+import java.util.List;
 
 /**
  *
@@ -19,5 +20,7 @@ import edu.eci.arsw.entities.Usuario;
 @Repository
 @Component
 public interface SalaRepository extends JpaRepository< Sala, Long > {
+    public  List<Sala> findAll();
+    public Sala findByNombre(String nombre);
     
 }
