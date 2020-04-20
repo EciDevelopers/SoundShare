@@ -65,13 +65,16 @@
             <button id="boton1" type="submit"  ><img src="../img/pass.png" alt="x"/></button>
         </div>
         <div style="float: left;width: 10%">
-            <button type="submit" data-video="2LJg9UvoKvk" id="youtube-audio" <!--onclick="app.init()"--></button>
+            <button id="youtube-audio" type="submit" ></button>
         </div>
         <div style="float: left;width: 10%">
             <button id="boton2" type="submit"><img src="../img/next.png" alt="x" /></button>
         </div>
         <div id= "menu-tittlesong">
-            <input id="song" type="text" class="form-control" placeholder="Find your favorite song..."/>
+            <input id="barraSong" type="text" class="form-control" placeholder="Find your favorite song..."/>
+        </div>
+        <div style="float: right;width: 5%">
+            <button id="youtube-audio2" type="submit"  class="btn btn-primary" onclick="onYouTubeIframeAPIReady(barraSong.value)" ><img src="../img/buscar.png" alt="x"/></button>
         </div>
     </div>
 </footer>
