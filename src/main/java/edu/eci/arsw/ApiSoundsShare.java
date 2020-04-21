@@ -126,9 +126,17 @@ public class ApiSoundsShare {
     public String prueba(){
         return "html/prueba";
     }
-    public static void main(String[] args) {
-        SpringApplication.run(ApiSoundsShare.class, args);
+
+    @RequestMapping("html/addSong.html")
+    public String addSong(){
+        return "html/addSong";
     }
+
+
+    public static void main(String[] args) {
+	     SpringApplication.run(ApiSoundsShare.class, args);
+    }
+
     /*
     @Bean
     public CommandLineRunner demo(ServiciosSoundShareImpl service) {
@@ -162,17 +170,4 @@ public class ApiSoundsShare {
         };   
     }
     */
-    
-    
-    
-    
-
-  
- 
-   
-  
-   
-  
-        
-
 }
