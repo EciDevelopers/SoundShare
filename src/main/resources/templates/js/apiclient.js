@@ -4,7 +4,7 @@ var apiclient = (function () {
     return {
 		addUser : function (user){
 			//const Url = 'http://localhost:8080/users/create';
-			const Url = 'http://soundsharearsw.herokuapp.com/users/create';
+			const Url = 'https://soundsharearsw.herokuapp.com/users/create';
 			console.log(user);
         	var postRequest=$.ajax({
 				url:  Url,
@@ -24,7 +24,7 @@ var apiclient = (function () {
         },
 		addSong : function (song){
 			//const Url = 'http://localhost:8080/canciones/create';
-			const Url = 'http://soundsharearsw.herokuapp.com/canciones/create';
+			const Url = 'https://soundsharearsw.herokuapp.com/canciones/create';
 			console.log(song);
         	var postRequest=$.ajax({
 				url:  Url,
