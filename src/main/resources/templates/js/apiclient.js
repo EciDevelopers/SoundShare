@@ -47,7 +47,7 @@ var apiclient = (function () {
 			if (nombre !== undefined){
 			console.log('xddddddddddddddd')
 			//const Url = 'https://localhost:8080/canciones/getByName/';
-			const Url = 'http://soundsharearsw.herokuapp.com/canciones/getByName/';
+			const Url = 'https://soundsharearsw.herokuapp.com/canciones/getByName/';
 			jQuery.ajax({
 				url: Url+nombre,
 				type: "GET",
