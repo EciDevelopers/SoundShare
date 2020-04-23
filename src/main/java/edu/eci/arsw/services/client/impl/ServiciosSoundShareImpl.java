@@ -88,6 +88,20 @@ public class ServiciosSoundShareImpl {
 		return cancion;
 
     }
+     public Cancion getCancionByName(String name) throws ExceptionServiciosReserva{
+         Cancion cancion = null;
+         try{
+             cancion = cancionRepository.findByNombre(name);
+             if(cancion==null){
+                 throw new ExceptionServiciosReserva("nulo");
+             }
+             return cancion;
+         }catch(Exception e){
+         	e.printStackTrace();
+         }
+ 		return cancion;
+
+     }
      public Sala getSalaByName(String nombre) throws ExceptionServiciosReserva{
         Sala sala = null;
         try{

@@ -31,6 +31,18 @@ var app = (function () {
 		};
 		apiclient.addUser(JSON.stringify(newUser));
 	};
+	var addSong = function(nombre,autor,genero,url) {
+		var newSong = {
+			id : url.split('v=')[1],
+			nombre : nombre,
+			genero : genero,
+			author : autor,
+			
+		};
+		apiclient.addSong(JSON.stringify(newSong));
+
+	};
+	
 
     return {
         init: function () {
@@ -59,7 +71,8 @@ var app = (function () {
             setConnected(false);
             console.log("Disconnected");
         },
-		addUser : addUser
+		addUser : addUser,
+		addSong : addSong
 		
     };
 

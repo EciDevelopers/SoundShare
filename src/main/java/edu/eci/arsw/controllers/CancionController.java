@@ -66,6 +66,16 @@ public class CancionController {
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 	}       
     }
+    @RequestMapping(path ="/getByName/{nombre}",method = RequestMethod.GET)
+    public ResponseEntity<?> getCancionByNombre(@PathVariable ("nombre") String nombre){
+        try {
+            return new ResponseEntity<>(services.getCancionByName(nombre),HttpStatus.ACCEPTED);
+        } catch (ExceptionServiciosReserva e) {
+			
+			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+	}       
+    }
     @RequestMapping(path ="/{id}/users",method = RequestMethod.GET)
     public ResponseEntity<?> getUsersThatHaveCancion(@PathVariable ("id") String id){
         try {

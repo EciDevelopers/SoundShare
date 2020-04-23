@@ -26,12 +26,20 @@ import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
+
+
+import java.net.HttpURLConnection;
+import java.net.Proxy;
+import java.net.URL;
 import java.sql.Time;
 import java.time.LocalTime;
 
 import java.util.HashSet;
 import java.util.Set;
+
+
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -142,6 +150,7 @@ public class ApiSoundsShare {
     public CommandLineRunner demo(ServiciosSoundShareImpl service) {
       return (args) -> {
         // save a few customers
+    	
     	Set<Sala> salas=new HashSet<Sala>();
         Set<Cancion> plays=new HashSet<Cancion>();
         Set<Sala> sal=new HashSet<Sala>();
@@ -167,7 +176,11 @@ public class ApiSoundsShare {
         canciones.add(can);
         Sala sala=new Sala(35,"hope15","electronica","publica",usuarios,canciones);
         service.saveSala(sala);
+        
+  
         };   
+       
     }
-    */
+     */
+    
 }

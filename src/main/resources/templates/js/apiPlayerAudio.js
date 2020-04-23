@@ -1,14 +1,23 @@
 var player;
 var song;
-
+var apiclient = apiclient;
+var ctrlq;
   function onYouTubeIframeAPIReady(song) {
-    var ctrlq = document.getElementById("youtube-audio");
+	console.log('aquiiiii');
+    ctrlq = document.getElementById("youtube-audio");
     ctrlq.innerHTML = '<img id="youtube-icon" src=""/><div id="youtube-player"></div>';
     ctrlq.onclick = toggleAudio;
-    player = new YT.Player('youtube-player', {
+	var idvideo = apiclient.getIdSong(song,verificar);
+	console.log(idvideo);
+   
+	
+  };
+  var verificar = function(res) {
+    console.log(res);
+	player = new YT.Player('youtube-player', {	
       height: '0',
       width: '0',
-      videoId: song,
+      videoId: res,
       playerVars: {
         autoplay: ctrlq.dataset.autoplay,
         loop: ctrlq.dataset.loop,
@@ -18,6 +27,7 @@ var song;
         'onStateChange': onPlayerStateChange
       }
     });
+	
   };
 
   function togglePlayButton(play) {
