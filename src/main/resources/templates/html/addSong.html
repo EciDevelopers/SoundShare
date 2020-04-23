@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/regiEstilo.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="../js/apiclient.js"></script>
+	<script src="../js/app.js"></script>
 </head>
 <body>
 <header>
@@ -45,7 +47,7 @@
             <div class="container-login100-form-btn">
                 <div class="wrap-login100-form-btn">
                     <div class="login100-form-bgbtn"></div>
-                    <button class="login100-form-btn" onclick="">
+                    <button class="login100-form-btn" onclick="app.addSong(nombre.value,autor.value,genero.value,url.value)">
                         continue
                     </button>
                 </div>
