@@ -43,6 +43,24 @@ var app = (function () {
 
 	};
 
+	var showSongs = function(){
+	    $("#tablas").empty();
+        canciones.map(function(canciones) {
+              $("#tablas").append(
+                  "<tr> <td>" +
+                  canciones.id +
+                  "</td> <td>" +
+                  canciones.nombre +
+                  "</td> <td>" +
+                  canciones.genero +
+                  "</td> <td>" +
+                  canciones.author +
+                  "</td> <td>" +
+                  canciones.minuto
+              );
+            });
+    }
+
     return {
         init: function () {
             id = $("#nDib").val();

@@ -40,6 +40,19 @@ var apiclient = (function () {
 				}
 			);
         },
+
+        getSongs: function(callback){
+            //const Url = 'http://localhost:8080/canciones';
+            const Url = 'https://soundsharearsw.herokuapp.com/canciones';
+            $.ajax({
+                dataType: "json",
+                url: Url,
+                success: function (data) {
+                    callback(data)
+                }
+            });
+        },
+
 		getIdSong: function(nombre,callback) {
 			console.log(nombre);
 			if (nombre !== undefined){
