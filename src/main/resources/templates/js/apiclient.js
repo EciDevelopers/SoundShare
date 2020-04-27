@@ -1,7 +1,23 @@
 var apiclient = (function () {
-   
-
     return {
+        $(document).ready(function(){
+            $.get("canciones/getAll", function(data){
+                $('#mainBody').html('');
+                $('#id').html('');
+                $('#nombre').html('');
+                $('#genero').html('');
+                $('#author').html('');
+                $('#minuto').html('');
+                let index = 0;
+                $.map(data, (val) => {
+                     let tdc = '<td>' + val.nombre + '</td>'
+                     let tdr = '<td>' + val.genero + '</td>'
+                     let tdd = '<td>' + val.author + '</td>'
+                     let th = '<th scope="row">' + val.id + '</th>'
+                     let tr = '<tr id="' + 'id' + index + '">' + th + tdd + tdc + tdr + '</tr>'
+                     $('#mainBody').append(tr);
+            });
+        });
 		addUser : function (user){
 			//const Url = 'http://localhost:8080/users/create';
 			const Url = 'https://soundsharearsw.herokuapp.com/users/create';

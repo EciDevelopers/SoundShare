@@ -33,7 +33,7 @@ import javax.validation.Valid;
 public class CancionController {
     @Autowired
     private ServiciosSoundShareImpl services;
-    @RequestMapping (method = RequestMethod.GET )
+    @RequestMapping (value= "/getAll",method = RequestMethod.GET )
     public ResponseEntity<?>  getAllCanciones(){
         try{
             List<Cancion> canciones = services.getAllCanciones();
