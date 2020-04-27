@@ -20,7 +20,8 @@ nav ul {
 }
 
 nav ul li :hover{
-    background: #D41788;
+    color:#EDBB99;
+    background-color: #212F3C;
     text-shadow: 0 0 2px #000;
 }
 
@@ -28,7 +29,7 @@ nav > ul {
     display:table;
     overflow:hidden;
     width:100%;
-    background: #15396B;
+    background: #17202A;
     position:relative;
 }
 
@@ -37,7 +38,7 @@ nav > ul li {
 }
 
 nav > ul li a {
-    color: #fff;
+    color: #99A3A4;
     display:block;
     padding: 10px 5px;
     line-height:20px;
@@ -62,19 +63,24 @@ nav > ul > li > ul > li a{
 }
 
 body{ margin:0;
-    background: #FFFFFF;
+    background: #EDBB99;
     font-family: Verdana;
-    font-size:15px
+    font-size:10px
+}
+
+#tittle {
+ background: #17202A;
 }
 
 #menu-play {
-    padding: 10px 5px;
-    background: #15396B;
+    padding: 5px 5px;
+    background: #17202A;
     bottom: 0;
     position: fixed;
+    height:9%;
     width: 100%;
     z-index: 5000;
-    list-style:none;
+    list-style:3
 }
 
 #menu-play ul {
@@ -100,11 +106,11 @@ body{ margin:0;
 }
 
 #menu-tittlesong {
-    border-radius: 10px;
-    background-color: #f2f2f2;
+    border-radius: 9px;
+    background-color: #17202A;
     float: left;
     width: 60%;
-    padding: 10px;
+    padding: 9px;
 }
 
 #menu-friends {
@@ -120,22 +126,23 @@ body{ margin:0;
 
 #boton1{
     border: 0;
-    background-color: #15396B;
+    background-color: #17202A;
 }
 #boton2{
 
     border: 0;
-    background-color: #15396B;
+    background-color: #17202A;
 }
 
 #youtube-audio{
     border: 0;
-    background-color: #15396B;
+    background-color: #17202A;
 }
 
 #youtube-audio2{
     border: 0;
-    background-color: #15396B;
+    background-color: #17202A;
+    width:30%;
 }
 
 input {
