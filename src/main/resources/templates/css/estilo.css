@@ -62,7 +62,8 @@ nav > ul > li > ul > li a{
 
 }
 
-body{ margin:0;
+body{
+    margin:0;
     background: #EDBB99;
     font-family: Verdana;
     font-size:10px
@@ -87,24 +88,6 @@ body{ margin:0;
     display:block;
 }
 
-#menu-sala {
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #f2f2f2;
-    float:right;
-    width:42%;
-    padding: 50px 55px 33px 55px;
-}
-
-#menu-princi {
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #f2f2f2;
-    float:right;
-    width:42%;
-    padding: 50px 55px 33px 55px;
-}
-
 #menu-tittlesong {
     border-radius: 9px;
     background-color: #17202A;
@@ -112,17 +95,6 @@ body{ margin:0;
     width: 60%;
     padding: 9px;
 }
-
-#menu-friends {
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #f2f2f2;
-    float:left;
-    width:40%;
-    padding: 50px 55px 33px 55px;
-}
-
-
 
 #boton1{
     border: 0;

@@ -42,7 +42,6 @@ var app = (function () {
 		apiclient.addSong(JSON.stringify(newSong));
 
 	};
-	
 
     return {
         init: function () {
