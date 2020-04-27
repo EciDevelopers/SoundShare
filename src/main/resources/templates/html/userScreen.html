@@ -18,7 +18,6 @@
 	<script src="../js/apiclient.js"></script>
 	<script src="../js/app.js"></script>
 </head>
-
 <body>
 <header>
     <nav>
@@ -34,49 +33,61 @@
     <div id="tittle">
         <img src="../img/logo2.png" style="width:20%" height="25%">
     </div>
-    <br>
-    
-    <div class="row" id="menu-sala">
-        <div>
-            <table id="main">
-                <thead>
-                <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">nombre</th>
-                    <th scope="col">genero</th>
-                    <th scope="col">author</th>
-                    <th scope="col">minuto</th>
-                </tr>
-                </thead>
-                <tbody id="mainBody">
-                <tr id="click">
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
+    <div id="todo">
+        <div class="row" id="menu-songs">
+            <h2 align="left">Your Songs </h2>
+            <br>
+            <div>
+                <table id="main">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">nombre</th>
+                        <th scope="col">genero</th>
+                        <th scope="col">author</th>
+                        <th scope="col">minuto</th>
+                    </tr>
+                    </thead>
+                    <tbody id="mainBody">
+                    <tr id="click">
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id ="menu-sala" >
+            <h2 align="left">Your rooms </h2>
+            <br>
+            <a href="sala.html"><input id="room" type="button" value="Go to Room"></a>
+        </div>
+        <div id ="menu-princi" >
+            <h2 align="left">Your playlist </h2>
+            <br>
+            <input id="songFind" type="text" class="form-control" placeholder="Find your favorite playlist..."/>
         </div>
     </div>
 </main>
 <footer>
     <div id ="menu-play">
-        <div style="float: left;width: 10%">
+        <div>
             <button id="boton1" type="submit"  ><img src="../img/pass.png" alt="x"/></button>
         </div>
-        <div style="float: left;width: 10%">
+        <div>
             <button id="youtube-audio" type="submit" ></button>
         </div>
-        <div style="float: left;width: 10%">
+        <div>
             <button id="boton2" type="submit"><img src="../img/next.png" alt="x" /></button>
         </div>
         <div id= "menu-tittlesong">
             <input id="barraSong" type="text" class="form-control" placeholder="Find your favorite song..."/>
         </div>
-        <div style="float: right;width: 5%">
+        <div>
             <button id="youtube-audio2" type="submit"  class="btn btn-primary" onclick="onYouTubeIframeAPIReady(barraSong.value)" ><img src="../img/buscar.png" alt="x"/></button>
         </div>
     </div>

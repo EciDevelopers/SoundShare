@@ -74,18 +74,13 @@ body{
 }
 
 #menu-play {
-    padding: 5px 5px;
+    padding: 5px ;
     background: #17202A;
     bottom: 0;
     position: fixed;
-    height:9%;
+    height:8%;
     width: 100%;
-    z-index: 5000;
-    list-style:3
-}
 
-#menu-play ul {
-    display:block;
 }
 
 #menu-tittlesong {
@@ -96,49 +91,123 @@ body{
     padding: 9px;
 }
 
-#boton1{
+table{
+    color:#bf9a80;
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+table, th, td{
+    border: 1px solid #cdcdcd;
+}
+table th, table td{
+    padding: 10px;
+    text-align: center;
+}
+
+/*---------------------------------------------*/
+#todo{
+     color: #bf9a80;
+     justify-content:space-evenly;
+     background-color: #212F3C;
+     position:relative;
+     width:80%;
+     float:center;
+     padding: 20px 50px 20px 20px;
+
+}
+
+#menu-songs {
+    overflow: hidden;
+    width:40%;
+    padding: 20px 50px 20px 20px;
+}
+
+#menu-sala {
+    overflow: hidden;
+    width:40%;
+    float:left;
+    padding: 20px 50px 20px 20px;
+}
+
+#room{
     border: 0;
+    color: #17202A;
+    background-color: #F2EFED;
+    border-radius: 3px;
+    width:80%;
+    padding: 8px;
+}
+#room:hover{
+    color: #bf9a80;
+    background-color: #17202A;
+}
+
+#menu-princi {
+    overflow: hidden;
+    width:40%;
+    padding: 20px 50px 20px 20px;
+}
+
+#songFind{
+    border: 0;
+    background-color: #F2EFED;
+    border-radius: 3px;
+    width:80%;
+    padding: 8px;
+}
+
+/*---------------------------------------------*/
+#boton1{
+    float:left;
+    border: 0;
+    width:10%;
     background-color: #17202A;
 }
 #boton2{
-
+    float:left;
     border: 0;
+    width:10%;
     background-color: #17202A;
 }
 
 #youtube-audio{
+    float:left;
     border: 0;
     background-color: #17202A;
 }
 
 #youtube-audio2{
+    float:left;
     border: 0;
     background-color: #17202A;
-    width:30%;
 }
 
-input {
-    border-radius: 10px;
+#barraSong {
+    border: 0;
+    border-radius: 3px;
     width:80%;
-    padding: 10px;
+    padding: 8px;
 }
 
 #menu{
+     color: #bf9a80;
      border-radius: 10px;
      overflow: hidden;
-     background-color: #f2f2f2;
+     background-color: #212F3C;
      float:left;
      width:40%;
-     padding: 200px 10px;
+     padding: 160px 10px;
 }
 
 #menu-chat{
+    color: #bf9a80;
      border-radius: 10px;
      overflow: hidden;
-     background-color: #f2f2f2;
+     background-color: #212F3C;
      float:right;
      width:40%;
-     padding: 200px 10px;
+     padding: 160px 10px;
 }
 
 
