@@ -1,5 +1,5 @@
 //Mi direccion ip y el puerto asignado .. forceNew es para que la conexion se fuerce
-var socket = io.connect('http://192.168.1.6:6677',{'forceNew':true});
+var socket = io.connect('https://soundsharearsw.herokuapp.com',{'forceNew':true});
 
 socket.on('messages',function (data) {
     console.log(data);
