@@ -44,7 +44,7 @@ a {
 	font-family: Verdana;
 	font-size: 10px;
 	line-height: 1.7;
-	color: #666666;
+	color: #c9804f;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
@@ -58,7 +58,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #6a7dfe;
+  color: #17202A;
   color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
   color: -o-linear-gradient(left, #21d4fd, #b721ff);
   color: -moz-linear-gradient(left, #21d4fd, #b721ff);
@@ -140,14 +140,14 @@ iframe {
 .txt1 {
   font-family: Verdana;
   font-size: 13px;
-  color: #666666;
+  color: #EDBB99;
   line-height: 1.5;
 }
 
 .txt2 {
   font-family: Verdana;
   font-size: 13px;
-  color: #333333;
+  color: #c9804f;
   line-height: 1.5;
 }
 
@@ -171,12 +171,12 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;  
+  background: #212F3C;
 }
 
 .wrap-login100 {
   width: 390px;
-  background: #fff;
+  background: #17202A;
   border-radius: 10px;
   overflow: hidden;
   padding: 77px 55px 33px 55px;
@@ -214,7 +214,7 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 2px solid #adadad;
+  border-bottom: 2px solid #C9804F;
   margin-bottom: 37px;
 }
 
@@ -354,11 +354,11 @@ iframe {
 }
 
 .wrap-login100-form-btn {
-  width: 100%;
+  width: 70%;
   display: block;
   position: relative;
   z-index: 1;
-  border-radius: 25px;
+  border-radius: 5px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -368,7 +368,7 @@ iframe {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #a64bf4;
+  background: #212F3C;
   background: -webkit-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
   background: -o-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
   background: -moz-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);

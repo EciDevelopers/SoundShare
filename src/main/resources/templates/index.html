@@ -37,22 +37,24 @@
 				<form class="login100-form validate-form" th:action="@{/}"  th:authentication-success-handler-ref="@{/html/adminScreen}" method="post">
 					<div th:if="${param.error}">
 						<div class="alert alert-danger">
-							Invalid username or password.
+							<!--Invalid username or password.-->
 						</div>
 					</div>
 					<div th:if="${param.logout}">
 						<div class="alert alert-info">
-							You have been logged out.
+							<!--You have been logged out.-->
 						</div>
 					</div>
 					<span class="login100-form-title p-b-26">
-						SoundShare
+						<a href="img/logo2.png">
+							<img style="border-radius: 5px;width:100%;" src="img/logo2.png" title="Logo">
+						</a>
 					</span>
-					<span class="login100-form-title p-b-48">
+					<!--<span class="login100-form-title p-b-48">
 						<a href="img/logoECI_Dev.jpg">
 							<img style="border-radius: 5px;width:120px; height:100px" src="img/logoECI_Dev.jpg" title="Logo">
 						</a>
-					</span>
+					</span>-->
 
 					<a href="html/userScreen.html">Login</a> <br/>
 					<a href="html/chatPrueba.html">Chat</a> <br/>

@@ -1,8 +1,8 @@
 body{
     margin:0;
-    background: #f2f2f2;
+    background: #212F3C;
     font-family: Verdana;
-    font-size:10px
+    font-size:5px
 }
 
 #register{
@@ -11,7 +11,7 @@ body{
       align-items: center;
       border-radius: 10px;
       overflow: hidden;
-      background-color: #ffff;
+      background-color: #17202A;
       width:42%;
       padding: 50px 55px 33px 55px;
 }
