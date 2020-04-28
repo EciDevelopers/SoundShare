@@ -11,3 +11,5 @@ bin/
 .bin/
 .settings/
 *.iml
+node_modules
+./node_modules
