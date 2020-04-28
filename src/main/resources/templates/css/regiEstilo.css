@@ -1,8 +1,6 @@
 body{
-    margin:0;
-    background: #212F3C;
+    background: #C7CDD6;
     font-family: Verdana;
-    font-size:5px
 }
 
 #register{
@@ -12,11 +10,11 @@ body{
       border-radius: 10px;
       overflow: hidden;
       background-color: #17202A;
-      width:42%;
+      width:35%;
       padding: 50px 55px 33px 55px;
 }
 input {
-    width:30%;
+    width:10%;
     padding: 10px;
 }
 
