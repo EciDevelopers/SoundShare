@@ -7,6 +7,8 @@ package edu.eci.arsw.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cancion")
-public class Cancion {
+public class Cancion implements Serializable{
     @Id
     private String id;
     private String nombre;

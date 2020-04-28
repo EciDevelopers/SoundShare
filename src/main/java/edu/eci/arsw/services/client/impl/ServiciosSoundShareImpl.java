@@ -6,10 +6,12 @@
 package edu.eci.arsw.services.client.impl;
 
 import edu.eci.arsw.entities.Cancion;
+import edu.eci.arsw.entities.Grupo;
 import edu.eci.arsw.entities.Rol;
 import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.persistence.CancionRepository;
+import edu.eci.arsw.persistence.GrupoRepository;
 import edu.eci.arsw.persistence.RolRepository;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
@@ -37,6 +39,8 @@ public class ServiciosSoundShareImpl {
     private CancionRepository cancionRepository;
     @Autowired
     private RolRepository rolRepository;
+    @Autowired
+    private GrupoRepository grupoRepository;
      
     public List<Usuario> getAllUsers() throws ExceptionServiciosReserva {
         return usuarioRepository.findAll();
@@ -46,6 +50,22 @@ public class ServiciosSoundShareImpl {
     }
     public List<Cancion> getAllCanciones() throws ExceptionServiciosReserva {
         return cancionRepository.findAll();
+    }
+    public List<Grupo> getAllGrupos() throws ExceptionServiciosReserva {
+        return grupoRepository.findAll();
+    }
+    public Grupo getGrupoById(int id) throws ExceptionServiciosReserva {
+        Grupo grupo = null;
+        try{
+            grupo = grupoRepository.findById(id);
+            if(grupo==null){
+                throw new ExceptionServiciosReserva("nulo");
+            }
+            return grupo;
+        }catch(Exception e){
+        	e.printStackTrace();
+        }
+		return grupo;
     }
     public Rol getRolById(int id){
         Rol rol = null;
@@ -157,6 +177,9 @@ public class ServiciosSoundShareImpl {
 
     public void saveSala(Sala sala) throws ExceptionServiciosReserva{
         salaRepository.save(sala);
+    }
+    public void saveGrupo(Grupo grupo) throws ExceptionServiciosReserva{
+        grupoRepository.save(grupo);
     }
     public Set<Usuario> getUsersBySala(String name)  throws ExceptionServiciosReserva{
         Sala sala=getSalaByName(name);

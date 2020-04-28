@@ -41,6 +41,14 @@ public class Usuario  implements Serializable {
     private String nickname;
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="amigosuser",
+    joinColumns=@JoinColumn(name="nombre_user",referencedColumnName ="nombre"),
+    inverseJoinColumns=@JoinColumn(name="id_grupos",referencedColumnName="id")
+    )
+    private Set<Grupo> grupos;
+    
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="salausers",
     joinColumns=@JoinColumn(name="nombre_usuario",referencedColumnName ="nombre"),
     inverseJoinColumns=@JoinColumn(name="nombre_sala",referencedColumnName="nombre")
@@ -60,6 +68,8 @@ public class Usuario  implements Serializable {
     inverseJoinColumns=@JoinColumn(name="rol_id",referencedColumnName="id")
     )
     private Set<Rol> rol;
+    
+    
 
     public Usuario(){
         super();
@@ -73,6 +83,7 @@ public class Usuario  implements Serializable {
         this.nickname=nickname;
         this.salas=new HashSet<Sala>();
         this.canciones=new HashSet<Cancion>();
+        this.grupos=new HashSet<Grupo>();
         
    
        
@@ -132,6 +143,14 @@ public class Usuario  implements Serializable {
 
     public void setRol(Set<Rol> rol) {
         this.rol = rol;
+    }
+
+    public Set<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(Set<Grupo> grupos) {
+        this.grupos = grupos;
     }
     
     
