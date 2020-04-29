@@ -66,7 +66,7 @@ var app = (function () {
 
     }
 	function printUserLogged(){
-		if (sessionStorage.getItem("selectedUser") !== undefined){
+		if (localStorage.getItem("selectedUser") !== undefined){
 			document.getElementById("nick").innerHTML ='welcome ' + localStorage.getItem("selectedUser") + ' !';
 			console.log('user');
 			console.log(localStorage.getItem("selectedUser"));
@@ -74,6 +74,12 @@ var app = (function () {
 		}
 
     }
+	function getUserLogged(){
+		var url = 'https://webchatsoundshare.herokuapp.com?nickname='+localStorage.getItem("selectedUser");
+		document.getElementById("chat").data = url;
+		return url;
+    }
+	
     return {
         init: function () {
             id = $("#nDib").val();
@@ -104,7 +110,8 @@ var app = (function () {
 		addUser : addUser,
 		addSong : addSong,
 		setUserLogged : setUserLogged,
-		printUserLogged : printUserLogged
+		printUserLogged : printUserLogged,
+		getUserLogged : getUserLogged
 		
 		
     };

@@ -1,7 +1,6 @@
 var player;
 var song;
 var apiclient = apiclient;
-var app = app;
 var ctrlq;
   function onYouTubeIframeAPIReady(song) {
 	console.log('aquiiiii');
