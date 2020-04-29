@@ -61,19 +61,19 @@ var app = (function () {
     }
 	function setUserLogged(nickname){
         console.log(nickname);
-        sessionStorage.setItem("selectedUser",nickname);
+        localStorage.setItem("selectedUser",nickname);
 		
 
     }
 	function printUserLogged(){
 		if (sessionStorage.getItem("selectedUser") !== undefined){
-			document.getElementById("nick").innerHTML ='welcome ' + sessionStorage.getItem("selectedUser") + ' !';
+			document.getElementById("nick").innerHTML ='welcome ' + localStorage.getItem("selectedUser") + ' !';
 			console.log('user');
-			console.log(sessionStorage.getItem("selectedUser"));
+			console.log(localStorage.getItem("selectedUser"));
+			
 		}
 
     }
-
     return {
         init: function () {
             id = $("#nDib").val();
@@ -105,6 +105,7 @@ var app = (function () {
 		addSong : addSong,
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged
+		
 		
     };
 
