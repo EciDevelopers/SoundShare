@@ -2,7 +2,7 @@ var apiclient = (function () {
      var getSong = (function (callback) {
             axios({
                 method: 'GET',
-                url: '/canciones',
+                url: 'https://soundsharearsw.herokuapp.com/canciones',
 
             })
                 .then(response => callback(response))

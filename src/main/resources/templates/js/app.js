@@ -46,6 +46,7 @@ var app = (function () {
     }
 
     var showSongs = (function(res)  {
+        console.log("entro a la base de datos");
         var id = JSON.stringify(res.data);
         var lista = JSON.parse(id);
         $("#tablas").empty();
