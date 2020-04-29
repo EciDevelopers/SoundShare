@@ -41,30 +41,30 @@ var app = (function () {
 		apiclient.addSong(JSON.stringify(newSong));
 
 	};
-    var createtable=function(){
+
+	function createtable(){
         apiclient.getSongs(showSongs);
     }
 
-    var showSongs = (function(res)  {
-        console.log("entro a la base de datos");
-        var id = JSON.stringify(res.data);
-        var lista = JSON.parse(id);
+    function showSongs(){
+        var id = JSON.parse(canciones.data);
+        var lista = JSON.parse(canciones);
         $("#tablas").empty();
         lista.map(function(canciones) {
               $("#tablas").append(
-                  "<tr> <td>" +
+                  '<tr class="table-success"> <td>'+
                   canciones.id +
-                  "</td> <td>" +
+                  '</td> <td>' +
                   canciones.nombre +
-                  "</td> <td>" +
+                  '</td> <td>' +
                   canciones.genero +
-                  "</td> <td>" +
+                  '</td> <td>' +
                   canciones.author +
-                  "</td> <td>" +
+                  '</td> <td>' +
                   canciones.minuto
               );
         });
-    });
+    }
 
 	function setUserLogged(nickname){
         console.log(nickname);
@@ -119,7 +119,7 @@ var app = (function () {
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged,
 		getUserLogged : getUserLogged,
-		createtable:createtable,
+		createtable : createtable
     };
 
 })();

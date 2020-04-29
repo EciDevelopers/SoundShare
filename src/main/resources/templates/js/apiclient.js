@@ -1,15 +1,14 @@
 var apiclient = (function () {
-     var getSong = (function (callback) {
-            axios({
-                method: 'GET',
-                url: 'https://soundsharearsw.herokuapp.com/canciones',
-
-            })
-                .then(response => callback(response))
-                .catch(error => console.log(error));
+     var getSongs = (function (callback) {
+        console.log("entrada");
+        jQuery.ajax({
+            url: 'http://localhost:8080/canciones',
+            method: 'GET'
+        });
      });
+
     return {
-        getSong:getSong,
+        getSongs : getSongs,
 		addUser : function (user){
 			//const Url = 'http://localhost:8080/users/create';
 			const Url = 'https://soundsharearsw.herokuapp.com/users/create';
