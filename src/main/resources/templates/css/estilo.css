@@ -111,7 +111,6 @@ table th, table td{
      justify-content:space-evenly;
      background-color: #212F3C;
      position:relative;
-     width:80%;
      float:center;
      padding: 20px 50px 20px 20px;
 
@@ -149,6 +148,13 @@ table th, table td{
     padding: 20px 50px 20px 20px;
 }
 
+#menu-friends {
+    overflow: hidden;
+    background-color: #212F3C;
+    width:40%;
+    padding: 20px 50px 20px 20px;
+}
+
 #songFind{
     border: 0;
     background-color: #F2EFED;
@@ -156,6 +162,17 @@ table th, table td{
     width:80%;
     padding: 8px;
 }
+
+#friends{
+    border: 0;
+    background-color: #F2EFED;
+    border-radius: 3px;
+    width:80%;
+    padding: 8px;
+
+}
+
+
 
 /*---------------------------------------------*/
 #boton1{
@@ -190,24 +207,33 @@ table th, table td{
     padding: 8px;
 }
 
+#toda{
+     color: #bf9a80;
+     justify-content:space-evenly;
+     background-color: #212F3C;
+     position:relative;
+     float:center;
+     width:100%
+}
+
 #menu{
      color: #bf9a80;
-     border-radius: 10px;
      overflow: hidden;
      background-color: #212F3C;
      float:left;
      width:40%;
-     padding: 100px 20px 145px 20px;
+     padding: 20px 50px 20px 20px;
+
 }
 
 #menu-chat{
-    color: #bf9a80;
-     border-radius: 10px;
+     color: #bf9a80;
      overflow: hidden;
      background-color: #212F3C;
-     float:right;
+     float:left;
      width:40%;
-     padding: 160px 10px;
+     padding: 50px 114.5px 20px 20px;
+
 }
 
 
