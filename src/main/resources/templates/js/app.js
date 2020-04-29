@@ -118,7 +118,8 @@ var app = (function () {
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged,
 		getUserLogged : getUserLogged,
-		showSongs : showSongs
+		createtable:createtable,
     };
 
 })();
+window.onload=app.createtable;
