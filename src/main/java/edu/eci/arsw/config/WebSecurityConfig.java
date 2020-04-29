@@ -22,6 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("myUserDetailsService")
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
+    private CustomSuccessHandler customSuccessHandler; 
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -29,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+          
         http
                 .authorizeRequests()
                 .antMatchers("/webjars/**",
@@ -48,10 +51,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.csrf().disable().cors()
                 
                 .and()
-                .formLogin()
-                .loginPage("/")
+                .formLogin().loginPage("/").successHandler(customSuccessHandler)
                 .permitAll()
-                .defaultSuccessUrl("/html/adminScreen.html",true)
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
