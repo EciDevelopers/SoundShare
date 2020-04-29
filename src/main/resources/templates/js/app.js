@@ -1,6 +1,5 @@
 var apiclient = apiclient;
 var app = (function () {
-
     class Acto{
         constructor(youtubeaudio){
             this.youtubeaudio=youtube-audio;
@@ -60,6 +59,20 @@ var app = (function () {
               );
             });
     }
+	function setUserLogged(nickname){
+        console.log(nickname);
+        sessionStorage.setItem("selectedUser",nickname);
+		
+
+    }
+	function printUserLogged(){
+		if (sessionStorage.getItem("selectedUser") !== undefined){
+			document.getElementById("nick").innerHTML ='welcome ' + sessionStorage.getItem("selectedUser") + ' !';
+			console.log('user');
+			console.log(sessionStorage.getItem("selectedUser"));
+		}
+
+    }
 
     return {
         init: function () {
@@ -89,7 +102,9 @@ var app = (function () {
             console.log("Disconnected");
         },
 		addUser : addUser,
-		addSong : addSong
+		addSong : addSong,
+		setUserLogged : setUserLogged,
+		printUserLogged : printUserLogged
 		
     };
 

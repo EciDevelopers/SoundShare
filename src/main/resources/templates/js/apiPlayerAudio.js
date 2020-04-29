@@ -1,9 +1,11 @@
 var player;
 var song;
 var apiclient = apiclient;
+var app = app;
 var ctrlq;
   function onYouTubeIframeAPIReady(song) {
 	console.log('aquiiiii');
+	console.log(app.printUserLogged());
     ctrlq = document.getElementById("youtube-audio");
     ctrlq.innerHTML = '<img id="youtube-icon" src=""/><div id="youtube-player"></div>';
     ctrlq.onclick = toggleAudio;

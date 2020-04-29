@@ -28,6 +28,9 @@
 	<link rel="stylesheet"  href="css/util.css">
 	<link rel="stylesheet"  href="css/main.css">
 <!--===============================================================================================-->
+	<script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+	<script src="../js/apiclient.js"></script>
+	<script src="../js/app.js"></script>
 </head>
 <body>
 	
@@ -87,7 +90,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button class="login100-form-btn" onclick="app.setUserLogged(username.value)">
 								Login
 							</button>
 						</div>
