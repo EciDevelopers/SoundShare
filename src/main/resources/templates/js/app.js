@@ -41,10 +41,15 @@ var app = (function () {
 		apiclient.addSong(JSON.stringify(newSong));
 
 	};
+    var createtable=function(){
+        apiclient.getSongs(showSongs);
+    }
 
-	var showSongs = function(){
-	    $("#tablas").empty();
-        canciones.map(function(canciones) {
+    var showSongs = (function(res)  {
+        var id = JSON.stringify(res.data);
+        var lista = JSON.parse(id);
+        $("#tablas").empty();
+        lista.map(function(canciones) {
               $("#tablas").append(
                   "<tr> <td>" +
                   canciones.id +
@@ -57,8 +62,9 @@ var app = (function () {
                   "</td> <td>" +
                   canciones.minuto
               );
-            });
-    }
+        });
+    });
+
 	function setUserLogged(nickname){
         console.log(nickname);
         localStorage.setItem("selectedUser",nickname);
@@ -111,9 +117,8 @@ var app = (function () {
 		addSong : addSong,
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged,
-		getUserLogged : getUserLogged
-		
-		
+		getUserLogged : getUserLogged,
+		showSongs : showSongs
     };
 
 })();

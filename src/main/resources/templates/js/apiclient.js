@@ -1,5 +1,15 @@
 var apiclient = (function () {
+     var getSong = (function (callback) {
+            axios({
+                method: 'GET',
+                url: '/canciones',
+
+            })
+                .then(response => callback(response))
+                .catch(error => console.log(error));
+     });
     return {
+        getSong:getSong,
 		addUser : function (user){
 			//const Url = 'http://localhost:8080/users/create';
 			const Url = 'https://soundsharearsw.herokuapp.com/users/create';
@@ -39,18 +49,6 @@ var apiclient = (function () {
 					alert("failed  Register Song");
 				}
 			);
-        },
-
-        getSongs: function(callback){
-            //const Url = 'http://localhost:8080/canciones';
-            const Url = 'https://soundsharearsw.herokuapp.com/canciones';
-            $.ajax({
-                dataType: "json",
-                url: Url,
-                success: function (data) {
-                    callback(data)
-                }
-            });
         },
 
 		getIdSong: function(nombre,callback) {
