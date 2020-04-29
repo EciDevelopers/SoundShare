@@ -46,7 +46,7 @@ var app = (function () {
         apiclient.getSongs(showSongs);
     }
 
-    function showSongs(){
+    function showSongs(canciones){
         var id = JSON.parse(canciones.data);
         var lista = JSON.parse(canciones);
         $("#tablas").empty();
@@ -123,4 +123,3 @@ var app = (function () {
     };
 
 })();
-window.onload=app.createtable;

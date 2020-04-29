@@ -1,14 +1,12 @@
 var apiclient = (function () {
-     var getSongs = (function (callback) {
-        console.log("entrada");
-        jQuery.ajax({
-            url: 'http://localhost:8080/canciones',
-            method: 'GET'
-        });
-     });
-
     return {
-        getSongs : getSongs,
+        getSongs : function (callback){
+            console.log("entrada");
+            jQuery.ajax({
+                url: 'http://localhost:8080/canciones',
+                method: 'GET'
+            });
+        },
 		addUser : function (user){
 			//const Url = 'http://localhost:8080/users/create';
 			const Url = 'https://soundsharearsw.herokuapp.com/users/create';
