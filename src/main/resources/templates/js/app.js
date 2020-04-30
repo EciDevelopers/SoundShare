@@ -47,10 +47,8 @@ var app = (function () {
     }
 
     function showSongs(canciones){
-        var id = JSON.parse(canciones.data);
-        var lista = JSON.parse(canciones);
-        $("#tablas").empty();
-        lista.map(function(canciones) {
+        console.log(canciones);
+        canciones.map(function(canciones) {
               $("#tablas").append(
                   '<tr class="table-success"> <td>'+
                   canciones.id +

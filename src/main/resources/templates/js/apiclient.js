@@ -4,7 +4,10 @@ var apiclient = (function () {
             console.log("entrada");
             jQuery.ajax({
                 url: 'http://localhost:8080/canciones',
-                method: 'GET'
+                method: 'GET',
+                success: function (respuesta) {
+                    callback(respuesta);
+                }
             });
         },
 		addUser : function (user){
