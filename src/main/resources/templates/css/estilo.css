@@ -224,7 +224,7 @@ table th, table td{
 
 #menu{
      color: #bf9a80;
-     overflow-y: auto;
+     overflow-y: scroll;
      background-color: #212F3C;
      float:left;
      width:40%;
