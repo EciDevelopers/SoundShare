@@ -22,5 +22,6 @@ import java.util.List;
 public interface SalaRepository extends JpaRepository< Sala, Long > {
     public  List<Sala> findAll();
     public Sala findByNombre(String nombre);
+    public Sala findById(int id);
     
 }

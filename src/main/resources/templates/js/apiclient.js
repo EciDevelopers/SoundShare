@@ -67,6 +67,22 @@ var apiclient = (function () {
 			});
           
         }
+		},
+		getNameRoom: function(id,callback) {
+			console.log(id);
+			if (id !== undefined){
+			console.log('xddddddddddddddd')
+			const Url = 'http://localhost:8080/salas/getSalaById/';
+			//const Url = 'https://soundsharearsw.herokuapp.com/canciones/id/';
+			jQuery.ajax({
+				url: Url+id,
+				type: "GET",
+				success: function (respuesta) {
+					callback(respuesta.nombre);
+				}
+			});
+          
+        }
 		}
 	};	
 })();

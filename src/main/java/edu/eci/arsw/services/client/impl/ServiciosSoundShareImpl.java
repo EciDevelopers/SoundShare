@@ -122,6 +122,20 @@ public class ServiciosSoundShareImpl {
  		return cancion;
 
      }
+     public Sala getSalaById(int id)throws ExceptionServiciosReserva{
+         Sala sala = null;
+         try{
+             sala = salaRepository.findById(id);
+             if(sala==null){
+                 throw new ExceptionServiciosReserva("nulo");
+             }
+             return sala;
+         }catch(Exception e){
+         	e.printStackTrace();
+         }
+ 		return sala;
+
+     }
      public Sala getSalaByName(String nombre) throws ExceptionServiciosReserva{
         Sala sala = null;
         try{

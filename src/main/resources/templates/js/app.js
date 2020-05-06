@@ -84,7 +84,13 @@ var app = (function () {
 		document.getElementById("chat").data = url;
 		return url;
     }
-	
+	function getNameRoom(){
+		apiclient.getNameRoom(window.location.search.substring(1).substring(3),loadNameRoom);
+    }
+	function loadNameRoom(nombre){
+		console.log(nombre);
+		document.getElementById("nombre").innerHTML = 'welcome room '+nombre+' !';
+    }
     return {
         init: function () {
             id = $("#nDib").val();
@@ -117,7 +123,8 @@ var app = (function () {
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged,
 		getUserLogged : getUserLogged,
-		createtable : createtable
+		createtable : createtable,
+		getNameRoom : getNameRoom
     };
 
 })();
