@@ -3,7 +3,7 @@ var apiclient = (function () {
         getSongs : function (callback){
             console.log("entrada");
             jQuery.ajax({
-                url: 'http://localhost:8080/canciones',
+                url: 'https://soundsharearsw.herokuapp.com/canciones',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);

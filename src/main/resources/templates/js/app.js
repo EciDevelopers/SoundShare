@@ -47,7 +47,6 @@ var app = (function () {
     }
 
     function showSongs(canciones){
-        console.log(canciones);
         canciones.map(function(canciones) {
               $("#tablas").append(
                   '<tr class="table-success"> <td>'+
