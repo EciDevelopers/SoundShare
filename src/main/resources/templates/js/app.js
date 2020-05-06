@@ -1,5 +1,6 @@
 var apiclient = apiclient;
 var app = (function () {
+	var namesala;
     class Acto{
         constructor(youtubeaudio){
             this.youtubeaudio=youtube-audio;
@@ -78,8 +79,10 @@ var app = (function () {
 		}
 
     }
-	function getUserLogged(){
-		var url = 'https://webchatsoundshare.herokuapp.com?nickname='+localStorage.getItem("selectedUser");
+	function getUserLogged(room){
+		console.log(room);
+		var url = 'https://webchatsoundshare.herokuapp.com/'+room+'?nickname='+localStorage.getItem("selectedUser");
+		console.log(url);
 		document.getElementById("chat").data = url;
 		return url;
     }
@@ -88,7 +91,9 @@ var app = (function () {
     }
 	function loadNameRoom(nombre){
 		console.log(nombre);
+		nomesala=nombre;
 		document.getElementById("nombre").innerHTML = 'welcome room '+nombre+' !';
+		getUserLogged(nombre);
     }
     return {
         init: function () {

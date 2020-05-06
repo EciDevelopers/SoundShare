@@ -3,6 +3,7 @@ var apiclient = (function () {
         getSongs : function (callback){
             console.log("entrada");
             jQuery.ajax({
+				//url: 'http://localhost:8080/canciones',
                 url: 'https://soundsharearsw.herokuapp.com/canciones',
                 method: 'GET',
                 success: function (respuesta) {
@@ -72,8 +73,8 @@ var apiclient = (function () {
 			console.log(id);
 			if (id !== undefined){
 			console.log('xddddddddddddddd')
-			const Url = 'http://localhost:8080/salas/getSalaById/';
-			//const Url = 'https://soundsharearsw.herokuapp.com/canciones/id/';
+			//const Url = 'http://localhost:8080/salas/getSalaById/';
+			const Url = 'https://soundsharearsw.herokuapp.com/canciones/id/';
 			jQuery.ajax({
 				url: Url+id,
 				type: "GET",
