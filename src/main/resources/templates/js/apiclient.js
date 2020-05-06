@@ -74,7 +74,7 @@ var apiclient = (function () {
 			if (id !== undefined){
 			console.log('xddddddddddddddd')
 			//const Url = 'http://localhost:8080/salas/getSalaById/';
-			const Url = 'https://soundsharearsw.herokuapp.com/canciones/id/';
+			const Url = 'https://soundsharearsw.herokuapp.com/salas/getSalaById/';
 			jQuery.ajax({
 				url: Url+id,
 				type: "GET",
