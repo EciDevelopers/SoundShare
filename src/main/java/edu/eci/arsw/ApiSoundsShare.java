@@ -135,6 +135,12 @@ public class ApiSoundsShare {
     public String addSong(){
         return "html/addSong";
     }
+	
+	@RequestMapping("html/google5a82269014c7c9b2.html")
+    public String google5a82269014c7c9b2(){
+        return "html/google5a82269014c7c9b2";
+    }
+	
 
 
     public static void main(String[] args) {
