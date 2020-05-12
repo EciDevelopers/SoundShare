@@ -63,6 +63,26 @@ var apiclient = (function () {
 				}
 			);
         },
+        addRoom: function(room){
+            //const Url = 'http://localhost:8080/salas/create';
+            const Url = 'https://soundsharearsw.herokuapp.com/salas/create';
+            console.log(song);
+            var postRequest=$.ajax({
+                url:  Url,
+                type: 'POST',
+                data: room,
+                contentType: "application/json"
+            });
+            postRequest.then(
+                function(){
+                    alert("successful Register room");
+                    location.reload();
+                },
+                function(){
+                    alert("failed  Register room");
+                }
+            );
+        },
 
 		getIdSong: function(nombre,callback) {
 			console.log(nombre);

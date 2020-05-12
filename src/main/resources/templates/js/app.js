@@ -29,6 +29,17 @@ var app = (function () {
 		apiclient.addSong(JSON.stringify(newSong));
 
 	};
+	var addRoom = function(id,nombre,genero,tipo) {
+    		var newRoom = {
+    			id : id,
+    			nombre : nombre,
+    			genero : genero,
+    			tipo : tipo,
+
+    		};
+    		apiclient.addRoom(JSON.stringify(newRoom));
+
+    	};
 
 	function createtable(){
         apiclient.getSongs(showSongs);

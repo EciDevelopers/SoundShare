@@ -1,3 +1,5 @@
+
+
 body{
     background: #C7CDD6;
     font-family: Verdana;
@@ -7,11 +9,11 @@ body{
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      border-radius: 10px;
+      border-radius: 1%;
       overflow: hidden;
       background-color: #17202A;
       width:35%;
-      padding: 50px 55px 33px 55px;
+      padding: 5%;
 }
 input {
     width:10%;

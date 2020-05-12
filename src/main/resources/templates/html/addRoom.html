@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AddSong</title>
+    <title>Addroom</title>
     <link rel="icon" type="image/jpg" href="../img/logo3.png"/>
     <link rel="stylesheet" href="../css/regiEstilo.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -21,8 +21,8 @@
 						<a href="../img/logo2.png">
 							<img style="border-radius: 5px" src="../img/logo2.png" title="Logo">
 						</a>
-                        <a href="../img/addsong.png">
-							<img  style="border-radius: 5px; height:100px" src="../img/addsong.png" title="addsong">
+                        <a href="../img/addroom.png">
+							<img  style="border-radius: 5px; height:75px" src="../img/addroom.png" title="addsong">
 						</a>
 					</span>
                 <br>
@@ -31,31 +31,34 @@
                 <br>
             </div>
             <div class="wrap-input100 validate-input">
-                <input class="input100" type="text" id="nombre" name="nombre">
-                <span class="focus-input100" data-placeholder="Nombre de la Cancion"></span>
+                <input class="input100" type="text" id="id" name="id">
+                <span class="focus-input100" data-placeholder="id room"></span>
             </div>
             <div class="wrap-input100 validate-input">
-                <input class="input100" type="text" id="autor" name="autor">
-                <span class="focus-input100" data-placeholder="Autor de la Cancion"></span>
+                <input class="input100" type="text" id="nombre" name="nombre">
+                <span class="focus-input100" data-placeholder="name room"></span>
             </div>
             <div class="wrap-input100 validate-input">
                 <input class="input100" type="text" id="genero" name="genero">
-                <span class="focus-input100" data-placeholder="Genero de la Cancion"></span>
+                <span class="focus-input100" data-placeholder="room genre"></span>
             </div>
             <div class="wrap-input100 validate-input">
-                <input class="input100" type="text" id="url" name="url">
-                <span class="focus-input100" data-placeholder="URL de la Cancion(Link de YouTube)"></span>
+                <input class="input100" type="text" id="tipo" name="tipo">
+                <span class="focus-input100" data-placeholder="type room"></span>
             </div>
             <div class="container-login100-form-btn">
                 <div class="wrap-login100-form-btn">
                     <div class="login100-form-bgbtn"></div>
-                    <button class="login100-form-btn" onclick="app.addSong(nombre.value,autor.value,genero.value,url.value)">
-                        continue
+                    <button class="login100-form-btn" onclick="app.addRoom(id.value,nombre.value.value,genero.value,tipo.value)">
+                        create
                     </button>
                 </div>
             </div>
             <br>
             <br>
+            <a class="txt2" href="userScreen.html">
+                previous
+            </a>
         </div>
     </div>
 </main>
