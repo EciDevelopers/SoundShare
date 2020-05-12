@@ -20,7 +20,7 @@ nav ul {
 }
 
 nav ul li :hover{
-    color:#EDBB99;
+    color:#bf9a80;
     background-color: #212F3C;
     text-shadow: 0 0 2px #000;
 }
@@ -38,17 +38,13 @@ nav > ul li {
 }
 
 nav > ul li a {
-    color: #99A3A4;
+    color: #EDBB99;
     display:block;
     padding: 10px 5px;
     line-height:20px;
     position:relative;
     text-align:center;
     text-decoration:none;
-}
-
-nav > ul > li > ul > li a:hover {
-    background:#5da5a2;
 }
 
 nav > ul > li > ul > li a{
@@ -65,13 +61,15 @@ nav > ul > li > ul > li a{
 body{
     width:100%;
     margin:0;
-    background: #EDBB99;
+    background: #17202A;
+    background-image: url("https://image.freepik.com/vector-gratis/lujo-abstracto-fisuras-azul-oscuro-oro-patron-fondo-geometrico_41814-365.jpg");
     font-family: Verdana;
     font-size:10px
 }
 
 #admin{
-
+   background:#B8860B;
+   background-image: url("https://img.freepik.com/vector-gratis/tapiceria-abstracta-vector-o-fondo-sofa-textura-cuero-dorado_99124-20.jpg?size=626&ext=jpg");
 }
 
 #tittle {
@@ -98,17 +96,19 @@ body{
 }
 
 table{
+    background:#17202A;
     color:#bf9a80;
     width: 100%;
     margin-bottom: 20px;
     border-collapse: collapse;
 }
 table, th, td{
-    border: 1px solid #cdcdcd;
+    border: 1px solid #99A3A4;
 }
 table th, table td{
-    padding: 10px;
+    padding: 8px;
     text-align: center;
+    text-shadow: 0 0 2px #000;
 }
 
 /*---------------------------------------------*/
@@ -119,6 +119,7 @@ table th, table td{
      position:relative;
      float:center;
      padding:2%;
+     text-shadow: 0 0 5px #000;
 
 }
 
@@ -137,8 +138,8 @@ table th, table td{
 
 #room{
     border: 0;
-    color: #17202A;
-    background-color: #F2EFED;
+    color: #EDBB99;
+    background-color: #17202A;
     border-radius: 3px;
     width:80%;
     padding: 2%;
@@ -146,12 +147,13 @@ table th, table td{
 #room:hover{
     color: #bf9a80;
     background-color: #17202A;
+    text-shadow: 0 0 2px #000;
 }
 
 #menu-princi {
     overflow: hidden;
     width:40%;
-    padding: 2%;
+    padding: 3%;
 }
 
 #menu-friends {
@@ -164,17 +166,23 @@ table th, table td{
 #songFind{
     border: 0;
     background-color: #F2EFED;
+    background:#17202A;
     border-radius: 3px;
     width:80%;
     padding: 2%;
+    color:#C9804F;
+    text-shadow: 0 0 2px #000;
 }
 
 #friends{
     border: 0;
     background-color: #F2EFED;
     border-radius: 3px;
+    background:#17202A;
     width:80%;
     padding: 2%;
+    color:#C9804F;
+    text-shadow: 0 0 2px #000;
 
 }
 
@@ -211,6 +219,10 @@ table th, table td{
     border-radius: 3px;
     width:80%;
     padding: 1%;
+    background-color: #17202A;
+    color:#C9804F;
+    text-shadow: 0 0 2px #000;
+
 }
 
 #toda{
@@ -220,6 +232,12 @@ table th, table td{
      position:relative;
      float:center;
      width:100%
+     text-shadow: 0 0 5px #000;
+}
+
+#nombre {
+    text-shadow: 0 0 5px #000;
+    padding: 2%;
 }
 
 #menu{
@@ -227,8 +245,9 @@ table th, table td{
      overflow-y: scroll;
      background-color: #212F3C;
      float:left;
-     width:40%;
+     width:43%;
      padding: 3%;
+     text-shadow: 0 0 5px #000;
 
 }
 
@@ -237,8 +256,9 @@ table th, table td{
      overflow: hidden;
      background-color: #212F3C;
      float:left;
-     width:40%;
+
      padding: 3%;
+     text-shadow: 0 0 5px #000;
 
 }
 
