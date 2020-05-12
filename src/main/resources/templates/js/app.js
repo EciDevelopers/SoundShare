@@ -55,7 +55,8 @@ var app = (function () {
                   '</td> <td>' +
                   canciones.author +
                   '</td> <td>' +
-                  canciones.minuto
+                  canciones.minuto +
+                  "</td> <td> <form><button type='button' class='btn btn-primary'>play</button></form></td>"
               );
         });
     }
