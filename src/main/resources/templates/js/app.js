@@ -1,28 +1,15 @@
 var apiclient = apiclient;
+var websocket = websocket;
 var app = (function () {
-	var namesala;
     class Acto{
         constructor(youtubeaudio){
             this.youtubeaudio=youtube-audio;
         }
     }
 
-    var stompClient = null;
+
     var id;
 
-    var connectAndSubscribe = function (callback) {
-        console.info('Connecting to WS...');
-        var socket = new SockJS('/stompendpoint');
-        stompClient = Stomp.over(socket);
-        //subscribe to /topic/TOPICXX when connections succeed
-        stompClient.connect({}, function (frame) {
-            console.log('Connected: ' + frame);
-            stompClient.subscribe('/topic/newpoint', function (eventbody) {
-                var obj = JSON.parse(eventbody.body);
-                callback(new Acto(obj.youtube-audio));
-            });
-        });
-    };
 	var addUser = function(nombre,pass,nickname) {
 		var newUser = {
 			nombre : nombre,
@@ -88,47 +75,32 @@ var app = (function () {
     }
 	function getNameRoom(){
 		apiclient.getNameRoom(window.location.search.substring(1).substring(3),loadNameRoom);
+		console.log(window.location.search.substring(1).substring(3));
+		websocket.connectAndSubscribeUser(window.location.search.substring(1).substring(3),localStorage.getItem("selectedUser"));
     }
+	function printUserstoSala(users){
+		console.log(users);
+    }
+	
 	function loadNameRoom(nombre){
+		localStorage.setItem("nameRoom",nombre);
+		namesala = nombre;
+		apiclient.getUsersToSala(nombre,printUserstoSala);
 		console.log(nombre);
 		nomesala=nombre;
 		document.getElementById("nombre").innerHTML = 'welcome room '+nombre+' !';
 		getUserLogged(nombre);
     }
     return {
-        init: function () {
-            id = $("#nDib").val();
-            var can = document.getElementById("play");
-            can.addEventListener("pointerdown",function (evento) {
-                var position = getMousePosition(evento);
-                app.publishPoint(youtube-audio);
-            })
-            //websocket connection
-            connectAndSubscribe(addPointToCanvas);
-        },
-
-        publishPoint: function(youtubeaudio){
-            console.info(id);
-            var pt=new Point(youtubeaudio);
-
-            stompClient.send("/topic/newpoint",{},JSON.stringify(youtube-audio));
-            //publicar el evento
-        },
-
-        disconnect: function () {
-            if (stompClient !== null) {
-                stompClient.disconnect();
-            }
-            setConnected(false);
-            console.log("Disconnected");
-        },
+      
 		addUser : addUser,
 		addSong : addSong,
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged,
 		getUserLogged : getUserLogged,
 		createtable : createtable,
-		getNameRoom : getNameRoom
+		getNameRoom : getNameRoom,
+		printUserstoSala :  printUserstoSala
     };
 
 })();

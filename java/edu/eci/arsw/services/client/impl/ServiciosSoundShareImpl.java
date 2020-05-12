@@ -215,7 +215,30 @@ public class ServiciosSoundShareImpl {
         Cancion cancion=getCancionById(id);
         return cancion.getSalas();
     }
-
+    public void addUserToSala(String nick,int SalaId) throws ExceptionServiciosReserva{
+        System.out.println(nick);
+        System.out.println(SalaId);
+        Sala salaNow=salaRepository.findById(SalaId);
+        Set<Usuario> users=salaNow.getUsuarios();
+        Usuario user=usuarioRepository.findByNickname(nick);
+        users.add(user);
+        salaNow.setUsuarios(users);
+    }
+    public void exitUserToSala(String nick,int SalaId) throws ExceptionServiciosReserva{
+        System.out.println(nick);
+        System.out.println(SalaId);
+        Sala salaNow=salaRepository.findById(SalaId);
+        Set<Usuario> users=salaNow.getUsuarios();
+        Usuario user=usuarioRepository.findByNickname(nick);
+        users.remove(user);
+        salaNow.setUsuarios(users);
+    }
+    public Set<Usuario> getUserBySala(int SalaId) throws ExceptionServiciosReserva{
+        System.out.println(SalaId);
+        Sala salaNow=salaRepository.findById(SalaId);
+        return salaNow.getUsuarios();
+       
+    }
 
     
 }

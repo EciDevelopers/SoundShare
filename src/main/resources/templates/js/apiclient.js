@@ -1,5 +1,17 @@
 var apiclient = (function () {
     return {
+		getUsersToSala : function (name,callback){
+            console.log("sip");
+			console.log(name);
+            jQuery.ajax({
+				//url: 'http://localhost:8080/salas/'+name+'/users',
+                url: 'https://soundsharearsw.herokuapp.com/'+name+'/users',
+                method: 'GET',
+                success: function (respuesta) {
+                    callback(respuesta);
+                }
+            });
+        },
         getSongs : function (callback){
             console.log("entrada");
             jQuery.ajax({
