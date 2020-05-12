@@ -35,11 +35,9 @@ var app = (function () {
     			nombre : nombre,
     			genero : genero,
     			tipo : tipo,
-
     		};
     		apiclient.addRoom(JSON.stringify(newRoom));
-
-    	};
+    };
 
 	function createtable(){
         apiclient.getSongs(showSongs);
@@ -106,6 +104,7 @@ var app = (function () {
       
 		addUser : addUser,
 		addSong : addSong,
+		addRoom : addRoom,
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged,
 		getUserLogged : getUserLogged,

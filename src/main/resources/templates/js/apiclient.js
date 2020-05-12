@@ -66,7 +66,7 @@ var apiclient = (function () {
         addRoom: function(room){
             //const Url = 'http://localhost:8080/salas/create';
             const Url = 'https://soundsharearsw.herokuapp.com/salas/create';
-            console.log(song);
+            console.log(room);
             var postRequest=$.ajax({
                 url:  Url,
                 type: 'POST',
