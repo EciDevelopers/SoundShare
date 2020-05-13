@@ -43,6 +43,10 @@ var app = (function () {
         apiclient.getSongs(showSongs);
     }
 
+    function createtableroom(){
+        apiclient.getRooms(showRooms);
+    }
+
     function showSongs(canciones){
         canciones.map(function(canciones) {
               $("#tablas").append(
@@ -58,6 +62,21 @@ var app = (function () {
                   canciones.minuto +
                   "</td> <td> <form><button type='button' class='btn btn-primary' style='  width:50%;background-color: #17202A; border: 0'  onclick='onYouTubeIframeAPIReady(\""+ canciones.nombre+"\")'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
               );
+        });
+    }
+
+    function showRooms(salas){
+        salas.map(function(salas){
+            $("#tablasrooms").append(
+              '<tr class="table-success"> <td>'+
+              salas.id +
+              '</td> <td>' +
+              salas.nombre +
+              '</td> <td>' +
+              salas.genero +
+              '</td> <td>' +
+              salas.tipo
+            );
         });
     }
 
@@ -110,6 +129,7 @@ var app = (function () {
 		printUserLogged : printUserLogged,
 		getUserLogged : getUserLogged,
 		createtable : createtable,
+		createtableroom : createtableroom,
 		getNameRoom : getNameRoom,
 		printUserstoSala :  printUserstoSala
     };
