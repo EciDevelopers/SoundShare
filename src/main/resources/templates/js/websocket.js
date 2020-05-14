@@ -38,8 +38,12 @@ var websocket = (function () {
 
 				
             });
-			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
-			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
+			setTimeout(function() {
+			   console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
+				stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
+				connectAndSubscribeMain();
+			}, 1000);
+			
 			
 			
 			
