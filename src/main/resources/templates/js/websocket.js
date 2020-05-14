@@ -23,8 +23,8 @@ var websocket = (function () {
         stompClient.connect({}, function (frame) {
 			console.log('Connected: ' + frame);
 			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
-			connectAndSubscribeMain();
 			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
+			connectAndSubscribeMain();
             stompClient.subscribe('/topic/sala/'+id,function(eventbody){
 				console.log(localStorage.getItem("nameRoom"));
 				console.log(eventbody.body);
