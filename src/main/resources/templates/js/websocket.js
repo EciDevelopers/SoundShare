@@ -34,7 +34,7 @@ var websocket = (function () {
 					copied = false;
 					setTimeout(function() {
 					   stompClient.send('/app/sala/'+sala+'/cancionActual/'+song+'/seg/'+apiyoutube.getTime(),{},'');
-					}, 2000);
+					}, 1000);
 				}	
 				
 
@@ -77,7 +77,7 @@ var websocket = (function () {
 					console.log('ciclo');
 					sincronized = true;
 					var minut = parseInt(datos[1], 10);
-					apiyoutube.onYouTubeIframeAPIReady(datos[0],minut+4);
+					apiyoutube.onYouTubeIframeAPIReady(datos[0],minut+5);
 				}
             });	
 			stompClient.send('/app/sala/'+sala+'/cancionActual/'+' '+'/seg/'+0,{},'');
