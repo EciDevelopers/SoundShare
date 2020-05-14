@@ -40,7 +40,10 @@ var websocket = (function () {
             });
 			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
 			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
-			connectAndSubscribeMain();
+			setTimeout(function() {
+			   connectAndSubscribeMain();
+			}, 1000);
+				
 			
 			
 			
