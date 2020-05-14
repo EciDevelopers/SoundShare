@@ -85,8 +85,7 @@ var websocket = (function () {
         init : initStompClient,
         connectAndSubscribeUser : connectAndSubscribeUser,
 		desconnectUser : desconnectUser,
-		fijarSong : fijarSong,
-		connectAndSubscribeMain : connectAndSubscribeMain()
+		fijarSong : fijarSong
 
     };
 
