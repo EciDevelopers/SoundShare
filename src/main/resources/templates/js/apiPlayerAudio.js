@@ -21,8 +21,7 @@ var apiyoutube = (function () {
 			
 	};
 	
-	var verificar = function(res) {
-		websocket.fijarSong(res);	
+	var verificar = function(res) {	
 		player = new YT.Player('youtube-player', {	
 		  height: '0',
 		  width: '0',
@@ -36,6 +35,8 @@ var apiyoutube = (function () {
 			'onStateChange': onPlayerStateChange
 		  }
 		});
+		console.log('enrutadorrrrrrr'):
+		websocket.fijarSong(res);
 		
 
 	};
