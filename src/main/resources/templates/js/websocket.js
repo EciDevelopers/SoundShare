@@ -53,7 +53,6 @@ var websocket = (function () {
 	function fijarSong(cancion){
 		song = cancion;
 		stompClient.send('/app/sala/'+sala+'/cancionActual/'+cancion+'/seg/'+0,{},'');
-		sincronized = true;
 	};
 	function connectAndSubscribeMain(){
 		initStompClient();
@@ -68,7 +67,7 @@ var websocket = (function () {
 				console.log(eventbody.body);
 				console.log(user);
 				console.log(sincronized);
-				if(song === undefined && sincronized === false){
+				if(song === undefined && datos[0] !== 'ini' && sincronized === false){
 					console.log('q onda');
 					console.log('ciclo');
 					sincronized = true;
