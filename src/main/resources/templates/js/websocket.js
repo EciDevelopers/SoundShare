@@ -52,7 +52,6 @@ var websocket = (function () {
 	};
 	function fijarSong(cancion){
 		song = cancion;
-		sincronized = true;
 		stompClient.send('/app/sala/'+sala+'/cancionActual/'+cancion+'/seg/'+0,{},'');
 	};
 	function connectAndSubscribeMain(){
