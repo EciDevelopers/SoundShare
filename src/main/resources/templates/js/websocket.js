@@ -32,7 +32,9 @@ var websocket = (function () {
 				if(sala !== undefined && song !== undefined && apiyoutube.getTime() !== undefined && copied === true){
 					console.log('copiar');
 					copied = false;
-					stompClient.send('/app/sala/'+sala+'/cancionActual/'+song+'/seg/'+apiyoutube.getTime(),{},'');
+					setTimeout(function() {
+					   stompClient.send('/app/sala/'+sala+'/cancionActual/'+song+'/seg/'+apiyoutube.getTime(),{},'');
+					}, 2000);
 				}	
 				
 
@@ -40,9 +42,7 @@ var websocket = (function () {
             });
 			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
 			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
-			setTimeout(function() {
-			   connectAndSubscribeMain();
-			}, 1000);
+			connectAndSubscribeMain();
 				
 			
 			
