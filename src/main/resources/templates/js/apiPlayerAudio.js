@@ -35,7 +35,7 @@ var apiyoutube = (function () {
 			'onStateChange': onPlayerStateChange
 		  }
 		});
-		console.log('enrutadorrrrrrr'):
+		console.log('enrutadorrrrrrr');
 		websocket.fijarSong(res);
 		
 
