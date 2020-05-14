@@ -22,6 +22,8 @@ var websocket = (function () {
 		user = nick;
         stompClient.connect({}, function (frame) {
 			console.log('Connected: ' + frame);
+			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
+			connectAndSubscribeMain();
 			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
             stompClient.subscribe('/topic/sala/'+id,function(eventbody){
 				console.log(localStorage.getItem("nameRoom"));
@@ -39,12 +41,8 @@ var websocket = (function () {
 
 				
             });
-			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
-			connectAndSubscribeMain();
 			
-			
-			
-			
+		
         });
     };
 	function desconnectUser(id,nick){
