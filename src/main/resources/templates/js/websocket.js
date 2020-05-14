@@ -22,6 +22,7 @@ var websocket = (function () {
 		user = nick;
         stompClient.connect({}, function (frame) {
 			console.log('Connected: ' + frame);
+			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
             stompClient.subscribe('/topic/sala/'+id,function(eventbody){
 				console.log(localStorage.getItem("nameRoom"));
 				console.log(eventbody.body);
@@ -39,7 +40,6 @@ var websocket = (function () {
 				
             });
 			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
-			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
 			connectAndSubscribeMain();
 			
 			
@@ -59,6 +59,7 @@ var websocket = (function () {
 		console.log('conecto xd');
 		stompClient.connect({}, function (frame) {
 			console.log('Connected: ' + frame);
+			stompClient.send('/app/sala/'+sala+'/cancionActual/'+' '+'/seg/'+0,{},'');
             stompClient.subscribe('/topic/sala/'+sala+'/cancionActual',function(eventbody){
 				var datos = JSON.parse(eventbody.body);
 				console.log(datos);
@@ -74,10 +75,7 @@ var websocket = (function () {
 					var minut = parseInt(datos[1], 10);
 					apiyoutube.onYouTubeIframeAPIReady(datos[0],minut+4);
 				}
-            });
-			stompClient.send('/app/sala/'+sala+'/cancionActual/'+' '+'/seg/'+0,{},'');
-			
-			
+            });	
         });
 	}
 	
