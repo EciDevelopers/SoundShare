@@ -4,8 +4,8 @@ var apiclient = (function () {
             console.log("sip");
 			console.log(name);
             jQuery.ajax({
-				//url: 'http://localhost:8080/salas/'+name+'/users',
-                url: 'https://soundsharearsw.herokuapp.com/salas/'+name+'/users',
+				url: 'http://localhost:8080/salas/'+name+'/users',
+                //url: 'https://soundsharearsw.herokuapp.com/salas/'+name+'/users',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
@@ -16,8 +16,8 @@ var apiclient = (function () {
             console.log("lista");
 			console.log(name);
             jQuery.ajax({
-				//url: 'http://localhost:8080/salas/'+name+'/colacanciones',
-                url: 'https://soundsharearsw.herokuapp.com/'+name+'/colacanciones',
+				url: 'http://localhost:8080/salas/'+name+'/colacanciones',
+                //url: 'https://soundsharearsw.herokuapp.com/'+name+'/colacanciones',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
@@ -27,8 +27,8 @@ var apiclient = (function () {
 		getSong : function (id,callback){
             console.log("entrada");
             jQuery.ajax({
-				//url: 'http://localhost:8080/canciones/'+id,
-                url: 'https://soundsharearsw.herokuapp.com/canciones/'+id,
+				url: 'http://localhost:8080/canciones/'+id,
+                //url: 'https://soundsharearsw.herokuapp.com/canciones/'+id,
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
@@ -39,8 +39,8 @@ var apiclient = (function () {
         getSongs : function (callback){
             console.log("entrada");
             jQuery.ajax({
-				//url: 'http://localhost:8080/canciones',
-                url: 'https://soundsharearsw.herokuapp.com/canciones',
+				url: 'http://localhost:8080/canciones',
+                //url: 'https://soundsharearsw.herokuapp.com/canciones',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
@@ -51,8 +51,8 @@ var apiclient = (function () {
         getRooms : function(callback){
             console.log("entrada sala");
             jQuery.ajax({
-                //url: 'http://localhost:8080/salas',
-                url: 'https://soundsharearsw.herokuapp.com/salas',
+                url: 'http://localhost:8080/salas',
+                //url: 'https://soundsharearsw.herokuapp.com/salas',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
@@ -61,8 +61,8 @@ var apiclient = (function () {
         },
 
 		addUser : function (user){
-			//const Url = 'http://localhost:8080/users/create';
-			const Url = 'https://soundsharearsw.herokuapp.com/users/create';
+			const Url = 'http://localhost:8080/users/create';
+			//const Url = 'https://soundsharearsw.herokuapp.com/users/create';
 			console.log(user);
         	var postRequest=$.ajax({
 				url:  Url,
@@ -81,8 +81,8 @@ var apiclient = (function () {
 			);
         },
 		addSong : function (song){
-			//const Url = 'http://localhost:8080/canciones/create';
-			const Url = 'https://soundsharearsw.herokuapp.com/canciones/create';
+			const Url = 'http://localhost:8080/canciones/create';
+			//const Url = 'https://soundsharearsw.herokuapp.com/canciones/create';
 			console.log(song);
         	var postRequest=$.ajax({
 				url:  Url,
@@ -101,8 +101,8 @@ var apiclient = (function () {
 			);
         },
         addRoom: function(room){
-            //const Url = 'http://localhost:8080/salas/create';
-            const Url = 'https://soundsharearsw.herokuapp.com/salas/create';
+            const Url = 'http://localhost:8080/salas/create';
+            //const Url = 'https://soundsharearsw.herokuapp.com/salas/create';
             console.log(room);
             var postRequest=$.ajax({
                 url:  Url,
@@ -125,8 +125,8 @@ var apiclient = (function () {
 			console.log(nombre);
 			if (nombre !== undefined){
 			console.log('xddddddddddddddd')
-			//const Url = 'http://localhost:8080/canciones/getByName/';
-			const Url = 'https://soundsharearsw.herokuapp.com/canciones/getByName/';
+			const Url = 'http://localhost:8080/canciones/getByName/';
+			//const Url = 'https://soundsharearsw.herokuapp.com/canciones/getByName/';
 			jQuery.ajax({
 				url: Url+nombre,
 				type: "GET",
@@ -142,8 +142,8 @@ var apiclient = (function () {
 			console.log(id);
 			if (id !== undefined){
 			console.log('xddddddddddddddd')
-			//const Url = 'http://localhost:8080/salas/getSalaById/';
-			const Url = 'https://soundsharearsw.herokuapp.com/salas/getSalaById/';
+			const Url = 'http://localhost:8080/salas/getSalaById/';
+			//const Url = 'https://soundsharearsw.herokuapp.com/salas/getSalaById/';
 			jQuery.ajax({
 				url: Url+id,
 				type: "GET",

@@ -6,7 +6,6 @@ var websocket = (function () {
 	var sala;
 	var song;
 	var cont = 0;
-	var copied = true;
 	var sincronized = false;
 	var user;
 	
@@ -29,9 +28,8 @@ var websocket = (function () {
 				console.log(users);
 				document.getElementById("num").innerHTML = users.length;
 				console.log(apiyoutube.getTime());
-				if(sala !== undefined && song !== undefined && apiyoutube.getTime() !== undefined && copied === true){
+				if(sala !== undefined && song !== undefined && apiyoutube.getTime() !== undefined ){
 					console.log('copiar');
-					copied = false;
 					setTimeout(function() {
 					   stompClient.send('/app/sala/'+sala+'/cancionActual/'+song+'/seg/'+apiyoutube.getTime(),{},'');
 					}, 1000);
@@ -52,8 +50,11 @@ var websocket = (function () {
 			
         });
     };
-	function desconnectUser(id,nick){
-		stompClient.send('/app/sala/'+id+'/salir/'+nick,{},'');
+	function desconnectUser(){
+		if(sala !== undefined && user !== undefined){
+			stompClient.send('/app/sala/'+sala+'/salir/'+user,{},'');
+			window.history.back();
+		}
 	};
 	function fijarSong(cancion){
 		song = cancion;
@@ -77,7 +78,7 @@ var websocket = (function () {
 					console.log('ciclo');
 					sincronized = true;
 					var minut = parseInt(datos[1], 10);
-					apiyoutube.onYouTubeIframeAPIReady(datos[0],minut+5);
+					apiyoutube.onYouTubeIframeAPIReady(datos[0],minut+4);
 				}
             });	
 			stompClient.send('/app/sala/'+sala+'/cancionActual/'+' '+'/seg/'+0,{},'');
