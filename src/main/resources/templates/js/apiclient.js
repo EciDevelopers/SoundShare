@@ -12,6 +12,30 @@ var apiclient = (function () {
                 }
             });
         },
+		getColaCancionesToSala : function (name,callback){
+            console.log("lista");
+			console.log(name);
+            jQuery.ajax({
+				//url: 'http://localhost:8080/salas/'+name+'/colacanciones',
+                url: 'https://soundsharearsw.herokuapp.com/'+name+'/colacanciones',
+                method: 'GET',
+                success: function (respuesta) {
+                    callback(respuesta);
+                }
+            });
+        },
+		getSong : function (id,callback){
+            console.log("entrada");
+            jQuery.ajax({
+				//url: 'http://localhost:8080/canciones/'+id,
+                url: 'https://soundsharearsw.herokuapp.com/canciones/'+id,
+                method: 'GET',
+                success: function (respuesta) {
+                    callback(respuesta);
+                }
+            });
+        },
+		
         getSongs : function (callback){
             console.log("entrada");
             jQuery.ajax({

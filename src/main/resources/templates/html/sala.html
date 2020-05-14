@@ -41,6 +41,8 @@
         <h1 id="nombre" align="left">rooms</h1>
 		<br>
 		<h1 id="num" align="left">0</h1>
+		<br>
+		<h1 id="song" align="left"></h1>
     <!--<img src="../img/logo.png" style="border-radius:20px;width:20%" height="25%">-->
         <div class="row" id="menu">
             <h2 align="left">Your Songs </h2>
@@ -87,7 +89,7 @@
             <input id="barraSong" type="text" class="form-control" placeholder="Find your favorite song..."/>
         </div>
         <div style="float: right;width: 5%">
-            <button id="youtube-audio2" type="submit"  class="btn btn-primary" onclick="onYouTubeIframeAPIReady(barraSong.value)" ><img src="../img/buscar.png" alt="x"/></button>
+            <button id="youtube-audio2" type="submit"  class="btn btn-primary" onclick="apiyoutube.onYouTubeIframeAPIReady(barraSong.value,0)" ><img src="../img/buscar.png" alt="x"/></button>
         </div>
     </div>
 </footer>
