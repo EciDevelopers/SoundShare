@@ -67,7 +67,7 @@ var websocket = (function () {
 				console.log(eventbody.body);
 				console.log(user);
 				console.log(sincronized);
-				if(song === undefined && datos[0] !== 'ini' && sincronized === false){
+				if(song === undefined && sincronized === false){
 					console.log('q onda');
 					console.log('ciclo');
 					sincronized = true;
