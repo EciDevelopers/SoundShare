@@ -39,7 +39,6 @@ var websocket = (function () {
 				
             });
 			console.log('aquiiiiiiiiiiiiiiiiiiiiiiii');
-			connectAndSubscribeMain();
 			stompClient.send('/app/sala/'+id+'/unir/'+nick,{},'');
 			
 			
