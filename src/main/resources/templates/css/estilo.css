@@ -150,6 +150,20 @@ table th, table td{
     text-shadow: 0 0 2px #000;
 }
 
+#room2{
+    border: 0;
+    color: #EDBB99;
+    background-color: #17202A;
+    border-radius: 3px;
+    width:80%;
+    padding: 2%;
+}
+#room2:hover{
+    color: #bf9a80;
+    background-color: #17202A;
+    text-shadow: 0 0 2px #000;
+}
+
 #menu-princi {
     overflow: hidden;
     width:40%;
@@ -254,6 +268,7 @@ table th, table td{
 #menu-chat{
      color: #bf9a80;
      overflow: hidden;
+     overflow-y: scroll;
      background-color: #212F3C;
      float:left;
 
@@ -262,5 +277,18 @@ table th, table td{
 
 }
 
+#botonroom{
+    border: 0;
+    color: #EDBB99;
+    background-color: #17202A;
+    border-radius: 3px;
+    width:80%;
+    padding: 2%;
+}
+#room2:hover{
+    color: #bf9a80;
+    background-color: #17202A;
+    text-shadow: 0 0 2px #000;
+}
 
 

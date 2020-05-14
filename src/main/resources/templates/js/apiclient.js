@@ -47,6 +47,19 @@ var apiclient = (function () {
                 }
             });
         },
+
+        getRooms : function(callback){
+            console.log("entrada sala");
+            jQuery.ajax({
+                //url: 'http://localhost:8080/salas',
+                url: 'https://soundsharearsw.herokuapp.com/salas',
+                method: 'GET',
+                success: function (respuesta) {
+                    callback(respuesta);
+                }
+            });
+        },
+
 		addUser : function (user){
 			//const Url = 'http://localhost:8080/users/create';
 			const Url = 'https://soundsharearsw.herokuapp.com/users/create';
@@ -86,6 +99,26 @@ var apiclient = (function () {
 					alert("failed  Register Song");
 				}
 			);
+        },
+        addRoom: function(room){
+            //const Url = 'http://localhost:8080/salas/create';
+            const Url = 'https://soundsharearsw.herokuapp.com/salas/create';
+            console.log(room);
+            var postRequest=$.ajax({
+                url:  Url,
+                type: 'POST',
+                data: room,
+                contentType: "application/json"
+            });
+            postRequest.then(
+                function(){
+                    alert("successful Register room");
+                    location.reload();
+                },
+                function(){
+                    alert("failed  Register room");
+                }
+            );
         },
 
 		getIdSong: function(nombre,callback) {

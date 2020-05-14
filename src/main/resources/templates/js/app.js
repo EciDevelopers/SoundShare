@@ -29,9 +29,22 @@ var app = (function () {
 		apiclient.addSong(JSON.stringify(newSong));
 
 	};
+	var addRoom = function(id,nombre,genero,tipo) {
+    		var newRoom = {
+    			id : id,
+    			nombre : nombre,
+    			genero : genero,
+    			tipo : tipo,
+    		};
+    		apiclient.addRoom(JSON.stringify(newRoom));
+    };
 
 	function createtable(){
         apiclient.getSongs(showSongs);
+    }
+
+    function createtableroom(){
+        apiclient.getRooms(showRooms);
     }
 
     function showSongs(canciones){
@@ -46,8 +59,24 @@ var app = (function () {
                   '</td> <td>' +
                   canciones.author +
                   '</td> <td>' +
-                  canciones.minuto
+                  canciones.minuto +
+                  "</td> <td> <form><button type='button' class='btn btn-primary' style='  width:50%;background-color: #17202A; border: 0'  onclick='onYouTubeIframeAPIReady(\""+ canciones.nombre+"\")'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
               );
+        });
+    }
+
+    function showRooms(salas){
+        salas.map(function(salas){
+            $("#tablasrooms").append(
+              '<tr class="table-success"> <td>'+
+              salas.id +
+              '</td> <td>' +
+              salas.nombre +
+              '</td> <td>' +
+              salas.genero +
+              '</td> <td>' +
+              salas.tipo
+            );
         });
     }
 
@@ -95,10 +124,12 @@ var app = (function () {
       
 		addUser : addUser,
 		addSong : addSong,
+		addRoom : addRoom,
 		setUserLogged : setUserLogged,
 		printUserLogged : printUserLogged,
 		getUserLogged : getUserLogged,
 		createtable : createtable,
+		createtableroom : createtableroom,
 		getNameRoom : getNameRoom,
 		printUserstoSala :  printUserstoSala
     };
