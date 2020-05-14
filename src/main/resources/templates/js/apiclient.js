@@ -5,7 +5,7 @@ var apiclient = (function () {
 			console.log(name);
             jQuery.ajax({
 				//url: 'http://localhost:8080/salas/'+name+'/users',
-                url: 'https://soundsharearsw.herokuapp.com/'+name+'/users',
+                url: 'https://soundsharearsw.herokuapp.com/salas/'+name+'/users',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
