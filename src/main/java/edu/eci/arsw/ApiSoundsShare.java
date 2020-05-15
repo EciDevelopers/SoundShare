@@ -140,13 +140,6 @@ public class ApiSoundsShare {
     public String addRoom(){
         return "html/addRoom";
     }
-	
-	@RequestMapping("google5a82269014c7c9b2.html")
-    public String google5a82269014c7c9b2(){
-        return "google5a82269014c7c9b2";
-    }
-	
-
 
     public static void main(String[] args) {
 	     SpringApplication.run(ApiSoundsShare.class, args);
