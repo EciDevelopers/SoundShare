@@ -1,4 +1,4 @@
 package edu.eci.arsw.cache;
 
-public class CancionCache {
+public class Cache {
 }
