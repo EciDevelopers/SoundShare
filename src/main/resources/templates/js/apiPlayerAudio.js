@@ -15,6 +15,11 @@ var apiyoutube = (function () {
 		setTimeout(function() {
 		   ctrlq.click();
 		   player.seekTo(time,true);
+		   ctrlq.addEventListener("click", function() { 
+				console.log('espero');
+				websocket.cambiarEstado();
+		   } );
+				
 		}, 2000);
 		
 		   
@@ -46,7 +51,6 @@ var apiyoutube = (function () {
 	};
 
 	function toggleAudio() {
-
 		if ( player.getPlayerState() == 1 || player.getPlayerState() == 3 ) {
 		  player.pauseVideo();
 		  togglePlayButton(false);
@@ -54,7 +58,19 @@ var apiyoutube = (function () {
 		  player.playVideo();
 		  togglePlayButton(true);
 		}
+		
 	};
+	function play() {
+		player.playVideo();
+		togglePlayButton(true);
+	};
+	
+	function pause() {
+		player.pauseVideo();
+		togglePlayButton(false);
+	};
+	
+	
 
 	function onPlayerReady(event) {
 		player.setPlaybackQuality("small");
@@ -78,7 +94,9 @@ var apiyoutube = (function () {
 	return {
 		onYouTubeIframeAPIReady : onYouTubeIframeAPIReady,
 		verificar : verificar,
-		getTime : getTime
+		getTime : getTime,
+		play : play,
+		pause : pause
 		
 		
 				

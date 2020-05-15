@@ -43,7 +43,7 @@ public class WebSocketController {
     public Set<Usuario> addUsersToSala(@DestinationVariable String nick,@DestinationVariable int id){
         System.out.println("llego xd");
         try {
-        	if(!(mapa.containsKey(id))) {
+        	if(!(mapa.containsKey(id))  || (services.getUserBySala(id)).size() == 0) {
         		ArrayList<String> lista = new ArrayList<String>();
         		lista.add(" ");
         		lista.add(" ");
@@ -63,8 +63,29 @@ public class WebSocketController {
         System.out.println("llego 15 xd");
         try {
 			services.exitUserToSala(nick,id);
+			System.out.println((services.getUserBySala(id)).size());
+			if((services.getUserBySala(id)).size() == 0) {
+				System.out.println("firestone");
+        		mapa.remove(id);
+        	}
 			return services.getUserBySala(id);
 		} catch (ExceptionServiciosReserva e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
+    @MessageMapping("/sala/{id}/play/{user}/estado/{estado}/intento/{cont}")
+    @SendTo("/topic/sala/{id}/play")
+    public ArrayList<String> getEstado(@DestinationVariable int id,@DestinationVariable String user,@DestinationVariable boolean estado,@DestinationVariable int cont){
+        System.out.println("llego estado xd");
+        try {
+        	ArrayList<String> tempo = new ArrayList<String>();
+        	tempo.add(user);
+        	tempo.add(String.valueOf(estado));
+        	tempo.add(String.valueOf(cont++));
+			return tempo;
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
