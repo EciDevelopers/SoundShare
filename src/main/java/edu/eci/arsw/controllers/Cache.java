@@ -24,30 +24,6 @@ public class Cache {
         for(Cancion cancion:songs){
             canciones.put(cancion.getId(),cancion);
         }
-
     }
 
-    public ConcurrentHashMap<String, Cancion> getCanciones() {
-        return canciones;
-    }
-
-    public void setCanciones(ConcurrentHashMap<String, Cancion> canciones) {
-        this.canciones = canciones;
-    }
-
-    public ConcurrentHashMap<String, Sala> getSalas() {
-        return salas;
-    }
-
-    public void setSalas(ConcurrentHashMap<String, Sala> salas) {
-        this.salas = salas;
-    }
-
-    public ConcurrentHashMap<String, Usuario> getUsers() {
-        return users;
-    }
-
-    public void setUsers(ConcurrentHashMap<String, Usuario> users) {
-        this.users = users;
-    }
 }
