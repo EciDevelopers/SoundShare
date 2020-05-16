@@ -15,7 +15,7 @@ public class Cache {
 
     ConcurrentHashMap<String, Cancion> canciones = new ConcurrentHashMap<String, Cancion>();
     ConcurrentHashMap<String, Sala> salas = new ConcurrentHashMap<String, Sala>();
-    ConcurrentHashMap<String, Usuario> users = new ConcurrentHashMap<String, Usuario>();
+    ConcurrentHashMap<String, Usuario> usuarios = new ConcurrentHashMap<String, Usuario>();
     @Autowired
     ServiciosSoundShareImpl servicios;
 
@@ -23,6 +23,14 @@ public class Cache {
         List<Cancion> songs = servicios.getAllCanciones();
         for(Cancion cancion:songs){
             canciones.put(cancion.getId(),cancion);
+        }
+        List<Sala> sala = servicios.getAllSalas();
+        for(Sala sal:sala){
+            salas.put(sal.getNombre(),sal);
+        }
+        List<Usuario> users = servicios.getAllUsers();
+        for(Usuario usr:users){
+            usuarios.put(usr.getNickname(),usr);
         }
     }
 
