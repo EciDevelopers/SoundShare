@@ -34,4 +34,26 @@ public class Cache {
         }
     }
 
+    public void update(String tipo) throws ExceptionServiciosReserva {
+        if(tipo=="cancion"){
+            List<Cancion> newSongs = servicios.getAllCanciones();
+            for(Cancion cancion:newSongs){
+                canciones.put(cancion.getId(),cancion);
+            }
+
+        }else if(tipo=="sala"){
+            List<Sala> newSala = servicios.getAllSalas();
+            for(Sala sal:newSala){
+                salas.put(sal.getNombre(),sal);
+            }
+
+        }else if(tipo=="usuario"){
+            List<Usuario> newUsers = servicios.getAllUsers();
+            for(Usuario usr:newUsers){
+                usuarios.put(usr.getNickname(),usr);
+            }
+
+        }
+    }
+
 }
