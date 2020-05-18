@@ -138,6 +138,15 @@ table th, table td{
     padding: 2% 2% 2% 2% ;
 }
 
+#menu-playlist {
+    background-color: #212F3C;
+    float: right;
+    overflow: hidden;
+    overflow-y: scroll;
+    width:45%;
+    padding: 2% 2% 2% 2% ;
+}
+
 #menu-sala {
     overflow: hidden;
     width:40%;

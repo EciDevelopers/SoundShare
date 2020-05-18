@@ -51,6 +51,29 @@ var app = (function () {
         apiclient.getUsers(showUsers);
     }
 
+    function createtablesongsuser(){
+        console.log(localStorage.getItem("selectedUser"));
+        apiclient.getSongsByUser(localStorage.getItem("selectedUser"),showSongsByUser);
+    }
+
+    function showSongsByUser(canciones){
+        canciones.map(function(canciones) {
+              $("#tablasCancionesUser").append(
+                  '<tr class="table-success"> <td>'+
+                  canciones.id +
+                  '</td> <td>' +
+                  canciones.nombre +
+                  '</td> <td>' +
+                  canciones.genero +
+                  '</td> <td>' +
+                  canciones.author +
+                  '</td> <td>' +
+                  canciones.minuto +
+                  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0)'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
+              );
+        });
+    }
+
     function showUsers(users){
         users.map(function(users){
             $("#tablasUsers").append(
@@ -60,7 +83,7 @@ var app = (function () {
                 users.nombre +
                 '</td> <td>' +
                 users.nickname +
-                "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0' ><img  src='../img/eliminar.png' style='width:75%' alt='x'/></button></form></td>"
+                "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0' ><img  src='../img/eliminar.png' style='width:50%' alt='x'/></button></form></td>"
             );
 
         });
@@ -95,7 +118,7 @@ var app = (function () {
               salas.genero +
               '</td> <td>' +
               salas.tipo +
-              "</td> <td> <form><a href='sala.html?id="+salas.id+"' ><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A;border: 0' ><img  src='../img/next.png' style='width:50%' alt='x'/></button></a></form></td>"
+              "</td> <td> <form><a href='sala.html?id="+salas.id+"' ><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A;border: 0' ><img  src='../img/sala.png' style='width:50%' alt='x'/></button></a></form></td>"
 
             );
         });
@@ -152,6 +175,7 @@ var app = (function () {
 		createtable : createtable,
 		createtableroom : createtableroom,
 		createtableusers : createtableusers,
+		createtablesongsuser : createtablesongsuser,
 		getNameRoom : getNameRoom,
 		printUserstoSala :  printUserstoSala
     };

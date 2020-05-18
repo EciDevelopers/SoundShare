@@ -16,7 +16,7 @@
 	<script src="../js/websocket.js"></script>
 </head>
 
-<body id="admin" onload="app.printUserLogged(), app.createtableroom(), app.createtableusers()">
+<body id="admin" onload="app.printUserLogged(), app.createtableroom(), app.createtableusers() , app.createtablesongsuser()">
 <header>
     <nav>
         <ul>
@@ -69,6 +69,28 @@
                         </tr>
                         </thead>
                         <tbody id="tablasUsers">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id ="menu-playlist" >
+            <div>
+                <h2 align="left">Your playlist </h2>
+                <br>
+                <div>
+                    <table class="table">
+                        <thead>
+                        <tr class="table-warning" >
+                            <th scope="col">id</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">genero</th>
+                            <th scope="col">author</th>
+                            <th scope="col">minuto</th>
+                            <th scope="col">play</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablasCancionesUser">
                         </tbody>
                     </table>
                 </div>
