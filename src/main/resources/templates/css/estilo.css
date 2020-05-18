@@ -114,19 +114,28 @@ table th, table td{
 /*---------------------------------------------*/
 #todo{
      color: #bf9a80;
-     justify-content:space-evenly;
-     background-color: #212F3C;
-     position:relative;
-     float:center;
-     padding:2%;
+     padding: 2%;
      text-shadow: 0 0 5px #000;
-
+     overflow: hidden;
+     overflow-y: scroll;
 }
 
 #menu-songs {
+    background-color: #212F3C;
+    float: left;
     overflow: hidden;
-    width:40%;
-    padding: 2%;
+    overflow-y: scroll;
+    width:45%;
+    padding: 2% 2% 2% 2% ;
+}
+
+#menu-princi {
+    background-color: #212F3C;
+    float: right ;
+    overflow: hidden;
+    overflow-y: scroll;
+    width:45%;
+    padding: 2% 2% 2% 2% ;
 }
 
 #menu-sala {
@@ -162,12 +171,6 @@ table th, table td{
     color: #bf9a80;
     background-color: #17202A;
     text-shadow: 0 0 2px #000;
-}
-
-#menu-princi {
-    overflow: hidden;
-    width:40%;
-    padding: 3%;
 }
 
 #menu-friends {

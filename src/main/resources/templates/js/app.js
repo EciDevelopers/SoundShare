@@ -60,7 +60,7 @@ var app = (function () {
                   canciones.author +
                   '</td> <td>' +
                   canciones.minuto +
-                  "</td> <td> <form><button type='button' class='btn btn-primary' style='  width:50%;background-color: #17202A; border: 0'  onclick='onYouTubeIframeAPIReady(\""+ canciones.nombre+"\")'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
+                  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0)'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
               );
         });
     }
@@ -75,7 +75,9 @@ var app = (function () {
               '</td> <td>' +
               salas.genero +
               '</td> <td>' +
-              salas.tipo
+              salas.tipo +
+              "</td> <td> <form><a href='sala.html?id="+salas.id+"' ><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A;border: 0' ><img  src='../img/next.png' style='width:50%' alt='x'/></button></a></form></td>"
+
             );
         });
     }
