@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package edu.eci.arsw.controllers;
+import edu.eci.arsw.cache.Cache;
 import edu.eci.arsw.entities.Cancion;
 import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
@@ -32,14 +33,20 @@ import javax.validation.Valid;
 @RequestMapping(value = "/canciones")
 public class CancionController {
     @Autowired
+    private Cache cache;
+    @Autowired
     private ServiciosSoundShareImpl services;
     //@RequestMapping (value= "/getAll",method = RequestMethod.GET )
     @RequestMapping (method = RequestMethod.GET )
     public ResponseEntity<?>  getAllCanciones(){
         try{
-            List<Cancion> canciones = services.getAllCanciones();
+            if(cache.getAllCanciones().size()==0){
+                //System.out.println("Prueba");
+                cache.update("cancion");
+            }
+            List<Cancion> canciones = cache.getAllCanciones();
             return new ResponseEntity<>(canciones, HttpStatus.ACCEPTED);
-        }catch (ExceptionServiciosReserva e){
+        }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }
     }
@@ -49,23 +56,25 @@ public class CancionController {
     	System.out.println("alfa"+" "+newCancion.getNombre());
         try {
 			services.saveCancion(newCancion);
+			//update
+            cache.update("cancion");
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		} catch (ExceptionServiciosReserva e) {
 			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 		}
-       
     }
+
     @RequestMapping(path ="/{id}",method = RequestMethod.GET)
     public ResponseEntity<?> getCancionById(@PathVariable ("id") String id){
         try {
-            return new ResponseEntity<>(services.getCancionById(id),HttpStatus.ACCEPTED);
-        } catch (ExceptionServiciosReserva e) {
-			
+            return new ResponseEntity<>(cache.getCancionById(id),HttpStatus.ACCEPTED);
+            //meodo que dado el id recorne la cancion con esa id
+        } catch (Exception e) {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
     @RequestMapping(path ="/getByName/{nombre}",method = RequestMethod.GET)
     public ResponseEntity<?> getCancionByNombre(@PathVariable ("nombre") String nombre){
@@ -75,7 +84,7 @@ public class CancionController {
 			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
     @RequestMapping(path ="/{id}/users",method = RequestMethod.GET)
     public ResponseEntity<?> getUsersThatHaveCancion(@PathVariable ("id") String id){
