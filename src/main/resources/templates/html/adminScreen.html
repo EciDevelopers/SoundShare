@@ -16,7 +16,7 @@
 	<script src="../js/websocket.js"></script>
 </head>
 
-<body id="admin" onload="app.printUserLogged()">
+<body id="admin" onload="app.printUserLogged(), app.createtableroom(), app.createtableusers() , app.createtablesongsuser()">
 <header>
     <nav>
         <ul>
@@ -35,23 +35,66 @@
     <div id="todo">
         <h1 id="nick" align="left">Welcome hola Admin !</h1>
         <br>
-         <div id ="menu-sala" >
+        <div id="menu-songs">
             <h2 align="left">Your rooms </h2>
             <br>
-            <a href="sala.html?id=35"><input id="room" type="button" value="Go to Room 1"></a>
-			<br>
-             <br>
-            <a href="sala.html?id=3"><input id="room" type="button" value="Go to Room 2"></a>
+            <div>
+                <table class="table">
+                    <thead>
+                    <tr class="table-warning" >
+                        <th scope="col">id</th>
+                        <th scope="col">nombre</th>
+                        <th scope="col">genero</th>
+                        <th scope="col">tipo</th>
+                        <th scope="col">entrar</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tablasrooms">
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div id ="menu-princi" >
-            <h2 align="left">Your playlist </h2>
-            <br>
-            <input id="songFind" type="text" class="form-control" placeholder="Find your favorite playlist..."/>
+            <div>
+                <h2 align="left">Your Users </h2>
+                <br>
+                <div>
+                    <table class="table">
+                        <thead>
+                        <tr class="table-warning" >
+                            <th scope="col">id</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">nickname</th>
+                            <th scope="col">eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablasUsers">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div id ="menu-friends"  >
-            <h2 align="left">Your Friends </h2>
-            <br>
-            <input id="friends" type="text" class="form-control" placeholder="Find your friends..."/>
+        <div id ="menu-playlist" >
+            <div>
+                <h2 align="left">Your playlist </h2>
+                <br>
+                <div>
+                    <table class="table">
+                        <thead>
+                        <tr class="table-warning" >
+                            <th scope="col">id</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">genero</th>
+                            <th scope="col">author</th>
+                            <th scope="col">minuto</th>
+                            <th scope="col">play</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablasCancionesUser">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </main>

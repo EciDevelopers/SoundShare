@@ -24,6 +24,19 @@ var apiclient = (function () {
                 }
             });
         },
+
+        getSongsByUser : function (nickname,callback){
+            console.log("entrada");
+            jQuery.ajax({
+                //url: 'http://localhost:8080/users/'+nickname+'/canciones',
+                url: 'https://soundsharearsw.herokuapp.com/users/'+nickname+'/canciones',
+                method: 'GET',
+                success: function (respuesta) {
+                    callback(respuesta);
+                }
+            });
+        },
+
 		getSong : function (id,callback){
             console.log("entrada");
             jQuery.ajax({
@@ -58,6 +71,17 @@ var apiclient = (function () {
                     callback(respuesta);
                 }
             });
+        },
+
+        getUsers : function(callback){
+            jQuery.ajax({
+                //url: 'http://localhost:8080/users',
+                url: 'https://soundsharearsw.herokuapp.com/users',
+                method: 'GET',
+                success: function (respuesta) {
+                     callback(respuesta);
+                }
+            })
         },
 
 		addUser : function (user){
