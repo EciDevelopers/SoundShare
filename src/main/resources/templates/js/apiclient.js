@@ -29,7 +29,7 @@ var apiclient = (function () {
             console.log("entrada");
             jQuery.ajax({
                 //url: 'http://localhost:8080/users/'+nickname+'/canciones',
-                url: 'https://soundsharearsw.herokuapp.com/users/fer15/canciones',
+                url: 'https://soundsharearsw.herokuapp.com/users/'+nickname+'/canciones',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
