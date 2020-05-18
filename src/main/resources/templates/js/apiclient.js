@@ -63,7 +63,7 @@ var apiclient = (function () {
         getUsers : function(callback){
             jQuery.ajax({
                 //url: 'http://localhost:8080/users',
-                url: 'oundsharearsw.herokuapp.com/users',
+                url: 'https://soundsharearsw.herokuapp.com/users',
                 method: 'GET',
                 success: function (respuesta) {
                      callback(respuesta);
