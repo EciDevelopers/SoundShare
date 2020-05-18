@@ -60,6 +60,17 @@ var apiclient = (function () {
             });
         },
 
+        getUsers : function(callback){
+            jQuery.ajax({
+                //url: 'http://localhost:8080/users',
+                url: 'oundsharearsw.herokuapp.com/users',
+                method: 'GET',
+                success: function (respuesta) {
+                     callback(respuesta);
+                }
+            })
+        },
+
 		addUser : function (user){
 			//const Url = 'http://localhost:8080/users/create';
 			const Url = 'https://soundsharearsw.herokuapp.com/users/create';

@@ -47,6 +47,25 @@ var app = (function () {
         apiclient.getRooms(showRooms);
     }
 
+    function createtableusers(){
+        apiclient.getUsers(showUsers);
+    }
+
+    function showUsers(users){
+        users.map(function(users){
+            $("#tablasUsers").append(
+                '<tr class="table-success"> <td>'+
+                users.id +
+                '</td> <td>' +
+                users.nombre +
+                '</td> <td>' +
+                users.nickname +
+                "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0' ><img  src='../img/eliminar.png' style='width:75%' alt='x'/></button></form></td>"
+            );
+
+        });
+    }
+
     function showSongs(canciones){
         canciones.map(function(canciones) {
               $("#tablas").append(
@@ -132,6 +151,7 @@ var app = (function () {
 		getUserLogged : getUserLogged,
 		createtable : createtable,
 		createtableroom : createtableroom,
+		createtableusers : createtableusers,
 		getNameRoom : getNameRoom,
 		printUserstoSala :  printUserstoSala
     };
