@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -65,7 +66,6 @@ public class Cache {
             for(Usuario usr:newUsers){
                 usuarios.put(usr.getNickname(),usr);
             }
-
         }
     }
     public List<Cancion> getAllCanciones(){
@@ -91,11 +91,15 @@ public class Cache {
     }
 
     public Set<Usuario> getUsersThatHaveCancion(String id){
-        //System.out.println(getCancionById(id).getUsuarios());
-        return getCancionById(id).getUsuarios();
+        Cancion song = getCancionById(id);
+        Set<Usuario> usr = new HashSet<Usuario>();
+        usr = song.getUsuarios();
+        System.out.println(usr.size());
+        return usr;
     }
 
     public Set<Sala> getSalasThatHaveCancion(String id){
+        System.out.println(getCancionById(id).getSalas().size());
         return getCancionById(id).getSalas();
     }
 
