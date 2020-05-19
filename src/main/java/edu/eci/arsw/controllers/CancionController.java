@@ -87,7 +87,7 @@ public class CancionController {
     @RequestMapping(path ="/{id}/users",method = RequestMethod.GET)
     public ResponseEntity<?> getUsersThatHaveCancion(@PathVariable ("id") String id){
         try {
-            return new ResponseEntity<>(cache.getUsersThatHaveCancion(id),HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(services.getUsersThatHaveCancion(id),HttpStatus.ACCEPTED);
         }catch (Exception e) {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
@@ -96,7 +96,7 @@ public class CancionController {
     @RequestMapping(path ="/{id}/salas",method = RequestMethod.GET)
     public ResponseEntity<?>getSalasThatHaveCancion(@PathVariable ("id") String id){
         try {
-            return new ResponseEntity<>(cache.getSalasThatHaveCancion(id),HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(services.getSalasThatHaveCancion(id),HttpStatus.ACCEPTED);
         } catch (Exception e) {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
