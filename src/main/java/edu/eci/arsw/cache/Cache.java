@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
@@ -78,10 +79,24 @@ public class Cache {
     public Cancion getCancionById(String id){
         return canciones.get(id);
     }
-    /**
+
     public Cancion getCancionByNombre(String nombre){
+        List<Cancion> lCanciones =  getAllCanciones();
+        for(Cancion song:lCanciones){
+            if(song.getNombre().equals(nombre)){
+                return song;
+            }
+        }
+        return null;
+    }
 
-    }*/
+    public Set<Usuario> getUsersThatHaveCancion(String id){
+        //System.out.println(getCancionById(id).getUsuarios());
+        return getCancionById(id).getUsuarios();
+    }
 
+    public Set<Sala> getSalasThatHaveCancion(String id){
+        return getCancionById(id).getSalas();
+    }
 
 }

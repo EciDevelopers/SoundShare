@@ -68,7 +68,7 @@ public class CancionController {
     @RequestMapping(path ="/{id}",method = RequestMethod.GET)
     public ResponseEntity<?> getCancionById(@PathVariable ("id") String id){
         try {
-            return new ResponseEntity<>(cache.getCancionById(id),HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(services.getCancionById(id),HttpStatus.ACCEPTED);
             //meodo que dado el id recorne la cancion con esa id
         } catch (Exception e) {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
@@ -79,8 +79,7 @@ public class CancionController {
     public ResponseEntity<?> getCancionByNombre(@PathVariable ("nombre") String nombre){
         try {
             return new ResponseEntity<>(services.getCancionByName(nombre),HttpStatus.ACCEPTED);
-        } catch (ExceptionServiciosReserva e) {
-			
+        } catch (Exception e) {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 	    }
@@ -89,21 +88,19 @@ public class CancionController {
     public ResponseEntity<?> getUsersThatHaveCancion(@PathVariable ("id") String id){
         try {
             return new ResponseEntity<>(services.getUsersThatHaveCancion(id),HttpStatus.ACCEPTED);
-        } catch (ExceptionServiciosReserva e) {
-			
+        }catch (Exception e) {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
-     @RequestMapping(path ="/{id}/salas",method = RequestMethod.GET)
+    @RequestMapping(path ="/{id}/salas",method = RequestMethod.GET)
     public ResponseEntity<?>getSalasThatHaveCancion(@PathVariable ("id") String id){
         try {
             return new ResponseEntity<>(services.getSalasThatHaveCancion(id),HttpStatus.ACCEPTED);
-        } catch (ExceptionServiciosReserva e) {
-			
+        } catch (Exception e) {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
 
 }
