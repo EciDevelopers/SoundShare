@@ -6,9 +6,13 @@
 package edu.eci.arsw.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -43,17 +47,17 @@ public class Sala implements Serializable {
     )
     private Set<Usuario> usuarios;
     @JsonIgnore
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(name="colacanciones",
     joinColumns=@JoinColumn(name="nombre_sala",referencedColumnName ="nombre"),
     inverseJoinColumns=@JoinColumn(name="id_cancion",referencedColumnName="id")
     )
-    private Set<Cancion> colacanciones;
+    private List<Cancion> colacanciones;
 
     public Sala(){
         super();
     }
-    public Sala(int id, String nombre, String genero,String tipo,Set<Usuario> usuarios,Set<Cancion> colacanciones) {
+    public Sala(int id, String nombre, String genero,String tipo,Set<Usuario> usuarios,List<Cancion> colacanciones) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
@@ -102,11 +106,11 @@ public class Sala implements Serializable {
         this.tipo = tipo;
     }
 
-    public Set<Cancion> getColacanciones() {
+    public  List<Cancion> getColacanciones() {
         return colacanciones;
     }
 
-    public void setColacanciones(Set<Cancion> colacanciones) {
+    public void setColacanciones(List<Cancion> colacanciones) {
         this.colacanciones = colacanciones;
     }
 

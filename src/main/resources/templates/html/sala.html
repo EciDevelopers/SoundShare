@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js" type="text/javascript"></script>
 </head>
 
-<body onload="app.getNameRoom(), app.createtable()" onbeforeunload="websocket.desconnectUser()">
+<body onload="app.getNameRoom()" onbeforeunload="websocket.desconnectUser()">
 <header>
     <nav>
         <ul>
@@ -80,13 +80,13 @@
 <footer>
     <div id ="menu-play">
         <div style="float: left;width: 10%">
-            <button id="boton1" type="submit"  ><img src="../img/pass.png" alt="x"/></button>
+            <button id="boton1" type="submit"  ><img src="../img/pass.png" onclick="websocket.cambiarBack()" alt="x"/></button>
         </div>
         <div style="float: left;width: 10%">
             <button id="youtube-audio" type="submit" onload="apiyoutube.cambiarEstado()"></button>
         </div>
         <div style="float: left;width: 10%">
-            <button id="boton2" type="submit"><img src="../img/next.png" alt="x" /></button>
+            <button id="boton2" type="submit"><img src="../img/next.png" onclick="websocket.cambiarNext()" alt="x" /></button>
         </div>
         <div id= "menu-tittlesong">
             <input id="barraSong" type="text" class="form-control" placeholder="Find your favorite song..."/>

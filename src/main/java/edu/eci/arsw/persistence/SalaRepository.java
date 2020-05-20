@@ -24,4 +24,5 @@ public interface SalaRepository extends JpaRepository< Sala, Long > {
     public Sala findByNombre(String nombre);
     public Sala findById(int id);
     
+    
 }

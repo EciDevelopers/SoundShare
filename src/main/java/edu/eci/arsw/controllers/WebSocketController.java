@@ -71,6 +71,7 @@ public class WebSocketController {
 			System.out.println((services.getUserBySala(id)).size());
 			if((services.getUserBySala(id)).size() == 0) {
 				System.out.println("firestone");
+				services.limpiarColaCancionesBySala(id);
         		mapa.remove(id);
         	}
 			return services.getUserBySala(id);
@@ -96,6 +97,7 @@ public class WebSocketController {
 		}
         return null;
     }
+    
     @MessageMapping("/sala/{id}/lista/{lista}/index/{pos}/seg/{time}")
     @SendTo("/topic/sala/{id}/lista")
     public ArrayList<Object> setlista(@DestinationVariable int pos,@DestinationVariable String lista,@DestinationVariable int id,@DestinationVariable int time){
@@ -124,6 +126,7 @@ public class WebSocketController {
         		tempo.add(lista35);
         		tempo.add(pos);
         		mapa.put(id,tempo);
+        		services.setSongsToSala(id,lista35);
     			return mapa.get(id);
         		
         	}
@@ -133,7 +136,94 @@ public class WebSocketController {
 		}
         return null;
     }
-    
+    @MessageMapping("/sala/{id}/next/{lista15}/index/{pos}/seg/{time}")
+    @SendTo("/topic/sala/{id}/next")
+    public ArrayList<Object> nextSong(@DestinationVariable int pos,@DestinationVariable String lista15,@DestinationVariable int id,@DestinationVariable int time){
+    	System.out.println("llego hope next xd");
+        System.out.println(lista15);
+        JSONObject req = new JSONObject(lista15); 
+        JSONArray array1 = req.getJSONArray("lista");
+        System.out.println(array1);
+        ArrayList<Object> lista = new ArrayList<Object>();
+        for(int i=0;i < array1.length();i++){
+            lista.add(array1.get(i));
+        }
+        JSONArray array2 = req.getJSONArray("users");
+        System.out.println(array2);
+        ArrayList<Object> lista2 = new ArrayList<Object>();
+        for(int i=0;i < array2.length();i++){
+            lista2.add(array2.get(i));
+        }          
+        try { 
+        	if(lista.size() == 0) {
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		tempo.add("ini");
+        		tempo.add("next");
+    			return tempo;
+        		
+        	}
+        	else {
+        		System.out.println("no se next xd");
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		tempo.add(lista);
+        		tempo.add(lista2);
+        		tempo.add(pos);
+    			return tempo;
+        		
+        	}
+      
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+        return null;
+    	
+    }
+    @MessageMapping("/sala/{id}/back/{lista15}/index/{pos}/seg/{time}")
+    @SendTo("/topic/sala/{id}/back")
+    public ArrayList<Object> backSong(@DestinationVariable int pos,@DestinationVariable String lista15,@DestinationVariable int id,@DestinationVariable int time){
+    	System.out.println("llego hope xd backk");
+        System.out.println(lista15);
+        JSONObject req = new JSONObject(lista15); 
+        JSONArray array1 = req.getJSONArray("lista");
+        System.out.println(array1);
+        ArrayList<Object> lista = new ArrayList<Object>();
+        for(int i=0;i < array1.length();i++){
+            lista.add(array1.get(i));
+        }
+        JSONArray array2 = req.getJSONArray("users");
+        System.out.println(array2);
+        ArrayList<Object> lista2 = new ArrayList<Object>();
+        for(int i=0;i < array2.length();i++){
+            lista2.add(array2.get(i));
+        }
+        try { 
+        	if(lista.size() == 0) {
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		tempo.add("ini");
+        		tempo.add("back");
+    			return tempo;
+        		
+        	}
+        	else {
+        		System.out.println("no se back xd");
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		tempo.add(lista);
+        		tempo.add(lista2);
+        		tempo.add(pos);
+    			return tempo;
+        		
+        	}
+      
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+        return null;
+    	
+    }
     
     @MessageMapping("/sala/{id}/cancionActual/{lista15}/index/{pos}/seg/{time}")
     @SendTo("/topic/sala/{id}/cancionActual")
@@ -160,7 +250,7 @@ public class WebSocketController {
         	else if(((mapa.get(id)).get(0)).equals(" ")) {
         		System.out.println("no se xd");
         		System.out.println(lista.get(pos));
-        		services.agregarCancionToSala(id,(String) lista.get(pos));
+        		services.setSongsToSala(id,lista);
         		ArrayList<Object> tempo = new ArrayList<Object>();
         		Cancion can = services.getCancionByName((String) lista.get(pos));
         		String nameExploit= can.getNombre();
@@ -213,6 +303,7 @@ public class WebSocketController {
 		
         return null;
     }
+
 
 
 

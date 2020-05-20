@@ -1,6 +1,7 @@
 var apiclient = apiclient;
 var websocket = websocket;
 var app = (function () {
+	var orden = [];
     class Acto{
         constructor(youtubeaudio){
             this.youtubeaudio=youtube-audio;
@@ -39,8 +40,8 @@ var app = (function () {
     		apiclient.addRoom(JSON.stringify(newRoom));
     };
 
-	function createtable(){
-        apiclient.getSongs(showSongs);
+	function createtable(canciones){
+        apiclient.getSongsBySala(canciones,showSongs);
     }
 
     function createtableroom(){
@@ -57,7 +58,7 @@ var app = (function () {
     }
 
     function showSongsByUser(canciones){
-        canciones.map(function(canciones) {
+        canciones.map(function(canciones) {	
               $("#tablasCancionesUser").append(
                   '<tr class="table-success"> <td>'+
                   canciones.id +
@@ -90,21 +91,29 @@ var app = (function () {
     }
 
     function showSongs(canciones){
+		console.log('gamaaaaaaaaaaaaaaaaaaaa');
+		var $table = $("#tablas").find('tr').find('td:eq(0)');
+		 jQuery.each($table, function(i, item) {
+          orden.push($(this).text());
+		  console.log($(this).text());
+       });
         canciones.map(function(canciones) {
-              $("#tablas").append(
-                  '<tr class="table-success"> <td>'+
-                  canciones.id +
-                  '</td> <td>' +
-                  canciones.nombre +
-                  '</td> <td>' +
-                  canciones.genero +
-                  '</td> <td>' +
-                  canciones.author +
-                  '</td> <td>' +
-                  canciones.minuto +
-                  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0)'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
-              );
-        });
+		if(!orden.includes(canciones.id)){	
+		$("#tablas").append(
+		  '<tr class="table-success"> <td>'+
+		  canciones.id +
+		  '</td> <td>' +
+		  canciones.nombre +
+		  '</td> <td>' +
+		  canciones.genero +
+		  '</td> <td>' +
+		  canciones.author +
+		  '</td> <td>' +
+		  canciones.minuto +
+		  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0)'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
+		);
+			  
+        }});
     }
 
     function showRooms(salas){
@@ -156,6 +165,7 @@ var app = (function () {
     }
 	
 	function loadNameRoom(nombre){
+		createtable(nombre);
 		localStorage.setItem("nameRoom",nombre);
 		namesala = nombre;
 		apiclient.getUsersToSala(nombre,printUserstoSala);

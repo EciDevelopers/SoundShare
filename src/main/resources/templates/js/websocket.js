@@ -11,6 +11,7 @@ var websocket = (function () {
 	var user;
 	var play = false;
 	var action = false;
+	var actionhope = false;
 	var delta;
 	var playnombres = [];
 	
@@ -76,7 +77,7 @@ var websocket = (function () {
 				stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+timer,{},'');
 				lista =  playnombres;
 				play = true;
-				connectAndSubscribeEstado();
+				//connectAndSubscribeEstado();
 			}, 1000);
 	
 	};
@@ -128,6 +129,34 @@ var websocket = (function () {
 			
 					
 	};
+	function cambiarNext(){	
+		console.log('hopeeeeeeeeeeeeeee');
+		console.log('nexttttttttttttttttt');
+		console.log(cont);
+		posi+=1;
+		var userlist = [];
+		userlist.push(user);
+		delta ={
+			lista : playnombres,
+			users : userlist,
+		};
+		apiyoutube.next();
+		stompClient.send('/app/sala/'+sala+'/next/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+0,{},'');					
+	};
+	function cambiarBack(){	
+		console.log('hopeeeeeeeeeeeeeee backkk');
+		console.log('backkkkk');
+		console.log(cont);
+		posi-=1;
+		var userlist = [];
+		userlist.push(user);
+		delta ={
+			lista : playnombres,
+			users : userlist,
+		};
+		apiyoutube.back();
+		stompClient.send('/app/sala/'+sala+'/back/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+0,{},'');					
+	};
 	function connectAndSubscribeMain(){
 		initStompClient();
 		console.log('conecto xd');
@@ -145,6 +174,7 @@ var websocket = (function () {
 				console.log(user);
 				console.log(sincronized);
 				console.log(lista);
+				app.createtable(localStorage.getItem("nameRoom"));
 				if((lista === undefined && datos[0] !== 'ini') ){
 					console.log('q onda');
 					console.log('ciclo');
@@ -193,7 +223,6 @@ var websocket = (function () {
 				}
 				
 				
-				
 						
             });	
 			stompClient.send('/app/sala/'+sala+'/play/'+user+'/estado/'+false+'/intento/'+0,{},'');
@@ -229,6 +258,75 @@ var websocket = (function () {
 				}	
             });	
 			stompClient.send('/app/sala/'+sala+'/lista/'+JSON.stringify(deltaini)+'/index/'+0+'/seg/'+0,{},'');
+			connectAndSubscribeNext();
+        });
+	};
+	function connectAndSubscribeNext(){
+		initStompClient();
+		console.log('conecto Nest');
+		stompClient.connect({}, function (frame) {
+			console.log('Connected: ' + frame);
+			var deltaini ={
+				lista : [],
+				users : [],
+			};
+            stompClient.subscribe('/topic/sala/'+sala+'/next',function(eventbody){
+				var datos = JSON.parse(eventbody.body);
+				console.log(eventbody.body);
+				console.log(posi);
+				if(datos[0] !== 'ini'){				
+					console.log('firessssssstone');
+					var delta ={
+						lista : datos[0],
+						users : datos[1],
+					};
+					if(!datos[1].includes(user) && datos[2] !== player.getPlaylistIndex()){
+						apiyoutube.next();
+						delta.users.push(user);
+						
+					}
+					posi = datos[2];
+					stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+0,{},'');
+					
+
+				}	
+            });	
+			stompClient.send('/app/sala/'+sala+'/next/'+JSON.stringify(deltaini)+'/index/'+0+'/seg/'+0,{},'');
+			connectAndSubscribeBack();
+        });
+	};
+		function connectAndSubscribeBack(){
+		initStompClient();
+		console.log('conecto back');
+		stompClient.connect({}, function (frame) {
+			console.log('Connected: ' + frame);
+			var deltaini ={
+				lista : [],
+				users : [],
+			};
+            stompClient.subscribe('/topic/sala/'+sala+'/back',function(eventbody){
+				var datos = JSON.parse(eventbody.body);
+				console.log(eventbody.body);
+				console.log(posi);
+				if(datos[0] !== 'ini'){				
+					console.log('firessssssstone backkkkkkkkk');
+					var delta ={
+						lista : datos[0],
+						users : datos[1],
+					};
+					if(!datos[1].includes(user) && datos[2] !== player.getPlaylistIndex()){
+						apiyoutube.back();
+						delta.users.push(user);
+					
+					}
+					posi = datos[2];
+					stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+0,{},'');	
+					
+					
+
+				}	
+            });	
+			stompClient.send('/app/sala/'+sala+'/back/'+JSON.stringify(deltaini)+'/index/'+0+'/seg/'+0,{},'');
         });
 	};
 	
@@ -239,7 +337,10 @@ var websocket = (function () {
 		desconnectUser : desconnectUser,
 		fijarSong : fijarSong,
 		cambiarEstado : cambiarEstado,
-		addSongPlay : addSongPlay
+		addSongPlay : addSongPlay,
+		cambiarNext : cambiarNext,
+		cambiarBack : cambiarBack
+		
 
     };
 

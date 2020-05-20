@@ -35,6 +35,7 @@ import java.sql.Time;
 import java.time.LocalTime;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -145,11 +146,10 @@ public class ApiSoundsShare {
 	     SpringApplication.run(ApiSoundsShare.class, args);
     }
 
-    /*
+    /**
     @Bean
     public CommandLineRunner demo(ServiciosSoundShareImpl service) {
       return (args) -> {
-        // save a few customers
     	
     	Set<Sala> salas=new HashSet<Sala>();
         Set<Cancion> plays=new HashSet<Cancion>();
@@ -176,6 +176,7 @@ public class ApiSoundsShare {
         canciones.add(can);
         Sala sala=new Sala(35,"hope15","electronica","publica",usuarios,canciones);
         service.saveSala(sala);
+        
         
   
         };   

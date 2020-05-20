@@ -199,7 +199,7 @@ public class ServiciosSoundShareImpl {
         Sala sala=getSalaByName(name);
         return sala.getUsuarios();
     }
-    public Set<Cancion> getColaCancionesBySala(String name)  throws ExceptionServiciosReserva{
+    public  List<Cancion> getColaCancionesBySala(String name)  throws ExceptionServiciosReserva{
         Sala sala=getSalaByName(name);
         return sala.getColacanciones();
     }
@@ -239,22 +239,28 @@ public class ServiciosSoundShareImpl {
         return salaNow.getUsuarios();
        
     }
-    public void agregarCancionToSala(int SalaId,String cancion) throws ExceptionServiciosReserva{
-        System.out.println(cancion);
+    public void setSongsToSala(int SalaId,ArrayList<Object> lista2) throws ExceptionServiciosReserva{
         Sala salaNow=salaRepository.findById(SalaId);
-        Set<Cancion> lista = salaNow.getColacanciones();
-        Cancion song = cancionRepository.findByNombre(cancion);
-        System.out.println(song.getNombre());
-        lista.add(song);
+        List lista = new  ArrayList<Cancion>();
+        for (Object name:lista2) {
+        	lista.add(getCancionByName((String) name));
+        }
+        System.out.println(lista.size());
         salaNow.setColacanciones(lista);
        
     }
-    public Set<Cancion> getCancionesBySala(int SalaId) throws ExceptionServiciosReserva{
+    public  List<Cancion> getCancionesBySala(int SalaId) throws ExceptionServiciosReserva{
         //System.out.println(SalaId);
         Sala salaNow=salaRepository.findById(SalaId);
         return salaNow.getColacanciones();
        
     }
-
+    public void limpiarColaCancionesBySala(int SalaId) throws ExceptionServiciosReserva{
+          System.out.println("vamossssssssssss");
+    	  Sala salaNow=salaRepository.findById(SalaId);
+    	  List<Cancion> lista = new  ArrayList<Cancion>();
+          salaNow.setColacanciones(lista);
+       
+    }
     
 }

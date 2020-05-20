@@ -59,6 +59,14 @@ var apiyoutube = (function () {
 		return playlist;
 
 	};
+	function next(){
+		player.nextVideo();
+
+	};
+	function back(){
+		player.previousVideo();
+
+	};
 	function transcribir(cancion) {
 		apiclient.getIdSong(cancion,addcancion);
 
@@ -101,7 +109,8 @@ var apiyoutube = (function () {
 						    
 								
 						
-                    }					
+                    }
+					console.log(evt.data);
 					if( evt.data == -1 || evt.data == 0 ) {
 						index = player.getPlaylistIndex();
 						console.log(replaylist());
@@ -187,7 +196,9 @@ var apiyoutube = (function () {
 		play : play,
 		pause : pause,
 		addcancion : addcancion,
-		transcribir : transcribir
+		transcribir : transcribir,
+		next : next,
+		back : back
 		
 		
 				

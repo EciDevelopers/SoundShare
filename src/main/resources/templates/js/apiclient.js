@@ -19,6 +19,7 @@ var apiclient = (function () {
 				//url: 'http://localhost:8080/salas/'+name+'/colacanciones',
                 url: 'https://soundsharearsw.herokuapp.com/'+name+'/colacanciones',
                 method: 'GET',
+				async: false,
                 success: function (respuesta) {
                     callback(respuesta);
                 }
@@ -28,8 +29,8 @@ var apiclient = (function () {
         getSongsByUser : function (nickname,callback){
             console.log("entrada");
             jQuery.ajax({
-                url: 'http://localhost:8080/users/'+nickname+'/canciones',
-                //url: 'https://soundsharearsw.herokuapp.com/users/'+nickname+'/canciones',
+                //url: 'http://localhost:8080/users/'+nickname+'/canciones',
+                url: 'https://soundsharearsw.herokuapp.com/users/'+nickname+'/canciones',
                 method: 'GET',
                 success: function (respuesta) {
                     callback(respuesta);
@@ -59,6 +60,23 @@ var apiclient = (function () {
                     callback(respuesta);
                 }
             });
+        },
+		getSongsBySala : function (nombre,callback){
+            console.log("entrada delta");
+            console.log(nombre);
+			if (nombre !== undefined){
+				console.log('xddddddddddddddd')
+				//const Url = 'http://localhost:8080/salas/';
+				const Url = 'https://soundsharearsw.herokuapp.com/salas/';
+				jQuery.ajax({
+					url: Url+nombre+'/colacanciones',
+					type: "GET",
+					success: function (respuesta) {
+						console.log(respuesta);
+						callback(respuesta);
+					}
+				});
+			}
         },
 
         getRooms : function(callback){
