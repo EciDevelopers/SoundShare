@@ -31,22 +31,7 @@ public class Cache {
     private SalaRepository salaR;
     @Autowired
     private CancionRepository cancionR;
-
-    /**
-    public Cache(){
-        List<Cancion> songs = cancionR.findAll();
-        for(Cancion cancion:songs){
-            canciones.put(cancion.getId(),cancion);
-        }
-        List<Sala> sala = salaR.findAll();
-        for(Sala sal:sala){
-            salas.put(sal.getNombre(),sal);
-        }
-        List<Usuario> users = usuarioR.findAll();
-        for(Usuario usr:users){
-            usuarios.put(usr.getNickname(),usr);
-        }
-    }*/
+    
 
     public void update(String tipo) throws ExceptionServiciosReserva {
         if(tipo=="cancion"){
