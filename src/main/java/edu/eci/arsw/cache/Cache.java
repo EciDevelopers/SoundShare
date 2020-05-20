@@ -120,5 +120,8 @@ public class Cache {
         }
         return lSala;
     }
+    public Sala getSalaByName(String nombre){
+        return salas.get(nombre);
+    }
 
 }
