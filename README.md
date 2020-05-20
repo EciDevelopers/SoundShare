@@ -2,6 +2,10 @@
 
 # 2020-1-Arquitectura de Software
 
+## Descripción
+
+Esta aplicación web es una red social la que nos permite compartir nuestros gustos musicales con nuestros amigos y con el mundo. Tendremos a nuestras disposición diferentes salas para cada uno de nuestros géneros favoritos, donde la interacción con los integrantes de la sala puede ser totalmente personalizada, como poder votar por nuestra canción preferida o si quieres dejar a alguien a cargo para que sea el dj de la sala.
+
 ## Integrantes y Roles
 
 |     Nombre    |     Rol         |
@@ -11,32 +15,19 @@
 |Carlos Castaneda|Team Developer  |
 |Fernando Barrera|Team Developer  |
 
-[![CircleCI](https://circleci.com/gh/EciDevelopers/SoundShare.svg?style=svg)](https://circleci.com/gh/EciDevelopers/SoundShare)
+## Enlaces 
 
++ [URL HEROKU](https://soundsharearsw.herokuapp.com/)
 
-## [URL HEROKU](https://soundsharearsw.herokuapp.com/)
++ [![CircleCI](https://circleci.com/gh/EciDevelopers/SoundShare.svg?style=svg)](https://circleci.com/gh/EciDevelopers/SoundShare)
 
-## Descripción del producto.
++ [Enlace a Taiga](https://tree.taiga.io/project/luisalejandrojaramillo-soundshare/backlog)
 
-### Users
-
-![](img/users.PNG)
-
-### Descripción
-
-Esta aplicación web es una red social la que nos permite compartir nuestros gustos musicales con nuestros amigos y con el mundo. Tendremos a nuestras disposición diferentes salas para cada uno de nuestros géneros favoritos, donde la interacción con los integrantes de la sala puede ser totalmente personalizada, como poder votar por nuestra canción preferida o si quieres dejar a alguien a cargo para que sea el dj de la sala.
-
-### Diagrama de Componentes
-
-![](img/DiagramaComponentes.png)
+## Arquitectura
 
 ### Diagrama de clases
 
 ![](img/DiagramaClases.png)
-
-### Diagrama de casos de uso
-
-![](img/CasoDeUso.png)
 
 ### Modelo Entidad relacion
 
@@ -45,6 +36,14 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 ### Diagrama de despliegue
 
 ![](img/DiagramaDespliegue.png)
+
+### Diagrama de casos de uso
+
+![](img/CasoDeUso.png)
+
+### Diagrama de Componentes
+
+![](img/DiagramaComponentes.png)
 
 ### Diseño interfaz grafica
 
@@ -56,6 +55,6 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 
 ![](img/interfazDos.png)
 
-#### Enlace a Taiga
-+ [Enlace a Taiga](https://tree.taiga.io/project/luisalejandrojaramillo-soundshare/backlog)
-+ [URL HEROKU](https://soundsharearsw.herokuapp.com/)
+### Users
+
+![](img/users.PNG)
