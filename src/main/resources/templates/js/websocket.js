@@ -4,12 +4,15 @@ var apiyoutube = apiyoutube;
 var websocket = (function () {
     var stompClient=null;
 	var sala;
-	var song;
+	var lista;
 	var cont = 0;
+	var posi;
 	var sincronized = false;
 	var user;
 	var play = false;
 	var action = false;
+	var delta;
+	var playnombres = [];
 	
     function initStompClient(){
         console.info('Connecting to SockJS...');
@@ -35,9 +38,10 @@ var websocket = (function () {
 				}
 				if(sala !== undefined && song !== undefined && apiyoutube.getTime() !== undefined ){
 					console.log('copiar');
+					console.log(delta);
 					action === true;
 					setTimeout(function() {
-					   stompClient.send('/app/sala/'+sala+'/cancionActual/'+song+'/seg/'+apiyoutube.getTime(),{},'');
+					   stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+apiyoutube.getTime(),{},'');
 					}, 1000);
 				}	
 				
@@ -56,11 +60,48 @@ var websocket = (function () {
 			window.history.back();
 		}
 	};
-	function fijarSong(cancion){
-		song = cancion;
-		stompClient.send('/app/sala/'+sala+'/cancionActual/'+cancion+'/seg/'+0,{},'');
-		play = true;
-		connectAndSubscribeEstado();
+	function fijarSong(canciones,pos,timer){
+			console.log('fijar');
+			for(var i=0;i<canciones.length;i++){
+				apiclient.getNameSong(canciones[i],bucle);
+			}
+			console.log(canciones.length);
+			console.log(timer);
+			posi = pos;		
+			delta ={
+				lista : playnombres,
+			};
+			console.log(delta);
+			setTimeout(function() {
+				stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+timer,{},'');
+				lista =  playnombres;
+				play = true;
+				connectAndSubscribeEstado();
+			}, 1000);
+	
+	};
+	function bucle(res) {
+		console.log('bucle');
+		console.log(res);
+		if(!playnombres.includes(res)){
+			playnombres.push(res);
+		}
+		
+	};
+	function addSongPlay(canciones){
+		console.log('add cancion alfa');
+		for(var i=0;i<canciones.length;i++){
+			
+				apiclient.getNameSong(canciones[i],bucle);
+			
+		}
+		delta ={
+			lista : playnombres,
+		};
+		setTimeout(function() {
+			console.log(delta);
+			stompClient.send('/app/sala/'+sala+'/lista/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+apiyoutube.getTime(),{},'');
+		}, 1000);
 	};
 	function cambiarEstado(){	
 		console.log('hopeeeeeeeeeeeeeee');
@@ -80,6 +121,7 @@ var websocket = (function () {
 		var hope = cont;
 		stompClient.send('/app/sala/'+sala+'/play/'+user+'/estado/'+play+'/intento/'+hope,{},'');
 		cont++;
+		console.log('destroyer 26');
 
 	
 			
@@ -91,6 +133,9 @@ var websocket = (function () {
 		console.log('conecto xd');
 		stompClient.connect({}, function (frame) {
 			console.log('Connected: ' + frame);
+			var deltaini ={
+				lista : [],
+			};
             stompClient.subscribe('/topic/sala/'+sala+'/cancionActual',function(eventbody){
 				var datos = JSON.parse(eventbody.body);
 				console.log(datos);
@@ -99,20 +144,25 @@ var websocket = (function () {
 				console.log(eventbody.body);
 				console.log(user);
 				console.log(sincronized);
-				if(song === undefined && datos[0] !== 'ini' && sincronized === false){
+				console.log(lista);
+				if((lista === undefined && datos[0] !== 'ini') ){
 					console.log('q onda');
 					console.log('ciclo');
 					var minut = parseInt(datos[1], 10);
 					console.log(play);
 					sincronized = true;
-					connectAndSubscribeEstado();
-					apiyoutube.onYouTubeIframeAPIReady(datos[0],minut+4);				
+					console.log(posi);
+					console.log(datos[2]);
+					console.log(minut);
+					apiyoutube.onYouTubeIframeAPIReady(datos[2],datos[3],minut+4);				
 				}
 				else{
+					console.log('destroyer');
 					cont++;
 				}
             });	
-			stompClient.send('/app/sala/'+sala+'/cancionActual/'+' '+'/seg/'+0,{},'');
+			stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(deltaini)+'/index/'+0+'/seg/'+0,{},'');
+			connectAndSubscribeEstado();
 			
 			
         });
@@ -147,6 +197,38 @@ var websocket = (function () {
 						
             });	
 			stompClient.send('/app/sala/'+sala+'/play/'+user+'/estado/'+false+'/intento/'+0,{},'');
+			connectAndSubscribelista();
+        });
+	};
+	function connectAndSubscribelista(){
+		initStompClient();
+		console.log('conecto lista');
+		stompClient.connect({}, function (frame) {
+			console.log('Connected: ' + frame);
+			var deltaini ={
+				lista : [],
+			};
+            stompClient.subscribe('/topic/sala/'+sala+'/lista',function(eventbody){
+				var datos = JSON.parse(eventbody.body);
+				console.log(eventbody.body);
+				var datos = JSON.parse(eventbody.body);
+				if(datos[0] !== 'ini'){
+					delta ={
+						lista : datos[2],
+					};
+					var num = parseInt(datos[1], 10);
+					for(var i=0;i<datos[2].length;i++){
+						console.log(datos[2][i]);
+						apiclient.getIdSong(datos[2][i],apiyoutube.addcancion);
+					}
+					console.log('listaa updateeeeeeeeeeeeeee');	
+					stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+datos[3]+'/seg/'+num,{},'');
+					lista = delta.lista;
+					console.log(lista);
+				
+				}	
+            });	
+			stompClient.send('/app/sala/'+sala+'/lista/'+JSON.stringify(deltaini)+'/index/'+0+'/seg/'+0,{},'');
         });
 	};
 	
@@ -156,7 +238,8 @@ var websocket = (function () {
         connectAndSubscribeUser : connectAndSubscribeUser,
 		desconnectUser : desconnectUser,
 		fijarSong : fijarSong,
-		cambiarEstado : cambiarEstado
+		cambiarEstado : cambiarEstado,
+		addSongPlay : addSongPlay
 
     };
 

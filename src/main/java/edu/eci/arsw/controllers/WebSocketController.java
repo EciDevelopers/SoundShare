@@ -10,6 +10,9 @@ import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -23,6 +26,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.gson.JsonArray;
+
 import antlr.collections.List;
 
 @Controller
@@ -35,7 +40,7 @@ public class WebSocketController {
     @Autowired
     ServiciosSoundShareImpl services;
     
-    private ConcurrentHashMap<Integer,ArrayList<String>> mapa = new ConcurrentHashMap<Integer,ArrayList<String>>();
+    private ConcurrentHashMap<Integer,ArrayList<Object>> mapa = new ConcurrentHashMap<Integer,ArrayList<Object>>();
 
 
     @MessageMapping("/sala/{id}/unir/{nick}")
@@ -44,7 +49,7 @@ public class WebSocketController {
         System.out.println("llego xd");
         try {
         	if(!(mapa.containsKey(id))  || (services.getUserBySala(id)).size() == 0) {
-        		ArrayList<String> lista = new ArrayList<String>();
+        		ArrayList<Object> lista = new ArrayList<Object>();
         		lista.add(" ");
         		lista.add(" ");
         		mapa.put(id,lista);
@@ -91,48 +96,121 @@ public class WebSocketController {
 		}
         return null;
     }
-    
-    
-    @MessageMapping("/sala/{id}/cancionActual/{nombre}/seg/{time}")
-    @SendTo("/topic/sala/{id}/cancionActual")
-    public ArrayList<String> getCancionActual(@DestinationVariable String nombre,@DestinationVariable int id,@DestinationVariable int time){
-        System.out.println("llego hope xd");
-        try {   
-        	if(nombre.equals(" ")) {
-        		ArrayList<String> tempo = new ArrayList<String>();
-        		tempo.add("ini");
-        		tempo.add("ini");
-    			return tempo;
-        		
+    @MessageMapping("/sala/{id}/lista/{lista}/index/{pos}/seg/{time}")
+    @SendTo("/topic/sala/{id}/lista")
+    public ArrayList<Object> setlista(@DestinationVariable int pos,@DestinationVariable String lista,@DestinationVariable int id,@DestinationVariable int time){
+        System.out.println("llego hope lista xd");
+        System.out.println(lista);
+        JSONObject req = new JSONObject(lista); 
+        JSONArray array1 = req.getJSONArray("lista");
+        System.out.println(array1);
+        ArrayList<Object> lista35 = new ArrayList<Object>();
+        for(int i=0;i < array1.length();i++){
+            lista35.add(array1.get(i));
+        }
+        try {
+        	if(lista35.size()==0) {
+        		lista35.add("ini");
+        		lista35.add("lista");
+        		return lista35;
         	}
-        	else if(((mapa.get(id)).get(0)).equals(" ")) {
-        		System.out.println("no se xd");
-        		services.agregarCancionToSala(id, nombre);
-        		ArrayList<String> tempo = new ArrayList<String>();
-        		Cancion can = services.getCancionById(nombre);
+        	else {
+        		System.out.println("update lista xd");
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		Cancion can = services.getCancionByName((String) lista35.get(pos));
         		String nameExploit= can.getNombre();
-        		tempo.add( nameExploit);
-        		tempo.add("0");
+        		tempo.add(nameExploit);
+        		tempo.add(String.valueOf(time));
+        		tempo.add(lista35);
+        		tempo.add(pos);
         		mapa.put(id,tempo);
     			return mapa.get(id);
-        	}	
-        	else {
-        		System.out.println("no se 15  xd");
-        		if(Integer.parseInt((mapa.get(id)).get(1)) < time) {
-        			System.out.println("update");
-        			ArrayList<String> tempo = new ArrayList<String>();
-        			String tempo2 = (mapa.get(id)).get(0);
-        			String tempo3 = String.valueOf(time);
-        			tempo.add(tempo2);
-        			tempo.add(tempo3);
-        			mapa.put(id,tempo);
-        		}
-        		return mapa.get(id);
+        		
         	}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        return null;
+    }
+    
+    
+    @MessageMapping("/sala/{id}/cancionActual/{lista15}/index/{pos}/seg/{time}")
+    @SendTo("/topic/sala/{id}/cancionActual")
+    public ArrayList<Object> getCancionActual(@DestinationVariable int pos,@DestinationVariable String lista15,@DestinationVariable int id,@DestinationVariable int time){
+        System.out.println("llego hope xd");
+        System.out.println(lista15);
+        JSONObject req = new JSONObject(lista15); 
+        JSONArray array1 = req.getJSONArray("lista");
+        System.out.println(array1);
+        ArrayList<Object> lista = new ArrayList<Object>();
+        for(int i=0;i < array1.length();i++){
+            lista.add(array1.get(i));
+        }
+        try {   
+        	if(lista.size() == 0) {
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		ArrayList<Object> tempo1 = new ArrayList<Object>();
+        		tempo.add("ini");
+        		tempo.add("ini");
+        		tempo.add(tempo1);
+    			return tempo;
+        		
+        	}
+        	else if(((mapa.get(id)).get(0)).equals(" ")) {
+        		System.out.println("no se xd");
+        		System.out.println(lista.get(pos));
+        		services.agregarCancionToSala(id,(String) lista.get(pos));
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		Cancion can = services.getCancionByName((String) lista.get(pos));
+        		String nameExploit= can.getNombre();
+        		tempo.add( nameExploit);
+        		tempo.add("0");
+        		tempo.add(lista);
+        		tempo.add(pos);
+        		mapa.put(id,tempo);
+    			return mapa.get(id);
+        	}	
+        	else {
+        		System.out.println("no se 15  xd");
+        		System.out.println(time);
+        		System.out.println((String)(mapa.get(id)).get(1));
+        		System.out.println(Integer.parseInt((String)(mapa.get(id)).get(1)) < time);
+        		String song = (String) lista.get(pos);
+        		System.out.println(song);
+        		if(!song.equals((String)(mapa.get(id)).get(0)) || Integer.parseInt((String)(mapa.get(id)).get(1)) < time) {
+        			System.out.println("update");
+        			ArrayList<Object> tempo = new ArrayList<Object>();
+        			String tempo3 = String.valueOf(time);
+        			tempo.add(song);
+        			tempo.add(tempo3);
+        			tempo.add(lista);
+        			tempo.add(pos);
+        			mapa.put(id,tempo);
+        		}
+        		/**
+        		else if(!(((mapa.get(id)).get(0)).equals(nombre))) {
+        			services.agregarCancionToSala(id, nombre);
+        		}
+        		else if(time == -1) {
+        			System.out.println("change");
+        			ArrayList<String> tempo = new ArrayList<String>();
+        			String tempo2 = nombre;
+        			String tempo3 = String.valueOf(0);
+        			tempo.add(tempo2);
+        			tempo.add(tempo3);
+        			mapa.put(id,tempo);
+        		}
+        		*/
+        		
+        		return mapa.get(id);
+        		
+        	}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
         return null;
     }
 

@@ -243,7 +243,7 @@ public class ServiciosSoundShareImpl {
         System.out.println(cancion);
         Sala salaNow=salaRepository.findById(SalaId);
         Set<Cancion> lista = salaNow.getColacanciones();
-        Cancion song = cancionRepository.findById(cancion);
+        Cancion song = cancionRepository.findByNombre(cancion);
         System.out.println(song.getNombre());
         lista.add(song);
         salaNow.setColacanciones(lista);
