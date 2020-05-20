@@ -4,7 +4,10 @@
 
 ## Descripción
 
-Esta aplicación web es una red social la que nos permite compartir nuestros gustos musicales con nuestros amigos y con el mundo. Tendremos a nuestras disposición diferentes salas para cada uno de nuestros géneros favoritos, donde la interacción con los integrantes de la sala puede ser totalmente personalizada, como poder votar por nuestra canción preferida o si quieres dejar a alguien a cargo para que sea el dj de la sala.
+
+SoundShare es una red social interactiva en la que podrás compartir tu música con tus amigos y con el mundo. Busca tus canciones favoritas de manera gratuita y agrégalas a tu playlist. 
+
+Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras salas. Agrega las canciones que tú quieras, y compartelas, o si prefieres, descubre nuevo contenido dejando a tu amigo ser el DJ de esa sala.
 
 ## Integrantes y Roles
 
@@ -45,16 +48,17 @@ Esta aplicación web es una red social la que nos permite compartir nuestros gus
 
 ![](img/DiagramaComponentes.png)
 
-### Diseño interfaz grafica
+## Indicaciones Basicas
 
-* Ingreso y creación de usuario.
+### Usuarios
 
-![](img/interfazUno.png)
+|     Id         |     Nombre     |     Nick       |     Password   |     Rol        |
+|:--------------:|:--------------:|:-------------: |:--------------:|:-------------: |
+|      36        | Fernando Barrera|     fer15     |      arsw1     |      admin     |
+|      37        | Carlos Castañeda|     carlos2   |      arsw2     |      user      |
+|      40        | Luis Jaramillo  |      luis3    |      arsw3     |      user      |
 
-* Interfaz principal de la aplicación web.
+## Manual
 
-![](img/interfazDos.png)
+* 
 
-### Users
-
-![](img/users.PNG)
