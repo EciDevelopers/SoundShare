@@ -123,5 +123,14 @@ public class Cache {
     public Sala getSalaByName(String nombre){
         return salas.get(nombre);
     }
+    public Sala getSalaById(int id){
+        List<Sala> lRooms = getAllSalas();
+        for(Sala room:lRooms){
+            if(room.getId()==id){
+                return room;
+            }
+        }
+        return null;
+    }
 
 }
