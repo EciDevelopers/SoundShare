@@ -12,6 +12,7 @@ import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.soap.SAAJMetaFactory;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -110,6 +111,14 @@ public class Cache {
     }
     public Usuario getUsuarioByNick(String nick){
         return usuarios.get(nick);
+    }
+    //salas
+    public List<Sala> getAllSalas(){
+        List<Sala> lSala = new ArrayList<>();
+        for(Sala room:salas.values()){
+            lSala.add(room);
+        }
+        return lSala;
     }
 
 }
