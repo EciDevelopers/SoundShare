@@ -14,7 +14,7 @@
 [![CircleCI](https://circleci.com/gh/EciDevelopers/SoundShare.svg?style=svg)](https://circleci.com/gh/EciDevelopers/SoundShare)
 
 
-## [URL HEROKU](https://soundsharearsw.herokuapp.com/) 
+## [URL HEROKU](https://soundsharearsw.herokuapp.com/)
 
 ## Descripción del producto.
 
@@ -22,23 +22,23 @@
 
 ![](img/users.PNG)
 
-### Descripción 
+### Descripción
 
-Esta aplicación web es una red social la que nos permite compartir nuestros gustos musicales con nuestros amigos y con el mundo. Tendremos a nuestras disposición diferentes salas para cada uno de nuestros géneros favoritos, donde la interacción con los integrantes de la sala puede ser totalmente personalizada, como poder votar por nuestra canción preferida o si quieres dejar a alguien a cargo para que sea el dj de la sala. 
+Esta aplicación web es una red social la que nos permite compartir nuestros gustos musicales con nuestros amigos y con el mundo. Tendremos a nuestras disposición diferentes salas para cada uno de nuestros géneros favoritos, donde la interacción con los integrantes de la sala puede ser totalmente personalizada, como poder votar por nuestra canción preferida o si quieres dejar a alguien a cargo para que sea el dj de la sala.
 
 ### Diagrama de Componentes
 
-![](img/DiagramaComponente.png)
+![](img/DiagramaComponentes.png)
 
 ### Diagrama de clases
 
-![](img/Dclases.png)
+![](img/DiagramaClases.png)
 
 ### Diagrama de casos de uso
 
-![](img/cdu.png)
+![](img/CasoDeUso.png)
 
-### Modelo Entidad relacion 
+### Modelo Entidad relacion
 
 ![](img/dbmod2.png)
 
