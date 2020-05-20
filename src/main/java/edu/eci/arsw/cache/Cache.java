@@ -12,6 +12,7 @@ import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.soap.SAAJMetaFactory;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -30,22 +31,7 @@ public class Cache {
     private SalaRepository salaR;
     @Autowired
     private CancionRepository cancionR;
-
-    /**
-    public Cache(){
-        List<Cancion> songs = cancionR.findAll();
-        for(Cancion cancion:songs){
-            canciones.put(cancion.getId(),cancion);
-        }
-        List<Sala> sala = salaR.findAll();
-        for(Sala sal:sala){
-            salas.put(sal.getNombre(),sal);
-        }
-        List<Usuario> users = usuarioR.findAll();
-        for(Usuario usr:users){
-            usuarios.put(usr.getNickname(),usr);
-        }
-    }*/
+    
 
     public void update(String tipo) throws ExceptionServiciosReserva {
         if(tipo=="cancion"){
@@ -110,6 +96,26 @@ public class Cache {
     }
     public Usuario getUsuarioByNick(String nick){
         return usuarios.get(nick);
+    }
+    //salas
+    public List<Sala> getAllSalas(){
+        List<Sala> lSala = new ArrayList<>();
+        for(Sala room:salas.values()){
+            lSala.add(room);
+        }
+        return lSala;
+    }
+    public Sala getSalaByName(String nombre){
+        return salas.get(nombre);
+    }
+    public Sala getSalaById(int id){
+        List<Sala> lRooms = getAllSalas();
+        for(Sala room:lRooms){
+            if(room.getId()==id){
+                return room;
+            }
+        }
+        return null;
     }
 
 }

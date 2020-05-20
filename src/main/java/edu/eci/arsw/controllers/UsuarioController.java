@@ -74,7 +74,7 @@ public class UsuarioController {
 			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
     @RequestMapping(path ="/{nick}/salas",method = RequestMethod.GET)
     public ResponseEntity<?> getSalasByUser(@PathVariable ("nick") String nick){

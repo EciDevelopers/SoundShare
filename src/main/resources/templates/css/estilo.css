@@ -140,7 +140,7 @@ table th, table td{
 
 #menu-playlist {
     background-color: #212F3C;
-    float: right;
+    float: left;
     overflow: hidden;
     overflow-y: scroll;
     width:45%;
@@ -240,6 +240,12 @@ table th, table td{
     background-color: #17202A;
 }
 
+#youtube-audio3{
+    float:left;
+    border: 0;
+    background-color: #17202A;
+}
+
 #barraSong {
     border: 0;
     border-radius: 3px;
@@ -253,12 +259,10 @@ table th, table td{
 
 #toda{
      color: #bf9a80;
-     justify-content:space-evenly;
-     background-color: #212F3C;
-     position:relative;
-     float:center;
-     width:100%
+     padding: 2%;
      text-shadow: 0 0 5px #000;
+     overflow: hidden;
+     overflow-y: scroll;
 }
 
 #nombre {
@@ -267,26 +271,21 @@ table th, table td{
 }
 
 #menu{
-     color: #bf9a80;
-     overflow-y: scroll;
-     background-color: #212F3C;
-     float:left;
-     width:43%;
-     padding: 3%;
-     text-shadow: 0 0 5px #000;
+      background-color: #212F3C;
+      float: left;
+      overflow: hidden;
+      overflow-y: scroll;
+      width:45%;
+      padding: 2% 2% 2% 2% ;
 
 }
 
 #menu-chat{
-     color: #bf9a80;
-     overflow: hidden;
-     overflow-y: scroll;
-     background-color: #212F3C;
-     float:left;
-
-     padding: 3%;
-     text-shadow: 0 0 5px #000;
-
+    background-color: #212F3C;
+    float: right ;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 2% 2% 2% 2% ;
 }
 
 #botonroom{
@@ -294,8 +293,9 @@ table th, table td{
     color: #EDBB99;
     background-color: #17202A;
     border-radius: 3px;
-    width:80%;
+    width:70%;
     padding: 2%;
+    text-shadow: 0 0 2px #000;
 }
 #room2:hover{
     color: #bf9a80;
