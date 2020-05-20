@@ -31,7 +31,6 @@ public class Cache {
     @Autowired
     private CancionRepository cancionR;
 
-
     /**
     public Cache(){
         List<Cancion> songs = cancionR.findAll();
@@ -68,6 +67,8 @@ public class Cache {
             }
         }
     }
+
+    //Canciones
     public List<Cancion> getAllCanciones(){
         List<Cancion> songs = new ArrayList<>();
         for(Cancion song:canciones.values()){
@@ -75,11 +76,9 @@ public class Cache {
         }
         return songs;
     }
-
     public Cancion getCancionById(String id){
         return canciones.get(id);
     }
-
     public Cancion getCancionByNombre(String nombre){
         List<Cancion> lCanciones =  getAllCanciones();
         for(Cancion song:lCanciones){
@@ -89,7 +88,6 @@ public class Cache {
         }
         return null;
     }
-
     public Set<Usuario> getUsersThatHaveCancion(String id){
         Cancion song = getCancionById(id);
         Set<Usuario> usr = new HashSet<Usuario>();
@@ -97,10 +95,21 @@ public class Cache {
         System.out.println(usr.size());
         return usr;
     }
-
     public Set<Sala> getSalasThatHaveCancion(String id){
         System.out.println(getCancionById(id).getSalas().size());
         return getCancionById(id).getSalas();
+    }
+
+    //Usuarios
+    public List<Usuario> getAllUsuarios(){
+        List<Usuario> lUsers = new ArrayList<>();
+        for(Usuario user:usuarios.values()){
+            lUsers.add(user);
+        }
+        return lUsers;
+    }
+    public Usuario getUsuarioByNick(String nick){
+        return usuarios.get(nick);
     }
 
 }

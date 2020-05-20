@@ -1,5 +1,6 @@
 package edu.eci.arsw.controllers;
 
+import edu.eci.arsw.cache.Cache;
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
@@ -25,15 +26,19 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = "/users")
 public class UsuarioController {
-
+    @Autowired
+    private Cache cache;
     @Autowired
     private ServiciosSoundShareImpl services;
-
 
     @RequestMapping (method = RequestMethod.GET )
     public ResponseEntity<?>  getAllUsers(){
         try{
-            List<Usuario> usuarios = services.getAllUsers();
+            if(cache.getAllUsuarios().size()==0){
+                //System.out.println("Aca entramos");
+                cache.update("usuario");
+            }
+            List<Usuario> usuarios = cache.getAllUsuarios();
             return new ResponseEntity<>(usuarios, HttpStatus.ACCEPTED);
         }catch (ExceptionServiciosReserva e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
@@ -47,6 +52,7 @@ public class UsuarioController {
     	System.out.println("alfa"+" "+newUser.getNombre());
         try {
 			services.saveUsuario(newUser);
+            cache.update("usuario");
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		} catch (ExceptionServiciosReserva e) {
 			
@@ -59,7 +65,11 @@ public class UsuarioController {
     @RequestMapping(path ="/{nick}",method = RequestMethod.GET)
     public ResponseEntity<?> getUsuarioByNick(@PathVariable ("nick") String nick){
         try {
-            return new ResponseEntity<>(services.getUsuarioByNinckname(nick),HttpStatus.ACCEPTED);
+            if(cache.getAllUsuarios().size()==0){
+                System.out.println("Aca entramos");
+                cache.update("usuario");
+            }
+            return new ResponseEntity<>(cache.getUsuarioByNick(nick),HttpStatus.ACCEPTED);
         } catch (ExceptionServiciosReserva e) {
 			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
