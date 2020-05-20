@@ -89,7 +89,7 @@ public class ServiciosSoundShareImpl {
             }
             return usuario;
         }catch(Exception e){
-        	e.printStackTrace();
+        	e.printStackTrace(); 
         }
 		return usuario;
 
@@ -250,7 +250,7 @@ public class ServiciosSoundShareImpl {
        
     }
     public Set<Cancion> getCancionesBySala(int SalaId) throws ExceptionServiciosReserva{
-        System.out.println(SalaId);
+        //System.out.println(SalaId);
         Sala salaNow=salaRepository.findById(SalaId);
         return salaNow.getColacanciones();
        
