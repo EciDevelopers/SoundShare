@@ -100,6 +100,8 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
   
   * Oprime el boton de play para reproducir la canción que se encuentra en la playlist.
   
+    ![](img/cuerpoplaylistuser.png)
+  
 * En la parte inferior se encuentra el reproductor de música.
    
   ![](img/barrainferior.png)
@@ -121,6 +123,9 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
     ![](img/cuerpouseradmin.png)
   
   * Oprime el boton de play para reproducir la canción que se encuentra en la playlist.
+  
+    ![](img/cuerpoplaylistuser.png)
+
 
 #### Sala
 
@@ -129,6 +134,19 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
   * Escribe tus comentarios dentro del chat y dale al boton de enviar para que los demas vean lo que escribiste.
   
     ![](img/cuerpochatsala.png)
+    
+  * Encontraras las canciones que se encuentran en la cola de reproducción.
+  * Oprime el boton del mas para agregar la canción dentro de tu playlist.
+  
+    ![](img/cuerpocancionessala.png)
+  
+* En la parte inferior de la aplciación se encuentra la barra de reproudcción de la sala
+
+  ![](img/barrainferiorsala.png)
+
+  * Para agregar una canción dentro de la cola, primero debemos de escribir la canción en la barra y luego le daremos al boton del mas (si es la primera canción que se va a agregar debe darle a la lupa).
+  
+   
 
 
  
