@@ -7,11 +7,9 @@ import edu.eci.arsw.persistence.CancionRepository;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
-import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.soap.SAAJMetaFactory;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

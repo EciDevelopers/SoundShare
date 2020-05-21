@@ -6,7 +6,6 @@
 package edu.eci.arsw.controllers;
 
 import edu.eci.arsw.entities.Cancion;
-import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
@@ -23,12 +22,8 @@ import org.springframework.stereotype.Controller;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.gson.JsonArray;
-
-import antlr.collections.List;
 
 @Controller
 @Transactional
