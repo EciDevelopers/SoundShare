@@ -106,5 +106,5 @@ public class UsuarioController {
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 	    }
     }
-    
+
 }
