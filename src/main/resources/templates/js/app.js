@@ -70,7 +70,7 @@ var app = (function () {
                   canciones.author +
                   '</td> <td>' +
                   canciones.minuto +
-                  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0)'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
+                  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0,0)'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
               );
         });
     }
@@ -89,6 +89,21 @@ var app = (function () {
 
         });
     }
+	function showUsers(users){
+        users.map(function(users){
+            $("#tablasUsers").append(
+                '<tr class="table-success"> <td>'+
+                users.id +
+                '</td> <td>' +
+                users.nombre +
+                '</td> <td>' +
+                users.nickname +
+                "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0' ><img  src='../img/eliminar.png' style='width:50%' alt='x'/></button></form></td>"
+            );
+
+        });
+    }
+	
 
     function showSongs(canciones){
 		console.log('gamaaaaaaaaaaaaaaaaaaaa');
@@ -110,7 +125,7 @@ var app = (function () {
 		  canciones.author +
 		  '</td> <td>' +
 		  canciones.minuto +
-		  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0)'><img  src='../img/agregar.png' style='width:75%' alt='x'/></button></form></td>"
+		  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='websocket.addSongByUser(\""+ canciones.nombre+"\")'><img  src='../img/agregar.png' style='width:75%' alt='x'/></button></form></td>"
 		);
 			  
         }});

@@ -89,6 +89,12 @@ var websocket = (function () {
 		}
 		
 	};
+	function addSongByUser(res) {
+		console.log('song by user');
+		console.log(res);
+		stompClient.send('/app/sala/user/'+user+'/cancion/'+res,{},'');
+		
+	};
 	function addSongPlay(canciones){
 		console.log('add cancion alfa');
 		for(var i=0;i<canciones.length;i++){
@@ -237,6 +243,7 @@ var websocket = (function () {
             });	
 			stompClient.send('/app/sala/'+sala+'/play/'+JSON.stringify(deltaini)+'/estado/'+false,{},'');
 			connectAndSubscribelista();
+			connectAndSubscribeBack();
         });
 	};
 	function connectAndSubscribelista(){
@@ -339,6 +346,19 @@ var websocket = (function () {
 			stompClient.send('/app/sala/'+sala+'/back/'+JSON.stringify(deltaini)+'/index/'+0+'/seg/'+0,{},'');
         });
 	};
+	function connectAndSubscribeBack(){
+		initStompClient();
+		console.log('conecto back');
+		stompClient.connect({}, function (frame) {
+			console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/sala/user/'+user,function(eventbody){
+				if(eventbody.body !== null && eventbody.body === user){
+					alert("Registro Exitoso");
+				}
+            });	
+			stompClient.send('/app/sala/user/'+user+'/cancion/'+' ',{},'');
+        });
+	};
 	
 	
     return{
@@ -349,7 +369,8 @@ var websocket = (function () {
 		cambiarEstado : cambiarEstado,
 		addSongPlay : addSongPlay,
 		cambiarNext : cambiarNext,
-		cambiarBack : cambiarBack
+		cambiarBack : cambiarBack,
+		addSongByUser : addSongByUser
 		
 
     };

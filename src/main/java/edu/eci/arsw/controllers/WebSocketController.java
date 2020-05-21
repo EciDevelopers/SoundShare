@@ -21,6 +21,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -115,6 +116,34 @@ public class WebSocketController {
         return null;
     }
     
+    @MessageMapping("/sala/user/{nick}/cancion/{song}")
+    @SendTo("/topic/sala/user/{nick}")
+    public String addSongByPlayUser(@DestinationVariable String nick,@DestinationVariable String song){
+        System.out.println("llego playlist user xd");
+        System.out.println(song);
+        try {
+        	if(!song.equals(" ")) {
+	        	Cancion can = services.getCancionByName(song);
+	        	Usuario usr = services.getUsuarioByNinckname(nick);
+	        	if(!((usr.getCanciones()).contains(can))) {
+	        		Set<Cancion> tempo = usr.getCanciones();
+	        		tempo.add(can);
+	        		usr.setCanciones(tempo);
+	        		return nick;
+	        	}
+	        	else {
+	        		
+	    			return null;
+	        		
+	        	}
+        	}	
+        
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return null;
+    }
     @MessageMapping("/sala/{id}/lista/{lista}/index/{pos}/seg/{time}")
     @SendTo("/topic/sala/{id}/lista")
     public ArrayList<Object> setlista(@DestinationVariable int pos,@DestinationVariable String lista,@DestinationVariable int id,@DestinationVariable int time){
