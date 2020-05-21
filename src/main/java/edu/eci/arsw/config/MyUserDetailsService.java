@@ -2,6 +2,9 @@ package edu.eci.arsw.config;
 
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.persistence.UsuarioRepository;
+import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
+import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,8 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+	private ServiciosSoundShareImpl services;
     
 
     @Override
@@ -36,10 +41,21 @@ public class MyUserDetailsService implements UserDetailsService {
         System.out.println("xd"+" "+usuario.getPass());
         String encodedPassword = new BCryptPasswordEncoder().encode(usuario.getPass());
         usuario.setPass(encodedPassword);
-        if (logger == null){
-            logger.error("Error en el login, no existe el usuario "+ nick+ " en el sistema");
-            throw new UsernameNotFoundException("Error en el login, no existe el usuario "+ nick+ " en el sistema");
-        }
+        try {
+			System.out.println(((services.getUsersBans()).contains(usuario.getNickname())));
+		} catch (ExceptionServiciosReserva e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        try {
+			if (logger == null || (services.getUsersBans()).contains(usuario.getNickname())){
+			    logger.error("Error en el login, no existe el usuario "+ nick+ " en el sistema");
+			    throw new UsernameNotFoundException("Error en el login, no existe el usuario "+ nick+ " en el sistema");
+			}
+		} catch (ExceptionServiciosReserva e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         List<GrantedAuthority> authorities = usuario.getRol()
                 .stream()
                 .map(rol -> new SimpleGrantedAuthority(rol.getValor()))

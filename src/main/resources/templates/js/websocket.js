@@ -243,7 +243,7 @@ var websocket = (function () {
             });	
 			stompClient.send('/app/sala/'+sala+'/play/'+JSON.stringify(deltaini)+'/estado/'+false,{},'');
 			connectAndSubscribelista();
-			connectAndSubscribeBack();
+			
         });
 	};
 	function connectAndSubscribelista(){
@@ -344,9 +344,10 @@ var websocket = (function () {
 				}	
             });	
 			stompClient.send('/app/sala/'+sala+'/back/'+JSON.stringify(deltaini)+'/index/'+0+'/seg/'+0,{},'');
+			connectAndSubscribeSongsUpdates();
         });
 	};
-	function connectAndSubscribeBack(){
+	function connectAndSubscribeSongsUpdates(){
 		initStompClient();
 		console.log('conecto back');
 		stompClient.connect({}, function (frame) {

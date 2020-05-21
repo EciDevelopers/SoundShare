@@ -1,11 +1,15 @@
 package edu.eci.arsw.controllers;
 
 import edu.eci.arsw.cache.Cache;
+import edu.eci.arsw.entities.Rol;
 import edu.eci.arsw.entities.Usuario;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,15 +106,33 @@ public class UsuarioController {
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 	    }
     }
-    @RequestMapping(value = "/delete/{name}",method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteBlueprint(@PathVariable String name){
+    @RequestMapping(value = "/ban/{name}/{res}",method = RequestMethod.GET)
+    public ResponseEntity<?> banUser(@PathVariable String name,@PathVariable boolean res){
         try{
-        	services.DeleteUserByName(name);
-		if(cache.getAllUsuarios().size()==0){
-                	cache.update("usuario");
+        	if(res == true) {
+        		System.out.println("hopiiiiiiiiiii");
+            	System.out.println(name);
+            	ArrayList<String> bans = services.getUsersBans();
+            	if(!bans.contains(name)) {
+                	bans.add(name);
             	}
-            	return new ResponseEntity<>(HttpStatus.ACCEPTED);
-        }   
+            	services.setUsersBans(bans);
+            	System.out.println(services.getUsersBans().get(0));
+        		
+        	}
+        	else {
+        		System.out.println("hopiiiiiiiiiii 15");
+            	System.out.println(name);
+            	ArrayList<String> bans = services.getUsersBans();
+    			if(bans.contains(name)) {
+                	bans.remove(name);
+            	}
+            	services.setUsersBans(bans);
+        		
+        	}
+        	
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        	}   
             catch (Exception e) {
     			
     			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);

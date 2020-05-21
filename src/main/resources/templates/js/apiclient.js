@@ -215,14 +215,26 @@ var apiclient = (function () {
           
         }
 		},
-		delUser: function(nombre,callback){
-			//const Url = 'http://localhost:8080/users/delete/';
-			const Url = 'https://soundsharearsw.herokuapp.com/users/delete/';
+		banUser: function(nombre){
+			//const Url = 'http://localhost:8080/users/ban/';
+			const Url = 'https://soundsharearsw.herokuapp.com/users/ban/';
 			jQuery.ajax({
-				url: Url + nombre,
-				type: 'DELETE',
-				success: function (respuesta) {
-					callback(respuesta);
+				url: Url + nombre+'/'+true,
+				type: 'GET',
+				success: function () {
+					alert('User ban');
+				}
+		
+			});
+		}
+		desbanUser: function(nombre){
+			//const Url = 'http://localhost:8080/users/ban/';
+			const Url = 'https://soundsharearsw.herokuapp.com/users/ban/';
+			jQuery.ajax({
+				url: Url + nombre +'/'+ false,
+				type: 'GET',
+				success: function () {
+					alert('Desban User');
 				}
 		
 			});

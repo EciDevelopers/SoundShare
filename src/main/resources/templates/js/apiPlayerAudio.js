@@ -12,7 +12,10 @@ var apiyoutube = (function () {
 
 	async function onYouTubeIframeAPIReady(play,pos,time) {
 		console.log('timer');
-		console.log(time);
+		console.log(play);
+		if(!Array.isArray(play)){
+			play = [play];
+		}
 		for await(let song of play){
 		    apiclient.getIdSong(song,function bucle2(res) {
 				console.log('bucle2');

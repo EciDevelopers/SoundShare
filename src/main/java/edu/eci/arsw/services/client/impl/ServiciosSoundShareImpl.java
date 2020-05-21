@@ -39,6 +39,15 @@ public class ServiciosSoundShareImpl {
     private RolRepository rolRepository;
     @Autowired
     private GrupoRepository grupoRepository;
+    
+    private ArrayList<String> userBans = new ArrayList<String>();
+    
+    public  ArrayList<String> getUsersBans() throws ExceptionServiciosReserva {
+        return userBans;
+    }
+    public  void BanUser(String nick) throws ExceptionServiciosReserva {
+        userBans.add(nick);
+    }
      
     public List<Usuario> getAllUsers() throws ExceptionServiciosReserva {
         return usuarioRepository.findAll();
@@ -263,5 +272,9 @@ public class ServiciosSoundShareImpl {
     public void DeleteUserByName(String name) {
     	usuarioRepository.deleteByNombre(name);
     }
+	public void setUsersBans(ArrayList<String> bans) {
+		 this.userBans=bans;
+		
+	}
     
 }
