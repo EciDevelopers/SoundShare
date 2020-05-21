@@ -29,6 +29,7 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
 
 + [URL HEROKU](https://soundsharearsw.herokuapp.com/)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a691767bea7f4baaa324e20c3c089ced)](https://app.codacy.com/gh/EciDevelopers/SoundShare?utm_source=github.com&utm_medium=referral&utm_content=EciDevelopers/SoundShare&utm_campaign=Badge_Grade_Dashboard)
 + [![CircleCI](https://circleci.com/gh/EciDevelopers/SoundShare.svg?style=svg)](https://circleci.com/gh/EciDevelopers/SoundShare)
 
 + [Enlace a Taiga](https://tree.taiga.io/project/luisalejandrojaramillo-soundshare/backlog)
