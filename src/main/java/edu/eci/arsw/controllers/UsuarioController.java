@@ -84,7 +84,7 @@ public class UsuarioController {
 			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
      @RequestMapping(path ="/{nick}/canciones",method = RequestMethod.GET)
     public ResponseEntity<?> getCancionesByUser(@PathVariable ("nick") String nick){
@@ -94,9 +94,9 @@ public class UsuarioController {
 			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
-     @RequestMapping(path ="/{nick}/roles",method = RequestMethod.GET)
+    @RequestMapping(path ="/{nick}/roles",method = RequestMethod.GET)
     public ResponseEntity<?> getRolesOfUser(@PathVariable ("nick") String nick){
         try {
             return new ResponseEntity<>(services.getRolesOfUser(nick),HttpStatus.ACCEPTED);
@@ -104,8 +104,7 @@ public class UsuarioController {
 			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
-
-
+    
 }

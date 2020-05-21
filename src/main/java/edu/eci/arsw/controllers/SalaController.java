@@ -53,17 +53,15 @@ public class SalaController {
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 		}
-       
     }
     @RequestMapping(path ="/{name}",method = RequestMethod.GET)
     public ResponseEntity<?> getSalaByNombre(@PathVariable ("name") String name){
         try {
             return new ResponseEntity<>(services.getSalaByName(name),HttpStatus.ACCEPTED);
         } catch (ExceptionServiciosReserva e) {
-			
 			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
-	}       
+	    }
     }
     @RequestMapping(path ="/getSalaById/{id}",method = RequestMethod.GET)
     public ResponseEntity<?> getSalaByNombre(@PathVariable ("id") int id){
