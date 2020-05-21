@@ -214,7 +214,7 @@ var apiclient = (function () {
 			});
           
         }
-		}
+		},
 		delUser: function(nombre){
 			jQuery..ajax({
 				//const Url = 'http://localhost:8080/users/delete/';
