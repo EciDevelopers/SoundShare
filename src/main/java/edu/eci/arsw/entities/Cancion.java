@@ -9,9 +9,7 @@ package edu.eci.arsw.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
-import java.sql.Time;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 

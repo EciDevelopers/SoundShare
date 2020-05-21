@@ -17,12 +17,10 @@ import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
