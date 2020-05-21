@@ -106,7 +106,10 @@ public class UsuarioController {
     public ResponseEntity<?> deleteBlueprint(@PathVariable String name){
         try{
         	services.DeleteUserByName(name);
-            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		if(cache.getAllUsuarios().size()==0){
+                	cache.update("usuario");
+            	}
+            	return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }   
             catch (Exception e) {
     			
