@@ -143,9 +143,9 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
   
     ![](img/cuerposalaadmin.png)
   
-  * Oprime el boton de la X para eliminar a un usuario.
+  * Oprime el boton de like o dislike para banear o desbanear una cuenta.
   
-    ![](img/cuerpouseradmin.png)
+    ![](img/cuerpousersadmin.png)
   
   * Oprime el boton de play para reproducir la canción que se encuentra en la playlist.
   
