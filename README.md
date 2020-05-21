@@ -32,6 +32,7 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
 
 + [Enlace a Taiga](https://tree.taiga.io/project/luisalejandrojaramillo-soundshare/backlog)
 
++ [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f26f9ea7f6ff473c9ccc498d55dabbed)](https://www.codacy.com/gh/EciDevelopers/SoundShare?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EciDevelopers/SoundShare&amp;utm_campaign=Badge_Grade)
 
 ## Arquitectura
 
