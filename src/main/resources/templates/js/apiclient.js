@@ -226,7 +226,7 @@ var apiclient = (function () {
 				}
 		
 			});
-		}
+		},
 		desbanUser: function(nombre){
 			//const Url = 'http://localhost:8080/users/ban/';
 			const Url = 'https://soundsharearsw.herokuapp.com/users/ban/';
