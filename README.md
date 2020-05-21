@@ -77,9 +77,9 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
 ### Rendimiento
 * Aseguramos la correcta sincronizacion en el tiempo de las canciones en todas las salas, este puede tener 2 Segundos de diferencia.
     
-    ![](img/sincronizacionFer.png)
+    ![](img/sincronizacionFern.png)
     
-    ![](img/sincronizacionLuis.png)
+    ![](img/sincLuisj.png)
 
 ## Indicaciones Basicas
 
