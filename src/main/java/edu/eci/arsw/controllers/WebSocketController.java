@@ -81,16 +81,33 @@ public class WebSocketController {
 		}
         return null;
     }
-    @MessageMapping("/sala/{id}/play/{user}/estado/{estado}/intento/{cont}")
+    @MessageMapping("/sala/{id}/play/{users}/estado/{estado}")
     @SendTo("/topic/sala/{id}/play")
-    public ArrayList<String> getEstado(@DestinationVariable int id,@DestinationVariable String user,@DestinationVariable boolean estado,@DestinationVariable int cont){
+    public ArrayList<Object> getEstado(@DestinationVariable int id,@DestinationVariable String users,@DestinationVariable boolean estado){
         System.out.println("llego estado xd");
+        System.out.println(users);
+        JSONObject req = new JSONObject(users); 
+        JSONArray array1 = req.getJSONArray("users");
+        System.out.println(array1);
+        ArrayList<Object> lista35 = new ArrayList<Object>();
+        for(int i=0;i < array1.length();i++){
+            lista35.add(array1.get(i));
+        }
         try {
-        	ArrayList<String> tempo = new ArrayList<String>();
-        	tempo.add(user);
-        	tempo.add(String.valueOf(estado));
-        	tempo.add(String.valueOf(cont++));
-			return tempo;
+        	if(lista35.size() == 0) {
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+        		tempo.add("ini");
+        		tempo.add("estado");
+        		return tempo;
+        	}
+        	else {
+        		ArrayList<Object> tempo = new ArrayList<Object>();
+            	tempo.add(lista35);
+            	tempo.add(String.valueOf(estado));
+    			return tempo;
+        		
+        	}
+        
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

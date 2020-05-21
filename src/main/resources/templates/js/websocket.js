@@ -77,7 +77,7 @@ var websocket = (function () {
 				stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+timer,{},'');
 				lista =  playnombres;
 				play = true;
-				connectAndSubscribeEstado();
+				//connectAndSubscribeEstado();
 			}, 1000);
 	
 	};
@@ -118,10 +118,13 @@ var websocket = (function () {
 			apiyoutube.play();
 			play = true;
 		}	
+		var userlist = [];
+		userlist.push(user);
+		delta ={
+			users : userlist,
+		};
 		console.log('exploittttttttttttt');
-		var hope = cont;
-		stompClient.send('/app/sala/'+sala+'/play/'+user+'/estado/'+play+'/intento/'+hope,{},'');
-		cont++;
+		stompClient.send('/app/sala/'+sala+'/play/'+JSON.stringify(delta)+'/estado/'+play,{},'');
 		console.log('destroyer 26');
 
 	
@@ -202,30 +205,37 @@ var websocket = (function () {
 		console.log('conecto play');
 		stompClient.connect({}, function (frame) {
 			console.log('Connected: ' + frame);
+			var deltaini ={
+				users : [],
+			};
             stompClient.subscribe('/topic/sala/'+sala+'/play',function(eventbody){
 				var datos = JSON.parse(eventbody.body);
-				console.log(eventbody.body);
-				console.log('seraaaaaaaaaaaaaa');
-				var num = parseInt(datos[2], 10);
-				console.log(num);
-				if(datos[0] !== user && num !== 0){
-					cont = num;
-					if(datos[1] === 'false'){
-						console.log('pause');
-						apiyoutube.pause();
-						play = false;
+				if(datos[0] !== 'ini'){
+					console.log(eventbody.body);
+					console.log('seraaaaaaaaaaaaaa');
+					if(!datos[0].includes(user)){
+						datos[0].push(user);
+						var delta ={
+							users : datos[0],
+						};
+						if(datos[1] === 'false'){
+							console.log('pause');
+							apiyoutube.pause();
+							play = false;
+						}
+						else{
+							console.log('play');
+							apiyoutube.play();
+							play = true;
+						}
+						stompClient.send('/app/sala/'+sala+'/play/'+JSON.stringify(delta)+'/estado/'+play,{},'');
 					}
-					else{
-						console.log('play');
-						apiyoutube.play();
-						play = true;
-					}
-				}
+				}	
 				
 				
 						
             });	
-			stompClient.send('/app/sala/'+sala+'/play/'+user+'/estado/'+false+'/intento/'+0,{},'');
+			stompClient.send('/app/sala/'+sala+'/play/'+JSON.stringify(deltaini)+'/estado/'+false,{},'');
 			connectAndSubscribelista();
         });
 	};
