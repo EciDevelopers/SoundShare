@@ -26,6 +26,6 @@ public interface UsuarioRepository extends JpaRepository< Usuario, Long >{
     public Usuario findByNombre(String nombre);
     public Usuario findByNickname(String nick);
     public  List<Usuario> findAll();
-
+    public void deleteByNombre(String nombre);
     
 }

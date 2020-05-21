@@ -102,5 +102,18 @@ public class UsuarioController {
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
 	    }
     }
+    @RequestMapping(value = "/delete/{name}",method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteBlueprint(@PathVariable String name){
+        try{
+        	services.DeleteUserByName(name);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        }   
+            catch (Exception e) {
+    			
+    			Logger.getLogger(ExceptionServiciosReserva.class.getName()).log(Level.SEVERE, null, e);
+    			return new ResponseEntity<>(e.getMessage(),HttpStatus.FORBIDDEN);
+    	    }
+        
+    }    
 
 }

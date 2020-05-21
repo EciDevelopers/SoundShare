@@ -260,5 +260,8 @@ public class ServiciosSoundShareImpl {
           salaNow.setColacanciones(lista);
        
     }
+    public void DeleteUserByName(String name) {
+    	usuarioRepository.deleteByNombre(name);
+    }
     
 }
