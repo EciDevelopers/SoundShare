@@ -1,6 +1,5 @@
 package edu.eci.arsw.cache;
 
-
 import edu.eci.arsw.entities.Cancion;
 import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
@@ -32,20 +31,17 @@ public class Cache {
     @Autowired
     private CancionRepository cancionR;
 
-
     public void update(String tipo) throws ExceptionServiciosReserva {
         if(tipo=="cancion"){
             List<Cancion> newSongs = cancionR.findAll();
             for(Cancion cancion:newSongs){
                 canciones.put(cancion.getId(),cancion);
             }
-
         }else if(tipo=="sala"){
             List<Sala> newSala = salaR.findAll();
             for(Sala sal:newSala){
                 salas.put(sal.getNombre(),sal);
             }
-
         }else if(tipo=="usuario"){
             List<Usuario> newUsers = usuarioR.findAll();
             for(Usuario usr:newUsers){
@@ -54,7 +50,6 @@ public class Cache {
         }
     }
 
-    //Canciones
     public List<Cancion> getAllCanciones(){
         List<Cancion> songs = new ArrayList<>();
         for(Cancion song:canciones.values()){
@@ -86,7 +81,6 @@ public class Cache {
         return getCancionById(id).getSalas();
     }
 
-    //Usuarios
     public List<Usuario> getAllUsuarios(){
         List<Usuario> lUsers = new ArrayList<>();
         for(Usuario user:usuarios.values()){
@@ -97,7 +91,7 @@ public class Cache {
     public Usuario getUsuarioByNick(String nick){
         return usuarios.get(nick);
     }
-    //salas
+
     public List<Sala> getAllSalas(){
         List<Sala> lSala = new ArrayList<>();
         for(Sala room:salas.values()){
@@ -117,5 +111,4 @@ public class Cache {
         }
         return null;
     }
-
 }
