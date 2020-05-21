@@ -5,7 +5,6 @@
  */
 package edu.eci.arsw.controllers;
 
-import edu.eci.arsw.entities.Cancion;
 import edu.eci.arsw.entities.Grupo;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
 import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
@@ -23,10 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author jm_14
- */
 @RestController
 @RequestMapping(value = "/grupos")
 public class GruposController {

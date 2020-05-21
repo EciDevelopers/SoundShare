@@ -68,9 +68,7 @@ var app = (function () {
                   canciones.genero +
                   '</td> <td>' +
                   canciones.author +
-                  '</td> <td>' +
-                  canciones.minuto +
-                  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0,0)'><img  src='../img/play2.png' style='width:75%' alt='x'/></button></form></td>"
+                  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0,0)'><img  src='../img/play2.png' style='width:50%' alt='x'/></button></form></td>"
               );
         });
     }
@@ -123,9 +121,13 @@ var app = (function () {
 		  canciones.genero +
 		  '</td> <td>' +
 		  canciones.author +
+<<<<<<< HEAD
 		  '</td> <td>' +
 		  canciones.minuto +
 		  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='websocket.addSongByUser(\""+ canciones.nombre+"\")'><img  src='../img/agregar.png' style='width:75%' alt='x'/></button></form></td>"
+=======
+		  "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0'  onclick='apiyoutube.onYouTubeIframeAPIReady(\""+ canciones.nombre+"\",0)'><img  src='../img/agregar.png' style='width:50%' alt='x'/></button></form></td>"
+>>>>>>> ef0ca37247287e7e25b11ede6460fc185f315211
 		);
 			  
         }});

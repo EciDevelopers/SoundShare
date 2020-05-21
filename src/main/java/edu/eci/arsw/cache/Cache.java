@@ -1,6 +1,5 @@
 package edu.eci.arsw.cache;
 
-
 import edu.eci.arsw.entities.Cancion;
 import edu.eci.arsw.entities.Sala;
 import edu.eci.arsw.entities.Usuario;
@@ -8,11 +7,9 @@ import edu.eci.arsw.persistence.CancionRepository;
 import edu.eci.arsw.persistence.SalaRepository;
 import edu.eci.arsw.persistence.UsuarioRepository;
 import edu.eci.arsw.services.client.impl.ExceptionServiciosReserva;
-import edu.eci.arsw.services.client.impl.ServiciosSoundShareImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.soap.SAAJMetaFactory;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,7 +28,6 @@ public class Cache {
     private SalaRepository salaR;
     @Autowired
     private CancionRepository cancionR;
-    
 
     public void update(String tipo) throws ExceptionServiciosReserva {
         if(tipo=="cancion"){
@@ -39,13 +35,11 @@ public class Cache {
             for(Cancion cancion:newSongs){
                 canciones.put(cancion.getId(),cancion);
             }
-
         }else if(tipo=="sala"){
             List<Sala> newSala = salaR.findAll();
             for(Sala sal:newSala){
                 salas.put(sal.getNombre(),sal);
             }
-
         }else if(tipo=="usuario"){
             List<Usuario> newUsers = usuarioR.findAll();
             for(Usuario usr:newUsers){
@@ -54,7 +48,6 @@ public class Cache {
         }
     }
 
-    //Canciones
     public List<Cancion> getAllCanciones(){
         List<Cancion> songs = new ArrayList<>();
         for(Cancion song:canciones.values()){
@@ -86,7 +79,6 @@ public class Cache {
         return getCancionById(id).getSalas();
     }
 
-    //Usuarios
     public List<Usuario> getAllUsuarios(){
         List<Usuario> lUsers = new ArrayList<>();
         for(Usuario user:usuarios.values()){
@@ -97,7 +89,7 @@ public class Cache {
     public Usuario getUsuarioByNick(String nick){
         return usuarios.get(nick);
     }
-    //salas
+
     public List<Sala> getAllSalas(){
         List<Sala> lSala = new ArrayList<>();
         for(Sala room:salas.values()){
@@ -117,5 +109,4 @@ public class Cache {
         }
         return null;
     }
-
 }

@@ -56,6 +56,31 @@ Con SoundShare, puedes ser tu propio DJ, al crear o entrar a una de nuestras sal
 
 ![](img/DiagramaComponentes.png)
 
+## Atrubitos No funcionales
+
+### Usabilidad
+* Diseño estético y minimalista
+
+    La aplicación web esta diseñada para que el usuario se guíe fácilmente sobre su entorno y pueda disfrutar de su contenido de la formas más agradable posible.El diseño de esta plataforma fue creada para que cualquier persona se sienta cómoda con su visualización. Para ello se crea una paleta de colores que representan el estilo de la aplicación.
+    ```
+    #EDBB99 curaba
+    #C9804F curaba oscuro
+    #212F3C azul claro
+    #17202A azul oscuro
+    ```
+* Flexibilidad y eficiencia de uso
+
+    Nuestro chat al diferenciar las salas y reconocer los usuarios conectados, logra ser más eficiente en la interacción de nuestra aplicación de tal modo que el usuario no se preocupe de registrase en el chat correspondiente a la sala, mejorando así su experiencia. 
+    
+    ![](img/cuerpochatsala.png)
+
+### Rendimiento
+* Aseguramos la correcta sincronizacion en el tiempo de las canciones en todas las salas, este puede tener 2 Segundos de diferencia.
+    
+    ![](img/sincronizacionFern.png)
+    
+    ![](img/sincLuisj.png)
+
 ## Indicaciones Basicas
 
 ### Usuarios de ingreso
