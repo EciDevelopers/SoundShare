@@ -82,7 +82,7 @@ var app = (function () {
                 users.nombre +
                 '</td> <td>' +
                 users.nickname +
-                "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0' ><img  src='../img/eliminar.png' style='width:50%' alt='x'/></button></form></td>"
+                "</td> <td> <form><button type='button' class='btn btn-primary' style='width:50%;background-color: #17202A; border: 0' onclick='apiclient.delUser(\""+ users.nombre+"\")'><img  src='../img/eliminar.png' style='width:50%' alt='x'/></button></form></td>"
             );
 
         });

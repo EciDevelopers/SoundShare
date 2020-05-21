@@ -215,5 +215,14 @@ var apiclient = (function () {
           
         }
 		}
+		delUser: function(nombre){
+			jQuery..ajax({
+				//const Url = 'http://localhost:8080/users/delete/';
+				const Url = 'https://soundsharearsw.herokuapp.com/users/delete/';
+				url: Url + nombre,
+				type: 'DELETE'
+		
+			});
+		}
 	};	
 })();
