@@ -77,7 +77,7 @@ var websocket = (function () {
 				stompClient.send('/app/sala/'+sala+'/cancionActual/'+JSON.stringify(delta)+'/index/'+posi+'/seg/'+timer,{},'');
 				lista =  playnombres;
 				play = true;
-				//connectAndSubscribeEstado();
+				connectAndSubscribeEstado();
 			}, 1000);
 	
 	};
